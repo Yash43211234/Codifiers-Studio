@@ -85,7 +85,7 @@ export default function Home() {
       />
       {showVideo && (
         <video
-          src="https://www.w3schools.com/html/mov_bbb.mp4"
+          src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/Sequence+01.mp4"
           autoPlay
           muted
           loop

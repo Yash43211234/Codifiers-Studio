@@ -7,6 +7,8 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Creativity from './pages/Creativity';
 import Institute from './pages/Institute';
+import Footer from './components/Footer';
+import Register from './pages/Register';
 
 function App() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -20,9 +22,12 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/creativity" element={<Creativity />} />
           <Route path="/institute" element={<Institute />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
       <AuthModal isOpen={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
+
+        <Footer/>
     </Router>
   );
 }

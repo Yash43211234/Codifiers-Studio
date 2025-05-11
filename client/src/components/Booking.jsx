@@ -82,7 +82,12 @@ function Booking() {
                     </div>
 
                     <div style={borderedBoxStyle}>
-                        <button style={{ marginTop: '5px', padding: '5px 10px' }}>Register your slot</button>
+                         <button
+                            style={{ marginTop: '5px', padding: '5px 10px' }}
+                            onClick={handleRegisterClick}
+                        >
+                            Register your slot
+                        </button>
                     </div>
                 </div>
 
@@ -139,7 +144,12 @@ function Booking() {
                     </div>
 
                     <div style={borderedBoxStyle}>
-                        <button style={{ marginTop: '5px', padding: '5px 10px' }}>Register your slot</button>
+                         <button
+                            style={{ marginTop: '5px', padding: '5px 10px' }}
+                            onClick={handleRegisterClick}
+                        >
+                            Register your slot
+                        </button>
                     </div>
                 </div>
 

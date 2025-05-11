@@ -9,7 +9,7 @@ const [showVideo, setShowVideo] = useState(false);
   const handleImageLoad = () => {
     setTimeout(() => {
       setShowVideo(true);
-    }, 20000);
+    }, 2000);
   };
 
 
@@ -75,7 +75,7 @@ const styles = {
 
         {showVideo && (
           <video
-            src="https://file-examples.com/storage/fe8ff1e89819b7c2f6b3c2e/2017/04/file_example_MP4_480_1_5MG.mp4" // Replace with your video URL
+            src="https://www.w3schools.com/html/mov_bbb.mp4" // Replace with your video URL
             autoPlay
             muted
             loop

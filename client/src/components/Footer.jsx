@@ -9,7 +9,7 @@ function Footer() {
 
             {/* Column 1 */}
             <div style={{ flex: 1, padding: '0 1rem', fontSize: '40px' }}>
-              <h2>Codifiers Studio</h2>
+              <h2>The Chordifiers Studio</h2>
 
             </div>
 
@@ -26,10 +26,10 @@ function Footer() {
             {/* Column 3 */}
             <div style={{ flex: 1, padding: '0 1rem' }}>
               <h3>Address</h3>
-              <p>243 Darjeeling</p>
-              <p>West Bengal</p>
-              <p>(+91) 5689-564-563</p>
-              <h3>© Codifiers Studio</h3>
+              <p> Saktigarh, Siliguri</p>
+              <p> West Bengal- 734005</p>
+              <p>(+91)7811092672</p>
+              <h3>©The Chordifiers Studio</h3>
               <p>2025 All Rights Reserved</p>
             </div>
 

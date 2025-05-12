@@ -48,7 +48,7 @@ export default function Navbar() {
   return (
     <nav style={styles.nav}>
       {/* Brand Name on the left now */}
-      <Link to="/" style={styles.lastItem}>The Chordifiers Studio.</Link>
+      <Link to="/" style={styles.lastItem}>The Chordifiers Studio</Link>
 
       {/* Links and Address moved to the right */}
       <div style={styles.navSection}>

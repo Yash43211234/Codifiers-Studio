@@ -8,10 +8,10 @@ app.use(cors());
 
 // MySQL connection setup
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '', // update if your MySQL has a password
-  database: 'mernapp'
+  host: 'sql213.infinityfree.com',
+  user: 'if0_38961537',
+  password: 'YOUR_VPANEL_PASSWORD', // Replace with your actual vPanel password
+  database: 'if0_38961537_Registration'
 });
 
 db.connect((err) => {
@@ -19,7 +19,7 @@ db.connect((err) => {
     console.error('MySQL connection failed:', err);
     return;
   }
-  console.log('Connected to MySQL database.');
+  console.log('Connected to InfinityFree MySQL database.');
 });
 
 // Route: POST /api/register
@@ -61,5 +61,5 @@ app.post('/api/formdata', (req, res) => {
 // Start server
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });

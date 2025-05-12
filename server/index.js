@@ -10,7 +10,7 @@ app.use(cors());
 const db = mysql.createConnection({
   host: 'sql213.infinityfree.com',
   user: 'if0_38961537',
-  password: 'YOUR_VPANEL_PASSWORD', // Replace with your actual vPanel password
+  password: 'Poiu0987@', // Replace with your actual vPanel password
   database: 'if0_38961537_Registration'
 });
 

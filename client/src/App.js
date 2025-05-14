@@ -1,5 +1,6 @@
 // src/App.js
 import React, { useState } from 'react';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import AuthModal from './components/AuthModal';
@@ -9,6 +10,8 @@ import Creativity from './pages/Creativity';
 import Institute from './pages/Institute';
 import Footer from './components/Footer';
 import Register from './pages/Register';
+
+
 
 function App() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -22,6 +25,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/creativity" element={<Creativity />} />
           <Route path="/institute" element={<Institute />} />
+          {/* <Route path="/register" element={<Register />} /> */}
           <Route path="/register" element={<Register />} />
         </Routes>
       </div>

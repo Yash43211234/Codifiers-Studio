@@ -1,62 +1,103 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Navbar() {
-  const styles = {
-    nav: {
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      zIndex: 1000, // Ensures it's above all content
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      backgroundColor: '#000',
-      color: '#fff',
-      width: '100%',
-      height: '74px',
-      boxSizing: 'border-box',
-    },
-    navSection: {
-      display: 'flex',
-      height: '100%',
-    },
-    navItem: {
-      padding: '0 24px',
-      height: '100%',
-      display: 'flex',
-      alignItems: 'center',
-      borderRight: '1px solid #444',
-      textDecoration: 'none',
-      color: '#fff',
-      fontSize: '1.2rem',
-      whiteSpace: 'nowrap',
-    },
-    lastItem: {
-      padding: '0 24px',
-      height: '100%',
-      display: 'flex',
-      alignItems: 'center',
-      color: '#fff',
-      fontSize: '2rem',
-      whiteSpace: 'nowrap',
-      textDecoration: 'none',
-    },
-  };
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
-    <nav style={styles.nav}>
-      {/* Brand Name on the left now */}
-      <Link to="/" style={styles.lastItem}>The Chordifiers Studio</Link>
+    <>
+      <nav className="navbar">
+        <Link to="/" className="brand">The Chordifiers Studio</Link>
 
-      {/* Links and Address moved to the right */}
-      <div style={styles.navSection}>
-        <Link to="/institute" style={styles.navItem}>Institute</Link>
-        <Link to="/creativity" style={styles.navItem}>Record Label</Link>
-        <Link to="/about" style={styles.navItem}>About</Link>
-      
-      </div>
-    </nav>
+        <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
+          <Link to="/institute" className="nav-item" onClick={() => setMenuOpen(false)}>Institute</Link>
+          <Link to="/creativity" className="nav-item" onClick={() => setMenuOpen(false)}>Record Label</Link>
+          <Link to="/about" className="nav-item" onClick={() => setMenuOpen(false)}>About</Link>
+        </div>
+
+        <div className="menu-icon" onClick={toggleMenu}>
+          ☰
+        </div>
+      </nav>
+
+      {/* CSS in same file */}
+      <style>{`
+        .navbar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 1000;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #000;
+          color: #fff;
+          width: 100%;
+          height: 74px;
+          padding: 0 20px;
+          box-sizing: border-box;
+        }
+
+        .brand {
+          font-size: 1.5rem;
+          color: #fff;
+          text-decoration: none;
+          white-space: nowrap;
+        }
+
+        .nav-links {
+          display: flex;
+          gap: 1rem;
+        }
+
+        .nav-item {
+          padding: 0 12px;
+          color: #fff;
+          text-decoration: none;
+          font-size: 1.2rem;
+          height: 100%;
+          display: flex;
+          align-items: center;
+        }
+
+        .menu-icon {
+          display: none;
+          font-size: 2rem;
+          color: #fff;
+          cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+
+
+
+          .nav-links {
+            position: absolute;
+            top: 74px;
+            left: 0;
+            right: 0;
+            background-color: #000;
+            flex-direction: column;
+            display: none;
+          }
+
+          .nav-links.open {
+            display: flex;
+          }
+
+          .menu-icon {
+            display: block;
+          }
+
+          .nav-item {
+            padding: 1rem;
+            border-top: 1px solid #333;
+          }
+        }
+      `}</style>
+    </>
   );
 }

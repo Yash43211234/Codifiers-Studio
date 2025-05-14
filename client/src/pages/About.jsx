@@ -3,7 +3,7 @@ import React from 'react';
 export default function About() {
   const styles = {
     page: {
-      marginTop:'75px',
+      marginTop: '75px',
       minHeight: '100vh',
       display: 'flex',
       flexDirection: 'column',
@@ -16,7 +16,7 @@ export default function About() {
       fontSize: '2.5rem',
       fontWeight: 'bold',
       color: '#ca8a04',
-      marginB: '1rem',
+      marginBottom: '1rem',
       textAlign: 'center',
     },
     subheader: {
@@ -29,7 +29,7 @@ export default function About() {
     },
     section: {
       display: 'flex',
-      flexDirection: window.innerWidth >= 768 ? 'row' : 'column',
+      flexDirection: 'column', // mobile-first
       alignItems: 'center',
       justifyContent: 'center',
       gap: '2rem',
@@ -44,6 +44,7 @@ export default function About() {
     },
     content: {
       maxWidth: '500px',
+      textAlign: 'left',
     },
     text: {
       fontSize: '1.1rem',
@@ -53,24 +54,35 @@ export default function About() {
   };
 
   return (
-    <div style={styles.page}>
-      <h1 style={styles.header}>About The Chordifiers Studio.</h1>
-      <p style={styles.subheader}>
-        We believe everyone has a spark of creativity within. Our mission is to provide the tools and inspiration to help you express your imagination.
-      </p>
+    <>
+      <div style={styles.page}>
+        <h1 style={styles.header}>About The Chordifiers Studio.</h1>
+        <p style={styles.subheader}>
+          We believe everyone has a spark of creativity within. Our mission is to provide the tools and inspiration to help you express your imagination.
+        </p>
 
-      <section style={styles.section}>
-        <img
-          src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=900&q=80"
-          alt="Creative Workspace"
-          style={styles.image}
-        />
-        <div style={styles.content}>
-          <p style={styles.text}>
-            The Chordifiers Studio is built for dreamers, makers, writers, and designers. Whether you're sketching ideas, writing stories, or exploring digital art, our platform is a safe space to explore and grow. We're a community-driven initiative encouraging collaboration and expression.
-          </p>
-        </div>
-      </section>
-    </div>
+        <section className="about-section" style={styles.section}>
+          <img
+            src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=900&q=80"
+            alt="Creative Workspace"
+            style={styles.image}
+          />
+          <div style={styles.content}>
+            <p style={styles.text}>
+              The Chordifiers Studio is built for dreamers, makers, writers, and designers. Whether you're sketching ideas, writing stories, or exploring digital art, our platform is a safe space to explore and grow. We're a community-driven initiative encouraging collaboration and expression.
+            </p>
+          </div>
+        </section>
+      </div>
+
+      {/* Responsive layout for wider screens */}
+      <style>{`
+        @media (min-width: 768px) {
+          .about-section {
+            flex-direction: row !important;
+          }
+        }
+      `}</style>
+    </>
   );
 }

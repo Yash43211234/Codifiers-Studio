@@ -5,11 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
-    "start":"node index.js"
-=======
-      "start": "node index.js"
->>>>>>> 66575aac54d0cddce2f33e2a0f8a5e1f5415efa9
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +16,8 @@
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "mongoose": "^8.14.1",
-    "mysql2": "^3.14.1"
-  }
+    "mysql2": "^3.14.1",
+    "node-fetch": "^3.3.2"
+  },
+  "type": "module" 
 }

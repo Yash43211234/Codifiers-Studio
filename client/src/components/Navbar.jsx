@@ -71,9 +71,6 @@ export default function Navbar() {
         }
 
         @media (max-width: 768px) {
-
-
-
           .nav-links {
             position: absolute;
             top: 74px;

@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState } from 'react';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -10,8 +9,7 @@ import Creativity from './pages/Creativity';
 import Institute from './pages/Institute';
 import Footer from './components/Footer';
 import Register from './pages/Register';
-
-
+import Pop from './components/Pop';
 
 function App() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -19,7 +17,8 @@ function App() {
   return (
     <Router>
       <Navbar onAuthClick={() => setIsAuthModalOpen(true)} />
-      <div className="p-6">
+      <div className="app-wrapper">
+        <Pop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -27,11 +26,12 @@ function App() {
           <Route path="/institute" element={<Institute />} />
           {/* <Route path="/register" element={<Register />} /> */}
           <Route path="/register" element={<Register />} />
+
         </Routes>
       </div>
       <AuthModal isOpen={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
 
-        <Footer/>
+      <Footer />
     </Router>
   );
 }

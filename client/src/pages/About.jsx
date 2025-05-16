@@ -56,9 +56,9 @@ export default function About() {
   return (
     <>
       <div style={styles.page}>
-        <h1 style={styles.header}>About The Chordifiers Studio.</h1>
+        <h1 style={styles.header}>Welcome to The Chordifiers Studio</h1>
         <p style={styles.subheader}>
-          We believe everyone has a spark of creativity within. Our mission is to provide the tools and inspiration to help you express your imagination.
+          Where creativity meets technology. We empower artists and producers to shape the future of sound through innovation and collaboration.
         </p>
 
         <section className="about-section" style={styles.section}>
@@ -69,7 +69,10 @@ export default function About() {
           />
           <div style={styles.content}>
             <p style={styles.text}>
-              The Chordifiers Studio is built for dreamers, makers, writers, and designers. Whether you're sketching ideas, writing stories, or exploring digital art, our platform is a safe space to explore and grow. We're a community-driven initiative encouraging collaboration and expression.
+              At The Chordifiers Studio, we provide a nurturing space for aspiring musicians, sound engineers, and digital creators. Our environment is designed to spark imagination, support creative growth, and foster collaboration. With industry-standard tools, mentoring, and community support, we help turn raw ideas into polished productions.
+            </p>
+            <p style={{ ...styles.text, marginTop: '1rem' }}>
+              Whether you're a beginner exploring your passion or a professional refining your craft, our studio is your launchpad into the world of modern music production.
             </p>
           </div>
         </section>

@@ -10,17 +10,22 @@ export default function Creativity() {
       fontFamily: 'sans-serif',
       background: 'linear-gradient(to bottom right, #e0e7ff, #bfdbfe)',
       color: '#333',
+      marginTop:'-20px'
     },
     header: {
-      marginBottom:'20px',
+      marginBottom: '20px',
       backgroundColor: 'white',
       boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
       padding: '1rem 2rem',
       display: 'flex',
-      justifyContent: 'space-between',
+      justifyContent: 'center',
       alignItems: 'center',
     },
-  
+    logo: {
+      fontSize: '1.5rem',
+      fontWeight: 'bold',
+      color: '#4f46e5',
+    },
     hero: {
       flex: 1,
       display: 'flex',
@@ -75,33 +80,22 @@ export default function Creativity() {
       borderRadius: '16px',
       boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)',
     },
-    footer: {
-      backgroundColor: 'white',
-      textAlign: 'center',
-      padding: '1rem',
-      fontSize: '0.875rem',
-      color: '#777',
-      boxShadow: 'inset 0 1px 3px rgba(0, 0, 0, 0.05)',
-    },
-    icon: {
-      marginRight: '0.5rem',
-    },
   };
 
   return (
     <div style={styles.page}>
       <header style={styles.header}>
-        <h1 style={styles.logo}></h1>
+        <h1 style={styles.logo}>The Chordifiers Studio • Creativity Hub</h1>
       </header>
 
-      {/* Hero Section */}
+      {/* Section 1: Ignite Creativity */}
       <main style={styles.hero}>
         <div style={styles.heroText}>
           <h2 style={styles.h2}>
             Ignite Your <span style={styles.highlight}>Creativity</span>
           </h2>
           <p style={styles.paragraph}>
-            Discover tools, ideas, and inspiration to take your imagination to the next level. Let your creativity flow.
+            Dive into a world where ideas come alive. Whether you're composing melodies, designing visuals, or experimenting with sound, this is your spark zone.
           </p>
           <button style={styles.button}>
             <Sparkles style={styles.icon} />
@@ -117,14 +111,14 @@ export default function Creativity() {
         </div>
       </main>
 
-      {/* Section 2 */}
+      {/* Section 2: Visual Art */}
       <section style={{ ...styles.section, ...styles.sectionAlt }}>
         <div style={styles.heroText}>
           <h2 style={styles.h2}>
             Express with <span style={styles.highlight}>Colors</span>
           </h2>
           <p style={styles.paragraph}>
-            Dive into a palette of possibilities and bring your thoughts to life through digital art, sketches, or design.
+            Bring your imagination to life through digital painting, illustrations, and design. From concept to canvas, explore new styles and visual storytelling.
           </p>
           <button style={styles.button}>
             <Sparkles style={styles.icon} />
@@ -133,21 +127,21 @@ export default function Creativity() {
         </div>
         <div>
           <img
-             src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80"
+            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80"
             alt="Artistic Expression"
             style={styles.image}
           />
         </div>
       </section>
 
-      {/* Section 3 */}
+      {/* Section 3: Sharing Ideas */}
       <section style={styles.section}>
         <div style={styles.heroText}>
           <h2 style={styles.h2}>
             Share Your <span style={styles.highlight}>Vision</span>
           </h2>
           <p style={styles.paragraph}>
-            Whether it’s a poem, a song, or an idea, the world is waiting to hear your unique voice. Share and inspire.
+            Collaborate, post, and publish your ideas with a supportive community. Let your voice reach the world through creative projects and open collaboration.
           </p>
           <button style={styles.button}>
             <Sparkles style={styles.icon} />
@@ -163,31 +157,28 @@ export default function Creativity() {
         </div>
       </section>
 
-      {/* section 4 */}
-      {/* Section 3 */}
-<section style={{ ...styles.section, ...styles.sectionAlt }}>
-  <div style={styles.heroText}>
-    <h2 style={styles.h2}>
-      Unleash Your <span style={styles.highlight}>Story</span>
-    </h2>
-    <p style={styles.paragraph}>
-      Words have power. Start your creative writing journey and build magical worlds through stories, poems, or journals.
-    </p>
-    <button style={styles.button}>
-      <Sparkles style={styles.icon} />
-      Start Writing
-    </button>
-  </div>
-  <div>
-    <img
-      src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80"
-      alt="Creative Writing"
-      style={styles.image}
-    />
-  </div>
-</section>
-
-      
+      {/* Section 4: Writing Stories */}
+      <section style={{ ...styles.section, ...styles.sectionAlt }}>
+        <div style={styles.heroText}>
+          <h2 style={styles.h2}>
+            Unleash Your <span style={styles.highlight}>Story</span>
+          </h2>
+          <p style={styles.paragraph}>
+            Craft tales that move hearts. From short stories to songwriting, explore your emotions and experiences through powerful words and narratives.
+          </p>
+          <button style={styles.button}>
+            <Sparkles style={styles.icon} />
+            Start Writing
+          </button>
+        </div>
+        <div>
+          <img
+            src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80"
+            alt="Creative Writing"
+            style={styles.image}
+          />
+        </div>
+      </section>
     </div>
   );
 }

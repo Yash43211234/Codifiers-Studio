@@ -1,58 +1,51 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Booking from '../components/Booking';
 
 export default function Institute() {
-  const [showVideo, setShowVideo] = useState(false);
-
-  const handleImageLoad = () => {
-    setTimeout(() => {
-      setShowVideo(true);
-    }, 2000);
-  };
-
   const styles = {
     container: {
+      marginTop: '15px',
       width: '100%',
       textAlign: 'left',
-      paddingTop: '70px',
+      paddingTop: '00px',
       position: 'relative',
     },
     image: {
       width: '100%',
-      height: '50vh', // updated to be responsive
-      display: showVideo ? 'none' : 'block',
+      height: 'auto',
+      maxHeight: '700px',
       objectFit: 'cover',
     },
-    video: {
-      width: '100%',
-      height: '50vh', // same as image
-      display: showVideo ? 'block' : 'none',
-      objectFit: 'cover',
+    overlay: {
+      position: 'absolute',
+      top: '50%',
+      left: '40%',
+      transform: 'translate(-50%, -50%)',
+      color: '#fff',
+      textAlign: 'left',
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      padding: '20px',
+      borderRadius: '12px',
+      maxWidth: '100%',
+      zIndex: 2,
     },
     heading: {
-      fontSize: '2.5rem', // base font size for mobile
-      position: 'absolute',
-      top: '35%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      zIndex: 2,
-      color: 'white',
-      fontWeight: 'bold',
-      textShadow: '2px 2px 10px black',
-      textAlign: 'center',
+      fontSize: '3rem',
+      marginBottom: '10px',
+    },
+    subText: {
+      fontSize: '1.2rem',
+      marginBottom: '20px',
     },
     button: {
-      position: 'absolute',
-      top: '80%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      zIndex: 2,
-      color: 'black',
-      padding: '10px 20px',
+      padding: '10px 25px',
+      fontSize: '1rem',
+      fontWeight: 'bold',
       borderRadius: '8px',
       backgroundColor: '#d0fbf9',
+      color: '#000',
       cursor: 'pointer',
-      fontWeight: 'bold',
+      border: 'none',
     },
   };
 
@@ -60,37 +53,69 @@ export default function Institute() {
     <>
       <div style={styles.container}>
         <img
-          src="https://wallpaperaccess.com/full/13361943.png"
+          // src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/final+(1)+(1).jpg"
+          src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/blogs/2147484495/images/WxbIQnoPSkq6soh2v1Vw_The_Complete_Guide_to_Learning_Music_Production_Everything_You_Need_to_Know_-_Learn_Music_Production_Blog.png"
+
           alt="Institute Banner"
           style={styles.image}
-          onLoad={handleImageLoad}
         />
 
-        {showVideo && (
-          <video
-            src="https://www.w3schools.com/html/mov_bbb.mp4"
-            autoPlay
-            muted
-            loop
-            style={styles.video}
-          />
-        )}
+        <div style={styles.overlay}>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexWrap: 'nowrap',  // prevent wrapping for side by side
+            gap: '20px'
+          }}>
+            <div style={{ flex: '1', textAlign: 'left' }}>
+              <h1 style={styles.heading}>Elevate Your Sound in 2025–2026</h1>
+              <p style={styles.subText}>
+                Join our advanced Music Production program – hands-on training with industry tools, live projects, and mentorship.
+              </p>
+            </div>
+            <div style={{ flex: '0 0 auto', textAlign: 'right' }}>
+              <button style={styles.button}>Enroll Now</button>
+            </div>
+          </div>
+        </div>
 
-        <h1 style={styles.heading}>Classes</h1>
-        <button style={styles.button}>Enroll Now</button>
+
       </div>
 
       <Booking />
 
       {/* Media Queries */}
       <style>{`
-        @media (min-width: 768px) {
-          img, video {
-            height: 600px !important;
+        @media (max-width: 767px) {
+          img {
+            height: 25rem !important;
           }
           h1 {
-            font-size: 5rem !important;
+            font-size: 2.4rem !important;
           }
+          p {
+            font-size: 1rem !important;
+          }
+           overlay: {
+              width: '200px',
+          }
+        }
+
+        @media (min-width: 768px) {
+          img {
+            height: 700px !important;
+          }
+          h1 {
+            font-size: 4rem !important;
+          }
+          p {
+            font-size: 1.2rem !important;
+          }
+            button {
+    font-size: 0.9rem !important;
+  }
         }
       `}</style>
     </>

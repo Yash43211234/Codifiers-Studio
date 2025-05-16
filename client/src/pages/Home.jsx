@@ -196,76 +196,91 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Second row */}
-      <div style={styles.row}>
-        <div style={styles.colHalf}>
-          <img
-            src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/IMG-20250410-WA0007.jpg"
-            style={styles.imageTall}
-            alt="img1"
-          />
-        </div>
-        <div style={styles.textCol}>
-          <h2>Institute</h2>
-          <p style={{ fontSize: '1.1rem', lineHeight: '1.6' }}>
-            Our Classes – Get your groove on with Hip Hop, find your rhythm in Jazz, and explore connection in Contact Improvisation. Movement Studio offers a diverse range of classes for every dancer.
-          </p>
-          <button
-            style={{ marginTop: '5px', padding: '5px 10px' }}
-            onClick={handleRegisterClick}
-          >
-            Register your slot
-          </button>
-        </div>
-      </div>
+     {/* Second row */}
+<div style={styles.row}>
+  <div style={styles.colHalf}>
+    <img
+      src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/IMG-20250410-WA0007.jpg"
+      style={styles.imageTall}
+      alt="Music production classroom"
+    />
+  </div>
+  <div style={styles.textCol}>
+    <h2>About the Institute</h2>
+    <p style={{ fontSize: '1.1rem', lineHeight: '1.6' }}>
+      Founded by acclaimed producer <strong>Alex Rivera</strong>, our Music Production Institute bridges the gap between creativity and cutting-edge audio technology. Whether you're diving into beat-making, sound design, or mixing/mastering, our curriculum is tailored to industry demands.
+      <br /><br />
+      Learn from professionals using FL Studio, Ableton Live, Logic Pro, and more — in real studios, with real projects.
+    </p>
+    <button
+      style={{ marginTop: '5px', padding: '5px 10px' }}
+      onClick={handleRegisterClick}
+    >
+      Register Your Slot
+    </button>
+  </div>
+</div>
+
 
       {/* Third row */}
       <div style={styles.rowReverse}>
         <div style={styles.textColWide}>
-          <h1>Our Founders</h1>
+          <h1>Meet the Founders</h1>
+          <p style={{ fontSize: '1rem', lineHeight: '1.6' }}>
+            Industry professionals with decades of combined experience in sound engineering, composition, and live performance. Our mentors have worked with top-tier artists and bring real-world insights into every session.
+          </p>
         </div>
         <div style={styles.colHalf}>
           <img
             src="https://images.pexels.com/photos/8512206/pexels-photo-8512206.jpeg"
             style={styles.imageMedium}
-            alt="img1"
+            alt="Founders"
           />
         </div>
       </div>
 
-      {/* Fourth row */}
+
+      {/* Fourth row - Testimonials / Leadership Quote */}
       <div style={styles.row}>
         <div style={styles.quoteTextCol}>
-          <p style={{ fontSize: isMobile ? '25px' : '35px' }}>"Find your flow, and dance your truth."</p>
+          <p style={{ fontSize: isMobile ? '24px' : '35px', fontStyle: 'italic' }}>
+            "Great music isn't just heard — it's felt. Learn to produce what moves the world."
+          </p>
           <p>— Sophia Bennett</p>
         </div>
+
         <div style={styles.colHalf}>
-          <div style={{ background: '#d900ff', padding: '10px 0 30px 20px', lineHeight: '.5', color: 'white' }}>
-            <h1>Sophia Bennett</h1>
-            <p>Founder & Instructor</p>
+          {/* First Profile Card */}
+          <div style={{ background: '#d900ff', padding: '15px 20px', color: 'white' }}>
+            <h1 style={{ margin: '0' }}>Sophia Bennett</h1>
+            <p style={{ margin: '0' }}>Founder & Lead Instructor</p>
           </div>
-          <div style={{ margin: '-26px 0' }}>
+          <div>
             <img
               src="https://focusphotography.com/wp-content/uploads/2024/11/H2732-Spencer-Cook-125-A-550x367.webp"
               style={styles.imageMedium}
-              alt="img1"
+              alt="Sophia Bennett"
             />
           </div>
-          <div style={{ background: '#d0fbf9', padding: '25px 0 30px 20px', lineHeight: '.5', color: 'black' }}>
-            <h1>Alisa Morris</h1>
-            Founder & Program Manager
+
+          {/* Second Profile Card */}
+          <div style={{ background: '#d0fbf9', padding: '25px 20px', color: 'black' }}>
+            <h1 style={{ margin: '0' }}>Alisa Morris</h1>
+            <p style={{ margin: '0' }}>Program Director & Industry Mentor</p>
           </div>
         </div>
       </div>
 
+
       <div style={styles.footerBanner}>
         <h2 style={{ fontSize: isMobile ? '1.5rem' : '40px' }}>
-          Whether you're a beginner looking to explore expressive movement or an advanced dancer ready to refine your technique, we have classes for you!
+          Whether you're a curious beginner or a seasoned artist, our Music Production courses will elevate your skills with real studio experience and industry tools.
         </h2>
         <button style={styles.footerButton}>
-          Reserve your spot
+          Reserve Your Spot
         </button>
       </div>
+
     </div>
   );
 }

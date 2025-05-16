@@ -1,222 +1,207 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 function Booking() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const handleRegisterClick = () => {
-        navigate('/register'); // replace with your actual route
-    };
-    const containerStyle = {
-        display: 'flex',
-        flexWrap: 'wrap', // Optional for responsiveness
-    };
+  const handleRegisterClick = () => {
+    navigate('/register');
+  };
 
-    const columnStyle = {
-        flex: 1,
-        backgroundColor: 'black',
-        height: '600px',
-        color: 'white',
-        border: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'column',
-        boxSizing: 'border-box',
-    };
-    const imageContainerStyle = {
-        display: 'flex',
-        flex: 2,
-    };
-
-    const imageStyle = {
-        maxWidth: '100%',
-        height: '500px',
-        objectFit: 'cover',
-    };
-
-    const imageStyleone = {
-        maxWidth: '100%',
-        height: '600px',
-        objectFit: 'cover',
-
-    };
-
-    const textBlockStyle = {
-        width: '100%',
-        textAlign: 'left',
-        marginTop: '15px',
-
-    };
-
-    const borderedBoxStyle = {
-        ...textBlockStyle,
-        border: '1px solid white',
-        padding: '10px 0px 10px 8px',
-
-    };
-
-    return (
-        <>
-            {/* --------------------------first row----------------------- */}
-            {/* first row */}
-            <div style={containerStyle}>
-                {/* First Column */}
-                <div style={columnStyle}>
-                    <p style={{ fontSize: '40px', textAlign: 'center' }}>Booking Experience for Slot</p>
-                </div>
-
-                {/* Second Column */}
-                <div style={columnStyle}>
-                    <img
-                        src="https://i.ytimg.com/vi/NzLcOBuXhYI/maxresdefault.jpg"
-                        alt="preview"
-                        style={imageStyle}
-                    />
-
-                    <div style={textBlockStyle}>
-                        <h2 style={{ margin: '0 0 5px', fontSize: '18px' }}>Hip Hop Foundations</h2>
-                        <p style={{ fontSize: '13px', margin: 0 }}>
-                            This class helps you develop your own unique movement vocabulary and respond to music in the moment.
-                        </p>
-                    </div>
-
-                    <div style={borderedBoxStyle}>
-                         <button
-                            style={{ marginTop: '5px', padding: '5px 10px' }}
-                            onClick={handleRegisterClick}
-                        >
-                            Register your slot
-                        </button>
-                    </div>
-                </div>
-
-                {/* Second Column */}
-                <div style={columnStyle}>
-                    <img
-                        src="https://i.ytimg.com/vi/NzLcOBuXhYI/maxresdefault.jpg"
-                        alt="preview"
-                        style={imageStyle}
-                    />
-
-                    <div style={textBlockStyle}>
-                        <h2 style={{ margin: '0 0 5px', fontSize: '18px' }}>Hip Hop Foundations</h2>
-                        <p style={{ fontSize: '13px', margin: 0 }}>
-                            This class helps you develop your own unique movement vocabulary and respond to music in the moment.
-                        </p>
-                    </div>
-
-                    <div style={borderedBoxStyle}>
-
-
-                        <button
-                            style={{ marginTop: '5px', padding: '5px 10px' }}
-                            onClick={handleRegisterClick}
-                        >
-                            Register your slot
-                        </button>
-
-                    </div>
-                </div>
+  return (
+    <>
+      {/* --- Booking Rows --- */}
+      <div className="booking-container">
+        {[1, 2].map((row) => (
+          <div className="booking-row" key={row}>
+            <div className="booking-column dark">
+              <p className="booking-heading">Booking Experience for Slot</p>
             </div>
 
-            {/* ----------------------------second row ------------------- */}
-            {/* first row */}
-            <div style={containerStyle}>
-                {/* First Column */}
-                <div style={columnStyle}>
-                    <p style={{ fontSize: '40px', textAlign: 'center' }}>Booking Experience for Slot</p>
+            {[1, 2].map((col) => (
+              <div className="booking-column content" key={col}>
+                <img
+                  src="https://i.ytimg.com/vi/NzLcOBuXhYI/maxresdefault.jpg"
+                  alt="preview"
+                  className="booking-image"
+                />
+                <div className="text-block">
+                  <h2>Hip Hop Foundations</h2>
+                  <p>
+                    This class helps you develop your own unique movement vocabulary
+                    and respond to music in the moment.
+                  </p>
                 </div>
-
-                {/* Second Column */}
-                <div style={columnStyle}>
-                    <img
-                        src="https://i.ytimg.com/vi/NzLcOBuXhYI/maxresdefault.jpg"
-                        alt="preview"
-                        style={imageStyle}
-                    />
-
-                    <div style={textBlockStyle}>
-                        <h2 style={{ margin: '0 0 5px', fontSize: '18px' }}>Hip Hop Foundations</h2>
-                        <p style={{ fontSize: '13px', margin: 0 }}>
-                            This class helps you develop your own unique movement vocabulary and respond to music in the moment.
-                        </p>
-                    </div>
-
-                    <div style={borderedBoxStyle}>
-                         <button
-                            style={{ marginTop: '5px', padding: '5px 10px' }}
-                            onClick={handleRegisterClick}
-                        >
-                            Register your slot
-                        </button>
-                    </div>
+                <div className="text-box">
+                  <button onClick={handleRegisterClick}>Register your slot</button>
                 </div>
+              </div>
+            ))}
+          </div>
+        ))}
 
-                {/* Second Column */}
-                <div style={columnStyle}>
-                    <img
-                        src="https://i.ytimg.com/vi/NzLcOBuXhYI/maxresdefault.jpg"
-                        alt="preview"
-                        style={imageStyle}
-                    />
-
-                    <div style={textBlockStyle}>
-                        <h2 style={{ margin: '0 0 5px', fontSize: '18px' }}>Hip Hop Foundations</h2>
-                        <p style={{ fontSize: '13px', margin: 0 }}>
-                            This class helps you develop your own unique movement vocabulary and respond to music in the moment.
-                        </p>
-                    </div>
-
-                    <div style={borderedBoxStyle}>
-                        <button
-                            style={{ marginTop: '5px', padding: '5px 10px' }}
-                            onClick={handleRegisterClick}
-                        >
-                            Register your slot
-                        </button>
-                    </div>
-                </div>
+        {/* Row 3 & 4: Wide Images */}
+        {[3, 4].map((row) => (
+          <div className="booking-row" key={row}>
+            <div className="booking-column dark" />
+            <div className="booking-image-wide-container">
+              <img
+                src="https://i.ytimg.com/vi/NzLcOBuXhYI/maxresdefault.jpg"
+                alt="shared"
+                className="booking-image-wide"
+              />
             </div>
+          </div>
+        ))}
+      </div>
 
-            {/* ------------------------------third row---------------------------             */}
+      {/* Advanced CSS Styling */}
+      <style>{`
+        .booking-container {
+          width: 100%;
+          
+        }
 
+        .booking-row {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0;
 
-            <div style={containerStyle}>
-                {/* Column 1 */}
-                <div style={columnStyle}>
-                    {/* Optional content here */}
-                </div>
+        }
 
-                {/* Columns 2 & 3 combined */}
-                <div style={imageContainerStyle}>
-                    <img
-                        src="https://i.ytimg.com/vi/NzLcOBuXhYI/maxresdefault.jpg"
-                        alt="shared"
-                        style={imageStyleone}
-                    />
-                </div>
-            </div>
+        .booking-column {
+          flex: 1;
+          box-sizing: border-box;
+          padding: 20px;
+        }
 
-            {/* --------------------------forth row----------------------- */}
-            <div style={containerStyle}>
-                {/* Column 1 */}
-                <div style={columnStyle}>
-                    {/* Optional content here */}
-                </div>
+        .booking-column.dark {
+          background-color: black;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 600px;
+        }
 
-                {/* Columns 2 & 3 combined */}
-                <div style={imageContainerStyle}>
-                    <img
-                        src="https://i.ytimg.com/vi/NzLcOBuXhYI/maxresdefault.jpg"
-                        alt="shared"
-                        style={imageStyleone}
-                    />
-                </div>
-            </div>
+        .booking-heading {
+          font-size: 2.5rem;
+          text-align: left;
+        }
 
-        </>
-    );
+        .booking-column.content {
+          background-color: #f5f5f5;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          height: 600px;
+        }
+
+        .booking-image {
+          width: 100%;
+          height: 300px;
+          object-fit: cover;
+          border-radius: 8px;
+        }
+
+        .text-block {
+          margin-top: 15px;
+        }
+
+        .text-block h2 {
+          margin: 0 0 5px;
+          font-size: 1.1rem;
+        }
+
+        .text-block p {
+          margin: 0;
+          font-size: 0.9rem;
+        }
+
+        .text-box {
+          margin-top: auto;
+          border: 0px solid #000;
+          padding: 10px;
+        }
+
+        .text-box button {
+          padding: 8px 16px;
+          background-color: #d0fbf9;
+          border: none;
+          border-radius: 8px;
+          font-weight: bold;
+          cursor: pointer;
+        }
+
+        .booking-image-wide-container {
+          flex: 2;
+          padding: 40px;
+        }
+
+        .booking-image-wide {
+          width: 100%;
+          height: 400px;
+          object-fit: cover;
+          border-radius: 12px;
+        }
+
+        /* Responsive Media Queries */
+        @media (max-width: 1024px) {
+          .booking-heading {
+            font-size: 2rem;
+          }
+          .booking-image {
+            height: 250px;
+            onject-fit:cover;
+          }
+          .booking-image-wide {
+            height: 400px;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .booking-row {
+            flex-direction: column;
+          }
+
+          .booking-column,
+          .booking-image-wide-container {
+            flex: 1 1 100%;
+          }
+
+          .booking-heading {
+            font-size: 1.7rem;
+          }
+
+          .booking-image {
+            height: 220px;
+          }
+
+          .booking-image-wide {
+            height: 300px;
+          }
+
+          .text-block h2 {
+            font-size: 1rem;
+          }
+
+          .text-block p {
+            font-size: 0.8rem;
+          }
+
+          .text-box {
+            margin-top: 10px;
+          }
+
+          .text-box button {
+            width: 100%;
+            padding: 10px;
+          }
+        }
+      `}</style>
+    </>
+  );
 }
 
 export default Booking;

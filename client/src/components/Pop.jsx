@@ -1,146 +1,144 @@
-import React, { useState } from 'react';
-import './TalentHuntPopup.css';
+import React, { useState, useEffect } from 'react';
 
-export default function TalentHuntPopup() {
-  const [formData, setFormData] = useState({
-    name: '',
-    age: '',
-    city: '',
-    phone: '',
-    email: '',
-    social: '',
-    source: '',
-    category: '',
-  });
+export default function Pop() {
+  const [isVisible, setIsVisible] = useState(false);
 
-  const [isVisible, setIsVisible] = useState(true);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(JSON.stringify(formData, null, 2));
-  };
-
-  if (!isVisible) return null;
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsVisible(true), 100);
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
-    <div className="overlay">
-      <div className="popup-container">
-        <form className="popup-form" onSubmit={handleSubmit} noValidate>
-          <svg
-            onClick={() => setIsVisible(false)}
-            className="discard-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            role="button"
-            aria-label="Close form"
-            title="Close"
-          >
-            <path d="M18.3 5.71a1 1 0 00-1.41 0L12 10.59 7.11 5.7a1 1 0 00-1.41 1.42L10.59 12l-4.9 4.89a1 1 0 101.41 1.42L12 13.41l4.89 4.9a1 1 0 001.42-1.41L13.41 12l4.9-4.89a1 1 0 000-1.4z" />
-          </svg>
+    <>
+      <style>
+        {`
+          .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+          }
 
-          <label className="popup-label" htmlFor="category">Talent Category</label>
-          <select
-            className="popup-input popup-select"
-            name="category"
-            id="category"
-            value={formData.category}
-            onChange={handleChange}
-            required
-          >
+          .overlay.visible {
+            opacity: 1;
+          }
 
-           <div className='option_box'>
-             <option className='opt' value="">Select...</option>
-            <option className='opt' value="Battle of Bands">Battle of Bands</option>
-            <option className='opt' value="Battle of Rapper">Battle of Rapper</option>
-            <option className='opt' value="Battle of Singer/Songwriter">Battle of Singer/Songwriter</option>
-            <option className='opt' value="Battle of Musicians">Battle of Musicians</option>
-           </div>
-          </select>
+          .popup-banner {
+            background-color: rgba(30, 30, 30, 0.85);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            font-family: 'Segoe UI', sans-serif;
+            transform: scale(0.8);
+            opacity: 0;
+            transition: all 0.5s ease, background-color 0.3s ease;
+          }
 
-          <label className="popup-label" htmlFor="name">Full Name</label>
-          <input
-            className="popup-input"
-            type="text"
-            name="name"
-            id="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
+          .overlay.visible .popup-banner {
+            transform: scale(1);
+            opacity: 1;
+          }
 
-          <label className="popup-label" htmlFor="age">Age</label>
-          <input
-            className="popup-input"
-            type="number"
-            name="age"
-            id="age"
-            value={formData.age}
-            onChange={handleChange}
-            required
-          />
+          .popup-banner:hover {
+            background-color: rgba(30, 30, 30, 0.95);
+          }
 
-          <label className="popup-label" htmlFor="city">City</label>
-          <input
-            className="popup-input"
-            type="text"
-            name="city"
-            id="city"
-            value={formData.city}
-            onChange={handleChange}
-            required
-          />
+          .popup-banner h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInUp 0.8s ease forwards 0.2s;
+          }
 
-          <label className="popup-label" htmlFor="phone">Phone Number</label>
-          <input
-            className="popup-input"
-            type="tel"
-            name="phone"
-            id="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-          />
+          .popup-banner h1 span {
+            font-weight: 700;
+            color: #ffffff;
+          }
 
-          <label className="popup-label" htmlFor="email">Email</label>
-          <input
-            className="popup-input"
-            type="email"
-            name="email"
-            id="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
+          .popup-banner .highlight {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 20px 0;
+            background: linear-gradient(90deg, #ff5f6d, #ffc371);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: zoomIn 0.6s ease forwards 0.6s;
+          }
 
-          <label className="popup-label" htmlFor="social">Social Media Link</label>
-          <input
-            className="popup-input"
-            type="url"
-            name="social"
-            id="social"
-            value={formData.social}
-            onChange={handleChange}
-          />
+          .popup-banner p {
+            font-size: 20px;
+            margin-top: 20px;
+            color: #ffcc70;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards 1s;
+            transition: color 0.3s, text-shadow 0.3s;
+          }
 
-          <label className="popup-label" htmlFor="source">Where did you hear about us?</label>
-          <input
-            className="popup-input"
-            type="text"
-            name="source"
-            id="source"
-            value={formData.source}
-            onChange={handleChange}
-            required
-          />
+          .popup-banner p:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px #ffcc70;
+          }
 
-          <button className="popup-button" type="submit">Submit</button>
-        </form>
+          .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 26px;
+            color: white;
+            cursor: pointer;
+            transition: color 0.3s;
+          }
+
+          .close-btn:hover {
+            color: #ff6666;
+          }
+
+          @keyframes fadeInUp {
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          @keyframes zoomIn {
+            to {
+              opacity: 1;
+              transform: scale(1);
+            }
+          }
+        `}
+      </style>
+
+      <div className={`overlay ${isVisible ? 'visible' : ''}`}>
+        <div className="popup-banner">
+          <button className="close-btn" onClick={() => setIsVisible(false)}>×</button>
+          <h1>REGISTER <span>NOW!</span></h1>
+          <div className="highlight">50% OFF</div>
+          <p>SIGN-UP</p>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

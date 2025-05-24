@@ -10,6 +10,7 @@ import Institute from './pages/Institute';
 import Footer from './components/Footer';
 import Register from './pages/Register';
 import Pop from './components/Pop';
+import One_One from './pages/One_One';
 
 function App() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -26,6 +27,7 @@ function App() {
           <Route path="/institute" element={<Institute />} />
           {/* <Route path="/register" element={<Register />} /> */}
           <Route path="/register" element={<Register />} />
+          <Route path="/One_One" element={<One_One />} />
 
         </Routes>
       </div>

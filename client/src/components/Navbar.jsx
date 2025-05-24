@@ -12,8 +12,12 @@ export default function Navbar() {
         <Link to="/" className="brand">The Chordifiers Studio</Link>
 
         <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
+            <Link to="/"  className="nav-item" onClick={() => setMenuOpen(false)}>Home</Link>
+
           <Link to="/institute" className="nav-item" onClick={() => setMenuOpen(false)}>Institute</Link>
+           <Link to="/one_one" className="nav-item" onClick={() => setMenuOpen(false)}>One11 </Link>
           <Link to="/creativity" className="nav-item" onClick={() => setMenuOpen(false)}>Record Label</Link>
+
           <Link to="/about" className="nav-item" onClick={() => setMenuOpen(false)}>About</Link>
         </div>
 

@@ -57,7 +57,7 @@ export default function Home() {
     },
     button: {
       position: 'absolute',
-      top: isMobile ? '25%' : '95%',
+      top: isMobile ? '32%' : '95%',
       left: isMobile ? '25%' : '19%',
       transform: 'translate(-50%, -50%)',
       zIndex: 2,

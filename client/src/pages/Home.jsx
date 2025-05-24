@@ -48,7 +48,7 @@ export default function Home() {
     heading: {
       fontSize: isMobile ? '2.5rem' : '8rem',
       position: 'absolute',
-      top: isMobile ? '20%' : '40%',
+      top: isMobile ? '15%' : '40%',
       left: isMobile ? '30%' : '34%',
       transform: 'translate(-50%, -50%)',
       zIndex: 2,
@@ -57,16 +57,19 @@ export default function Home() {
     },
     button: {
       position: 'absolute',
-      top: isMobile ? '35%' : '95%',
-      left: isMobile ? '30%' : '19%',
+      top: isMobile ? '25%' : '95%',
+      left: isMobile ? '25%' : '19%',
       transform: 'translate(-50%, -50%)',
       zIndex: 2,
       color: 'black',
-      padding: '10px 20px',
+      padding: isMobile ? '8px 16px' : '10px 24px',
       borderRadius: '8px',
       backgroundColor: '#d0fbf9',
       cursor: 'pointer',
-      fontSize: isMobile ? '0.9rem' : '1rem',
+      fontSize: isMobile ? '0.8rem' : '1rem',
+      boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+      border: 'none',
+      transition: 'all 0.3s ease-in-out',
     },
     button_about_us: {
       marginTop: '1.5rem',
@@ -81,11 +84,13 @@ export default function Home() {
     marquee: {
       backgroundColor: 'blue',
       color: 'white',
-      padding: '15px 0',
-      fontSize: isMobile ? '1rem' : '1.3rem',
-      marginTop: '0rem',
+      padding: isMobile ? '5px' : '15px 0',
+      fontSize: isMobile ? '0.9rem' : '1.3rem',
+      marginTop: '0',
       textAlign: 'center',
+      whiteSpace: 'nowrap', // ensures smooth scroll on mobile too
     },
+
     row: {
       display: 'flex',
       flexDirection: isMobile ? 'column' : 'row',

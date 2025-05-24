@@ -85,7 +85,7 @@ export default function Creativity() {
   return (
     <div style={styles.page}>
       <header style={styles.header}>
-        <h1 style={styles.logo}>The Chordifiers Studio • Creativity Hub</h1>
+        <h1 style={styles.logo}></h1>
       </header>
 
       {/* Section 1: Ignite Creativity */}

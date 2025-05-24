@@ -280,8 +280,8 @@ export default function Navbar() {
   }
 
   .brand img {
-    height: 100px !important;
-    width: 140px !important;
+               height: 128px !important;
+            width: 109px !important;
   }
 
   .nav-item {

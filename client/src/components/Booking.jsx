@@ -194,6 +194,10 @@ function Booking() {
 
           .booking-heading {
             font-size: 1.7rem;
+            
+          }
+          .booking-column.dark{
+            padding:0px;
           }
 
           .booking-image {

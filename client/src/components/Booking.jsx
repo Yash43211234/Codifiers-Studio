@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
 function Booking() {
   const navigate = useNavigate();
 
@@ -11,63 +10,88 @@ function Booking() {
 
   return (
     <>
-      {/* --- Booking Rows --- */}
       <div className="booking-container">
-        {[1, 2].map((row) => (
-          <div className="booking-row" key={row}>
-            <div className="booking-column dark">
-              <p className="booking-heading">Booking Experience for Slot</p>
-            </div>
-
-            {[1, 2].map((col) => (
-              <div className="booking-column content" key={col}>
-                <img
-                  src="https://i.ytimg.com/vi/NzLcOBuXhYI/maxresdefault.jpg"
-                  alt="preview"
-                  className="booking-image"
-                />
-                <div className="text-block">
-                  <h2>Hip Hop Foundations</h2>
-                  <p>
-                    This class helps you develop your own unique movement vocabulary
-                    and respond to music in the moment.
-                  </p>
-                </div>
-                <div className="text-box">
-                  <button onClick={handleRegisterClick}>Register your slot</button>
-                </div>
-              </div>
-            ))}
-          </div>
-        ))}
-
-        {/* Row 3 & 4: Wide Images */}
-        {[3, 4].map((row) => (
-          <div className="booking-row" key={row}>
-            <div className="booking-column dark" />
-            <div className="booking-image-wide-container">
-              <img
-                src="https://i.ytimg.com/vi/NzLcOBuXhYI/maxresdefault.jpg"
-                alt="shared"
-                className="booking-image-wide"
-              />
-            </div>
-          </div>
-        ))}
+  {[1, 2].map((row) => (
+    <div className="booking-row" key={row}>
+      <div className="booking-column dark">
+        <p className="booking-heading">Reserve Your Studio Slot</p>
       </div>
 
-      {/* Advanced CSS Styling */}
+      {[1, 2].map((col) => {
+        const isFirst = row === 1 && col === 1;
+        const isSecond = row === 1 && col === 2;
+        const isThird = row === 2 && col === 1;
+        const isFourth = row === 2 && col === 2;
+
+        let imageUrl = '';
+        let heading = '';
+        let description = '';
+
+        if (isFirst) {
+          imageUrl = 'https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/4c1616793e2b0571fa739cffa93b13a63adbc649+-+Copy.jpg';
+          heading = 'Electronic Beat Crafting';
+          description =
+            'Dive into synths, drums, and sequencing. Create your own beats using modern tools like FL Studio and Ableton.';
+        } else if (isSecond) {
+          imageUrl = 'https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/4539f9ab6535a9d947d9348ef2d084f25e263d9b.jpg';
+          heading = 'Vocal Production Lab';
+          description =
+            'Learn how to record, layer, and perfect vocals with industry-standard plugins and processing techniques.';
+        } else if (isThird) {
+          imageUrl = 'https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/20241211_155039+(1)+(1).jpg';
+          heading = 'Mixing Essentials';
+          description =
+            'Understand EQ, compression, and reverb to bring balance and clarity to your tracks.';
+        } else if (isFourth) {
+          imageUrl = 'https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/225f634a885ea8917b80f7d57b48c05ef5e206ec.jpg';
+          heading = 'Mastering Masterclass';
+          description =
+            'Discover loudness standards and polishing techniques used by professional mastering engineers.';
+        }
+
+        return (
+          <div className="booking-column content" key={`${row}-${col}`}>
+            <img src={imageUrl} alt="preview" className="booking-image" />
+            <div className="text-block">
+              <h2>{heading}</h2>
+              <p>{description}</p>
+            </div>
+            <div className="text-box">
+              <button onClick={handleRegisterClick}>Register your slot</button>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  ))}
+
+  {[3, 4].map((row) => (
+    <div className="booking-row" key={row}>
+      <div className="booking-column dark" />
+      <div className="booking-image-wide-container">
+        <img
+          src={
+            row === 3
+              ? 'https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/23f4e11a55b906a4310e045982373adcbcdbef9a.jpg'
+              : 'https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/fc8caa80c3fa6c47e578f7973c020161f59b5819+(1).jpg'
+          }
+          alt="shared"
+          className="booking-image-wide"
+        />
+      </div>
+    </div>
+  ))}
+</div>
+
       <style>{`
         .booking-container {
           width: 100%;
-          
         }
 
         .booking-row {
           display: flex;
           flex-wrap: wrap;
           margin: 0;
-
         }
 
         .booking-column {
@@ -100,7 +124,7 @@ function Booking() {
 
         .booking-image {
           width: 100%;
-          height: 300px;
+          height: 700px;
           object-fit: cover;
           border-radius: 8px;
         }
@@ -121,7 +145,6 @@ function Booking() {
 
         .text-box {
           margin-top: auto;
-          border: 0px solid #000;
           padding: 10px;
         }
 
@@ -141,19 +164,18 @@ function Booking() {
 
         .booking-image-wide {
           width: 100%;
-          height: 400px;
+          height: 516px;
           object-fit: cover;
           border-radius: 12px;
         }
 
-        /* Responsive Media Queries */
         @media (max-width: 1024px) {
           .booking-heading {
             font-size: 2rem;
           }
           .booking-image {
-            height: 250px;
-            onject-fit:cover;
+            height: 600px;
+            object-fit: cover;
           }
           .booking-image-wide {
             height: 400px;

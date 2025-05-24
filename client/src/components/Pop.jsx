@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Pop() {
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsVisible(true), 100);
+    const timeout = setTimeout(() => setIsVisible(true), 100); // Delay the appearance slightly
     return () => clearTimeout(timeout);
   }, []);
+
+  const handleClick = () => {
+    setIsVisible(false); // Optional: hide the popup before navigating
+    navigate('/register'); // Replace with desired route
+  };
 
   return (
     <>
@@ -25,10 +32,12 @@ export default function Pop() {
             z-index: 999;
             opacity: 0;
             transition: opacity 0.4s ease-in-out;
+            pointer-events: none;
           }
 
           .overlay.visible {
             opacity: 1;
+            pointer-events: auto;
           }
 
           .popup-banner {
@@ -44,7 +53,7 @@ export default function Pop() {
             font-family: 'Segoe UI', sans-serif;
             transform: scale(0.8);
             opacity: 0;
-            transition: all 0.5s ease, background-color 0.3s ease;
+            transition: all 0.5s ease;
           }
 
           .overlay.visible .popup-banner {
@@ -52,23 +61,11 @@ export default function Pop() {
             opacity: 1;
           }
 
-          .popup-banner:hover {
-            background-color: rgba(30, 30, 30, 0.95);
-          }
-
           .popup-banner h1 {
             font-size: 32px;
             margin-bottom: 10px;
             font-weight: 300;
             letter-spacing: 2px;
-            opacity: 0;
-            transform: translateY(-20px);
-            animation: fadeInUp 0.8s ease forwards 0.2s;
-          }
-
-          .popup-banner h1 span {
-            font-weight: 700;
-            color: #ffffff;
           }
 
           .popup-banner .highlight {
@@ -78,9 +75,6 @@ export default function Pop() {
             background: linear-gradient(90deg, #ff5f6d, #ffc371);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            opacity: 0;
-            transform: scale(0.8);
-            animation: zoomIn 0.6s ease forwards 0.6s;
           }
 
           .popup-banner p {
@@ -88,9 +82,6 @@ export default function Pop() {
             margin-top: 20px;
             color: #ffcc70;
             cursor: pointer;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease forwards 1s;
             transition: color 0.3s, text-shadow 0.3s;
           }
 
@@ -115,18 +106,31 @@ export default function Pop() {
             color: #ff6666;
           }
 
-          @keyframes fadeInUp {
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
+          .cta-btn {
+            background: linear-gradient(135deg, #ff6a00, #ee0979);
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
           }
 
-          @keyframes zoomIn {
-            to {
-              opacity: 1;
-              transform: scale(1);
-            }
+          .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            background: linear-gradient(135deg, #ee0979, #ff6a00);
+          }
+
+          .cta-btn:active {
+            transform: scale(0.97);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
           }
         `}
       </style>
@@ -134,9 +138,10 @@ export default function Pop() {
       <div className={`overlay ${isVisible ? 'visible' : ''}`}>
         <div className="popup-banner">
           <button className="close-btn" onClick={() => setIsVisible(false)}>×</button>
-          <h1>REGISTER <span>NOW!</span></h1>
-          <div className="highlight">50% OFF</div>
-          <p>SIGN-UP</p>
+          <h1>Don't Miss Out!</h1>
+          <div className="highlight">Exclusive Offer</div>
+          <p>Join us today and enjoy premium benefits tailored just for you.</p>
+          <button className="cta-btn" onClick={handleClick}>Get Started</button>
         </div>
       </div>
     </>

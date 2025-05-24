@@ -194,12 +194,12 @@ function Register() {
 
       <div style={imagesContainerStyle}>
         <img
-          src="https://i.ytimg.com/vi/NzLcOBuXhYI/maxresdefault.jpg"
+          src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/1a04f11d7b12a9d1905951f0531a419e72116745.png"
           alt="Studio Vibe"
           style={imageStyle}
         />
         <img
-          src="https://i.ytimg.com/vi/NzLcOBuXhYI/maxresdefault.jpg"
+          src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/f4bd6278ead53791e7894a175d53284e928646ac.png"
           alt="Studio Jam"
           style={imageStyle}
         />

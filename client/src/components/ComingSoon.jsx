@@ -61,6 +61,7 @@ export default function ComingSoon() {
 
       <style>{`
        .coming-soon-container {
+       
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -125,7 +126,12 @@ p {
 }
 
 @media (max-width: 480px) {
+
   .content {
+    margin-top: auto;
+    margin-bottom: 20px;
+    
+
     padding: 30px 20px;
   }
 

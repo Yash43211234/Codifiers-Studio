@@ -1,7 +1,15 @@
 import React from 'react';
 import Booking from '../components/Booking';
+import { useNavigate } from 'react-router-dom';
 
 export default function Institute() {
+
+    const navigate = useNavigate();
+
+  const handleRegisterClick = () => {
+    navigate('/register');
+  };
+
   const styles = {
     container: {
       marginTop: '0',
@@ -61,7 +69,7 @@ export default function Institute() {
               </p>
             </div>
             <div style={{ flex: '0 0 auto', textAlign: 'right' }}>
-              <button className="enroll-button" style={styles.button}>Enroll Now</button>
+              <button className="enroll-button" style={styles.button} onClick={handleRegisterClick}>Enroll Now</button>
             </div>
           </div>
         </div>

@@ -12,6 +12,7 @@ import Register from './pages/Register';
 import Pop from './components/Pop';
 import One_One from './pages/One_One';
 import ComingSoon from './components/ComingSoon';
+import NotFound from './components/NotFound';
 
 function App() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -30,6 +31,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/One_One" element={<One_One />} />
           <Route path="/one_one/upcoming" element={<ComingSoon />} />
+          <Route path="*" element={<NotFound />} />
 
         </Routes>
       </div>

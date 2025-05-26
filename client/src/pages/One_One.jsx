@@ -634,6 +634,7 @@ export default function LandingPage() {
   @media (max-width: 768px) {
     .responsive-banner {
       padding: 20px 10px;
+       width: 94.4%;
     }
 
     .responsive-banner p {
@@ -649,7 +650,7 @@ export default function LandingPage() {
 
 
 
-      <div style={{ fontFamily: 'Georgia, serif', padding: '20px', backgroundColor: '#fff', paddingLeft: '0px' }}>
+      <div style={{ fontFamily: 'Georgia, serif', padding: '20px', backgroundColor: '#fff', paddingLeft: '10px' }}>
         {/* Row 1 */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', marginBottom: '40px' }}>
 

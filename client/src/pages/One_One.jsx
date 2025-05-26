@@ -520,30 +520,30 @@ export default function LandingPage() {
       <div style={gallerySection}>
 
 
-       <div className="responsive-grid">
-  {images.map((src, index) => (
-    <img
-      key={index}
-      src={src}
-      alt={`${index + 1}`}
-      style={{
-        height: "180px",
-        width: "150px",
-        borderRadius: "8px",
-        boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
-        cursor: "pointer",
-        transform: `translateY(${getRandomYOffset()}px)`,
-        transition: "transform 0.3s ease",
-        display: "block",
-        objectFit: "cover",
-      }}
-    />
-  ))}
-</div>
+        <div className="responsive-grid">
+          {images.map((src, index) => (
+            <img
+              key={index}
+              src={src}
+              alt={`${index + 1}`}
+              style={{
+                height: "180px",
+                width: "150px",
+                borderRadius: "8px",
+                boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+                cursor: "pointer",
+                transform: `translateY(${getRandomYOffset()}px)`,
+                transition: "transform 0.3s ease",
+                display: "block",
+                objectFit: "cover",
+              }}
+            />
+          ))}
+        </div>
 
 
-<style>
-{`
+        <style>
+          {`
   .responsive-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -557,7 +557,7 @@ export default function LandingPage() {
     }
   }
 `}
-</style>
+        </style>
 
 
 
@@ -611,29 +611,41 @@ export default function LandingPage() {
 
       {/* +++++++++++++++++++++WHERE EVER NOTE++++++++++++++ */}
 
-      <div
-        style={{
-          backgroundColor: '#f0e924',
-          width: '96.84%',
-          padding: '40px 20px',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <p
-          style={{
-            fontSize: '1.8rem',
-            fontWeight: '400',
-            color: '#000000',
-            textAlign: 'center',
-            fontFamily: 'sans-serif',
-            margin: 0,
-          }}
-        >
-          Where every note resonate with passion
-        </p>
+      <style>
+        {`
+  .responsive-banner {
+    background-color: #f0e924;
+    width: 90.84%;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .responsive-banner p {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #000000;
+    text-align: center;
+    font-family: sans-serif;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .responsive-banner {
+      padding: 20px 10px;
+    }
+
+    .responsive-banner p {
+      font-size: 1.2rem;
+    }
+  }
+`}
+      </style>
+      <div className="responsive-banner">
+        <p>Where every note resonate with passion</p>
       </div>
+
 
 
 
@@ -706,6 +718,76 @@ export default function LandingPage() {
 
           </div>
         </div>
+        <style>
+{`
+  .right-container {
+    flex: 1 1 50%;
+    min-width: 280px;
+  }
+
+  .card-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 339px;
+  }
+
+  .card-black, .card-yellow {
+    border-radius: 6px;
+    padding: 25px;
+  }
+
+  .card-black {
+    background-color: #000;
+    color: #fff;
+  }
+
+  .card-yellow {
+    background-color: #f1e40b;
+    color: #111;
+  }
+
+  .card-heading {
+    font-size: 36px;
+    font-weight: bold;
+  }
+
+  .card-subheading {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  .card-text {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .card-wrapper {
+      width: 100%;
+    }
+
+    .card-black, .card-yellow {
+      padding-left: 0px;
+    }
+
+    .card-heading {
+      font-size: 28px;
+    }
+
+    .card-subheading {
+      font-size: 16px;
+    }
+
+    .card-text {
+      font-size: 13px;
+    }
+  }
+`}
+</style>
+
 
 
 

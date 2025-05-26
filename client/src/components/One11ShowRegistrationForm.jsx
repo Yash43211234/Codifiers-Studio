@@ -125,7 +125,7 @@ const One11ShowRegistrationForm = () => {
 
   const inputStyle = {
     flex: 1,
-    padding: '10px 15px',
+    padding: '10px 0px',
     borderRadius: '8px',
     border: 'none',
     fontSize: '16px',
@@ -277,6 +277,46 @@ const One11ShowRegistrationForm = () => {
           <button type="submit" style={buttonStyle}>Submit</button>
         </form>
       </div>
+      <style>
+  {`
+    @media (max-width: 600px) {
+      div[style*="display: flex"][style*="alignItems: center"] {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+      }
+
+      div[style*="display: flex"][style*="alignItems: center"] > label {
+        margin-bottom: 6px;
+        font-size: 10px;
+      }
+         #category {
+        width: 100% !important;
+        font-size: 15px;
+        padding: 10px 14px;
+        box-sizing: border-box;
+      }
+
+      div[style*="display: flex"][style*="alignItems: center"] > input,
+      div[style*="display: flex"][style*="alignItems: center"] > select,
+      div[style*="display: flex"][style*="alignItems: center"] > textarea {
+        width: 90% !important;
+        font-size: 10px;
+        padding: 8px 0px;
+        box-sizing: border-box;
+      }
+
+      button[style*="float: right"] {
+        float: none !important;
+        width: 100% !important;
+      }
+
+      div[style*="marginLeft: 180px"] {
+        margin-left: 0px !important;
+      }
+    }
+  `}
+</style>
+
     </div>
   );
 };

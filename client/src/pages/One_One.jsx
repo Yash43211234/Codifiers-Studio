@@ -615,7 +615,7 @@ export default function LandingPage() {
         {`
   .responsive-banner {
     background-color: #f0e924;
-    width: 90.84%;
+    width: 98.4%;
     padding: 40px 20px;
     display: flex;
     justify-content: center;
@@ -649,7 +649,7 @@ export default function LandingPage() {
 
 
 
-      <div style={{ fontFamily: 'Georgia, serif', padding: '20px', backgroundColor: '#fff', paddingLeft: '40px' }}>
+      <div style={{ fontFamily: 'Georgia, serif', padding: '20px', backgroundColor: '#fff', paddingLeft: '0px' }}>
         {/* Row 1 */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', marginBottom: '40px' }}>
 

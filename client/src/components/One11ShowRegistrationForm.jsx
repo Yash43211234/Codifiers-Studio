@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
 const One11ShowRegistrationForm = () => {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -104,7 +103,7 @@ const One11ShowRegistrationForm = () => {
     color: '#000',
     display: 'flex',
     justifyContent: 'center',
-    minHeight: '100vh'
+    minHeight: '100vh',
   };
 
   const containerStyle = {
@@ -116,6 +115,7 @@ const One11ShowRegistrationForm = () => {
     display: 'flex',
     alignItems: 'center',
     marginBottom: '15px',
+    flexWrap: 'wrap',
   };
 
   const labelStyle = {
@@ -124,21 +124,18 @@ const One11ShowRegistrationForm = () => {
     fontSize: '18px',
   };
 
-  const inputStyle = {
+  const fieldInput = {
     flex: 1,
-    padding: '10px 0px',
+    padding: '10px',
     borderRadius: '8px',
     border: 'none',
     fontSize: '16px',
-  };
-
-  const selectStyle = {
-    ...inputStyle,
-    backgroundColor: '#fff',
+    width: '100%',
+    boxSizing: 'border-box',
   };
 
   const textareaStyle = {
-    ...inputStyle,
+    ...fieldInput,
     height: '60px',
     resize: 'none',
   };
@@ -158,7 +155,7 @@ const One11ShowRegistrationForm = () => {
     border: 'none',
     borderRadius: '20px',
     fontSize: '16px',
-    marginTop: '51px',
+    marginTop: '40px',
     cursor: 'pointer',
     float: 'right',
   };
@@ -166,10 +163,9 @@ const One11ShowRegistrationForm = () => {
   return (
     <div style={formStyle}>
       <div style={containerStyle}>
-        <h2 style={{ textAlign: 'center', fontSize: '47px', fontWeight: 'bold', marginBottom: '60px', fontFamily:'Crimson Text' }}>
+        <h2 style={{ textAlign: 'center', fontSize: '47px', fontWeight: 'bold', marginBottom: '60px', fontFamily: 'Crimson Text' }}>
           The One 11 Show Registration
         </h2>
-        
 
         <form onSubmit={handleSubmit}>
           {[{ label: 'Full Name*', name: 'fullName', type: 'text' },
@@ -177,7 +173,6 @@ const One11ShowRegistrationForm = () => {
             { label: 'Stage Name / Band Name*', name: 'stageName', type: 'text' },
             { label: 'Email Address*', name: 'email', type: 'email' }
           ].map(({ label, name, type }) => (
-
             <div key={name}>
               <div style={fieldStyle}>
                 <label htmlFor={name} style={labelStyle}>{label}</label>
@@ -187,7 +182,7 @@ const One11ShowRegistrationForm = () => {
                   id={name}
                   value={formData[name]}
                   onChange={handleChange}
-                  style={inputStyle}
+                  style={fieldInput}
                 />
               </div>
               {errors[name] && <div style={errorStyle}>{errors[name]}</div>}
@@ -203,7 +198,7 @@ const One11ShowRegistrationForm = () => {
                 id="category"
                 value={formData.category}
                 onChange={handleChange}
-                style={selectStyle}
+                style={fieldInput}
               >
                 <option value="">-- Select --</option>
                 <option value="Battle of Bands">Battle of Bands</option>
@@ -225,7 +220,7 @@ const One11ShowRegistrationForm = () => {
                 id="performanceType"
                 value={formData.performanceType}
                 onChange={handleChange}
-                style={selectStyle}
+                style={fieldInput}
               >
                 <option value="">-- Select --</option>
                 <option value="Solo">Solo</option>
@@ -254,10 +249,9 @@ const One11ShowRegistrationForm = () => {
               </div>
               {errors[name] && <div style={errorStyle}>{errors[name]}</div>}
             </div>
-
-            
           ))}
 
+          {/* Signature */}
           <div>
             <div style={fieldStyle}>
               <label htmlFor="signature" style={labelStyle}>Type Your Name to Sign*</label>
@@ -267,58 +261,51 @@ const One11ShowRegistrationForm = () => {
                 id="signature"
                 value={formData.signature}
                 onChange={handleChange}
-                style={inputStyle}
+                style={fieldInput}
               />
             </div>
             {errors.signature && <div style={errorStyle}>{errors.signature}</div>}
           </div>
 
-{submitMessage && <p style={{ color: 'white', textAlign: 'center' }}>{submitMessage}</p>}
-
+          {submitMessage && <p style={{ color: 'white', textAlign: 'center' }}>{submitMessage}</p>}
 
           <button type="submit" style={buttonStyle}>Submit</button>
         </form>
       </div>
+
+      {/* Responsive Styles */}
       <style>
-  {`
-    @media (max-width: 600px) {
-      div[style*="display: flex"][style*="alignItems: center"] {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-      }
+        {`
+          @media (max-width: 600px) {
+            div[style*="display: flex"][style*="alignItems: center"] {
+              flex-direction: column !important;
+              align-items: flex-start !important;
+            }
 
-      div[style*="display: flex"][style*="alignItems: center"] > label {
-        margin-bottom: 6px;
-        font-size: 10px;
-      }
-         #category {
-        width: 100% !important;
-        font-size: 15px;
-        padding: 10px 14px;
-        box-sizing: border-box;
-      }
+            div[style*="display: flex"][style*="alignItems: center"] > label {
+              margin-bottom: 6px;
+              font-size: 14px !important;
+            }
 
-      div[style*="display: flex"][style*="alignItems: center"] > input,
-      div[style*="display: flex"][style*="alignItems: center"] > select,
-      div[style*="display: flex"][style*="alignItems: center"] > textarea {
-        width: 90% !important;
-        font-size: 10px;
-        padding: 8px 0px;
-        box-sizing: border-box;
-      }
+            div[style*="display: flex"][style*="alignItems: center"] > input,
+            div[style*="display: flex"][style*="alignItems: center"] > select,
+            div[style*="display: flex"][style*="alignItems: center"] > textarea {
+              width: 100% !important;
+              font-size: 14px !important;
+            }
 
-      button[style*="float: right"] {
-        float: none !important;
-        width: 100% !important;
-      }
+            button[style*="float: right"] {
+              float: none !important;
+              width: 100% !important;
+              margin-top: 30px;
+            }
 
-      div[style*="marginLeft: 180px"] {
-        margin-left: 0px !important;
-      }
-    }
-  `}
-</style>
-
+            div[style*="marginLeft: 180px"] {
+              margin-left: 0px !important;
+            }
+          }
+        `}
+      </style>
     </div>
   );
 };

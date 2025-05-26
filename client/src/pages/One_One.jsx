@@ -978,7 +978,7 @@ const isMobile = screenWidth < 768;
         </div>
 
 
-        <button onClick={() => navigate('/register')}
+        <button onClick={() => navigate('/one_one/upcoming')}
           style={{
             backgroundColor: '#fcee09',
             color: '#000',

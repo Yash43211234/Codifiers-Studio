@@ -47,7 +47,7 @@ function One11ShowRegistrationForm() {
         'https://api.sheetbest.com/sheets/7f7650da-145c-4dd6-8b79-9d0cbdbb12b3',
         payload
       );
-      navigate('/thank-you');
+      navigate('/submission-successfully');
     } catch (err) {
       alert('❌ Submission failed. Please try again.');
       console.error(err);

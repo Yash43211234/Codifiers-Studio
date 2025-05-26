@@ -29,7 +29,7 @@ const ImageCarousel = () => {
   const scrollPosition = useRef(0);
   const speed = 0.5;
   const animationRef = useRef(null);
-  const [hoveredIndex, setHoveredIndex] = useState(null); // ✅ Track which image is hovered
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -73,10 +73,12 @@ const ImageCarousel = () => {
     }
   };
 
+  const arrowSize = imageWidth <= 160 ? 30 : imageWidth <= 200 ? 35 : 40;
+
   const wrapperStyle = {
     overflow: 'hidden',
     width: `${visibleCount * (imageWidth + imageMargin) - imageMargin}px`,
-    height: '300px',
+    height: imageWidth <= 160 ? '200px' : imageWidth <= 200 ? '250px' : '300px',
     margin: '0 auto',
     position: 'relative',
   };
@@ -95,11 +97,11 @@ const ImageCarousel = () => {
     color: '#fff',
     border: 'none',
     borderRadius: '50%',
-    width: '40px',
-    height: '40px',
+    width: `${arrowSize}px`,
+    height: `${arrowSize}px`,
     cursor: 'pointer',
     zIndex: 2,
-    fontSize: '20px',
+    fontSize: `${arrowSize * 0.5}px`,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -127,25 +129,20 @@ const ImageCarousel = () => {
             src={img.src}
             alt={img.alt}
             width={imageWidth}
-            height={300}
-            onMouseEnter={() => setHoveredIndex(index)} // ✅ Start hover
-            onMouseLeave={() => setHoveredIndex(null)} // ✅ End hover
+            height={imageWidth <= 160 ? 200 : imageWidth <= 200 ? 250 : 300}
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
             style={{
               marginRight: index !== totalImages - 1 ? `${imageMargin}px` : 0,
-              objectFit: 'cover', // or 'cover', 'fill', etc.
+              objectFit: 'cover',
               flexShrink: 0,
               borderRadius: '2px',
               transition: 'transform 0.3s ease, z-index 0.3s ease',
-              transform: hoveredIndex === index ? 'scale(1.2)' : 'scale(1)', // scales width & height
-              transformOrigin: 'center center', // ensures scaling from center
+              transform: hoveredIndex === index ? 'scale(1.2)' : 'scale(1)',
+              transformOrigin: 'center center',
               cursor: 'pointer',
               zIndex: hoveredIndex === index ? 10 : 1,
-              
-              
-              
-              
             }}
-
           />
         ))}
       </div>

@@ -168,14 +168,14 @@ const One11ShowRegistrationForm = () => {
         <h2 style={{ textAlign: 'center', fontSize: '40px', fontWeight: 'bold', marginBottom: '30px' }}>
           The One 11 Show Registration
         </h2>
-        {submitMessage && <p style={{ color: 'white', textAlign: 'center' }}>{submitMessage}</p>}
+        
         <form onSubmit={handleSubmit}>
           {[{ label: 'Full Name*', name: 'fullName', type: 'text' },
             { label: 'Contact Number*', name: 'contactNumber', type: 'tel' },
             { label: 'Stage Name / Band Name*', name: 'stageName', type: 'text' },
-            { label: 'Email Address*', name: 'email', type: 'email' },
-            { label: 'Type Your Name to Sign*', name: 'signature', type: 'text' }
+            { label: 'Email Address*', name: 'email', type: 'email' }
           ].map(({ label, name, type }) => (
+
             <div key={name}>
               <div style={fieldStyle}>
                 <label htmlFor={name} style={labelStyle}>{label}</label>
@@ -252,7 +252,27 @@ const One11ShowRegistrationForm = () => {
               </div>
               {errors[name] && <div style={errorStyle}>{errors[name]}</div>}
             </div>
+
+            
           ))}
+
+          <div>
+            <div style={fieldStyle}>
+              <label htmlFor="signature" style={labelStyle}>Type Your Name to Sign*</label>
+              <input
+                type="text"
+                name="signature"
+                id="signature"
+                value={formData.signature}
+                onChange={handleChange}
+                style={inputStyle}
+              />
+            </div>
+            {errors.signature && <div style={errorStyle}>{errors.signature}</div>}
+          </div>
+
+{submitMessage && <p style={{ color: 'white', textAlign: 'center' }}>{submitMessage}</p>}
+
 
           <button type="submit" style={buttonStyle}>Submit</button>
         </form>

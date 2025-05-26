@@ -1,16 +1,32 @@
-import React from 'react'
+import { React, useState } from 'react'
 
 function Institute() {
 
-   const cardData = [
+
+  const [openFaq, setOpenFaq] = useState({});
+
+  const toggleFaq = (courseLevel, index) => {
+
+
+
+    const key = `${courseLevel}-${index}`;
+    setOpenFaq((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
+
+  const cardData = [
     { level: 'Basic', color: 'yellow' },
     { level: 'Intermediate', color: 'orange' },
     { level: 'Advance', color: 'red' },
     { level: 'Pro', color: 'purple' },
   ];
 
+ 
 
-   const wrapperStyle = {
+  const wrapperStyle = {
     backgroundColor: "#0d0d0d",
     color: "#ffffff",
     minHeight: "100vh",
@@ -81,20 +97,35 @@ function Institute() {
 
   const courses = ["Basic", "Intermediate", "Advance", "Pro"];
   const faqs = [
-    "How long do the courses last?",
-    "How long is each class?",
-    "Are the courses online or offline?",
-    "Will I receive a certificate after completion?",
+    {
+      question: "How long do the courses last?",
+      answer: "Each course level lasts for approximately 4 weeks.",
+    },
+    {
+      question: "How long is each class?",
+      answer: "Each class is around 2 hours long.",
+    },
+    {
+      question: "Are the courses online or offline?",
+      answer: "We offer both online and offline options.",
+    },
+    {
+      question: "Will I receive a certificate after completion?",
+      answer: "Yes, a certificate is provided after completing the course.",
+    },
   ];
+
   return (
     <div>
 
 
-<div style={wrapperStyle}>
+      <div style={wrapperStyle}>
       <h1 style={headingStyle}>Music Production Courses</h1>
       <div style={bannerStyle}>
         Limited Seats Available <br />
-        <span style={{ fontWeight: "normal" }}>Get your seat as soon as possible!</span>
+        <span style={{ fontWeight: "normal" }}>
+          Get your seat as soon as possible!
+        </span>
       </div>
 
       <div style={courseContainerStyle}>
@@ -106,19 +137,44 @@ function Institute() {
               style={imageStyle}
             />
             <div style={titleStyle}>Music Production {level}</div>
-            {faqs.map((faq, idx) => (
-              <div style={faqStyle} key={idx}>
-                {faq} ▼
-              </div>
-            ))}
+            {faqs.map((faq, idx) => {
+              const key = `${level}-${idx}`;
+              return (
+                <div key={key}>
+                  <div
+                    onClick={() => toggleFaq(level, idx)}
+                    style={{
+                      ...faqStyle,
+                      cursor: "pointer",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    {faq.question} {openFaq[key] ? "▲" : "▼"}
+                  </div>
+                  {openFaq[key] && (
+                    <div
+                      style={{
+                        marginLeft: "10px",
+                        fontSize: "14px",
+                        color: "#fff",
+                        textAlign: "left",
+                        marginBottom: "10px",
+                      }}
+                    >
+                      <br/>
+                      {faq.answer}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         ))}
       </div>
     </div>
 
-
-{/* +++++++++++++++++++++++++++++ */}
-      <div style={{ marginTop:'70px', padding: '40px', fontFamily: 'Georgia, serif', color: '#000' }}>
+      {/* +++++++++++++++++++++++++++++ */}
+      <div style={{ marginTop: '70px', padding: '40px', fontFamily: 'Roboto, serif', color: '#000' }}>
         <h1 style={{ fontSize: '36px', textAlign: 'left', marginBottom: '10px' }}>
           Professional Certification Courses
         </h1>
@@ -160,7 +216,7 @@ function Institute() {
         </div>
       </div>
 
-{/* +++++++++++++ */}
+      {/* +++++++++++++ */}
 
 
 
@@ -169,135 +225,135 @@ function Institute() {
 
       {/* ++++++++++++++++++++ */}
       <div
-      style={{
-        backgroundColor: '#f4df1e',
-        padding: '50px 0',
-        textAlign: 'center',
-        fontFamily: 'Georgia, serif',
-      }}
-    >
-      <h1 style={{ fontSize: '40px', marginBottom: '40px' }}>Instrument Courses</h1>
-
-      <div
         style={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '30px',
-          flexWrap: 'wrap',
+          backgroundColor: '#f4df1e',
+          padding: '50px 0',
+          textAlign: 'center',
+          fontFamily: 'Georgia, serif',
         }}
       >
-        {/* Card 1 - Guitar */}
-        <div
-          style={{
-            width: '260px',
-            backgroundColor: 'white',
-            borderRadius: '8px',
-            overflow: 'hidden',
-            boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
-            textAlign: 'left',
-          }}
-        >
-          <img
-            src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/48852ceaa557c6bc6cf849492573c34ad0d14d89.png"
-            alt="Guitar"
-            style={{ width: '100%', height: '160px', objectFit: 'cover' }}
-          />
-          <div style={{ padding: '15px' }}>
-            <h3 style={{ margin: '0 0 10px', fontSize: '16px' }}>Guitar</h3>
-            <p style={{ fontSize: '13px', marginBottom: '15px' }}>
-              Tailored lessons for all skill levels, helping you master guitar at your own pace.
-            </p>
-            <button
-              style={{
-                fontSize: '12px',
-                padding: '6px 12px',
-                border: '1px solid black',
-                backgroundColor: 'white',
-                cursor: 'pointer',
-                borderRadius: '4px',
-              }}
-            >
-              View Details
-            </button>
-          </div>
-        </div>
+        <h1 style={{ fontSize: '40px', marginBottom: '40px' }}>Instrument Courses</h1>
 
-        {/* Card 2 - Drums */}
         <div
           style={{
-            width: '260px',
-            backgroundColor: 'white',
-            borderRadius: '8px',
-            overflow: 'hidden',
-            boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
-            textAlign: 'left',
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '30px',
+            flexWrap: 'wrap',
           }}
         >
-          <img
-            src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/8299e523ccec8e6e55c8239b5aebadd3328fce5f.png"
-            alt="Drums"
-            style={{ width: '100%', height: '160px', objectFit: 'cover' }}
-          />
-          <div style={{ padding: '15px' }}>
-            <h3 style={{ margin: '0 0 10px', fontSize: '16px' }}>Drums</h3>
-            <p style={{ fontSize: '13px', marginBottom: '15px' }}>
-              Drum lessons for all levels, tailored to your needs, available online or in person with expert instructors.
-            </p>
-            <button
-              style={{
-                fontSize: '12px',
-                padding: '6px 12px',
-                border: '1px solid black',
-                backgroundColor: 'white',
-                cursor: 'pointer',
-                borderRadius: '4px',
-              }}
-            >
-              View Details
-            </button>
+          {/* Card 1 - Guitar */}
+          <div
+            style={{
+              width: '260px',
+              backgroundColor: 'white',
+              borderRadius: '8px',
+              overflow: 'hidden',
+              boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+              textAlign: 'left',
+            }}
+          >
+            <img
+              src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/48852ceaa557c6bc6cf849492573c34ad0d14d89.png"
+              alt="Guitar"
+              style={{ width: '100%', height: '160px', objectFit: 'cover' }}
+            />
+            <div style={{ padding: '15px' }}>
+              <h3 style={{ margin: '0 0 10px', fontSize: '16px' }}>Guitar</h3>
+              <p style={{ fontSize: '13px', marginBottom: '15px' }}>
+                Tailored lessons for all skill levels, helping you master guitar at your own pace.
+              </p>
+              <button
+                style={{
+                  fontSize: '12px',
+                  padding: '6px 12px',
+                  border: '1px solid black',
+                  backgroundColor: 'white',
+                  cursor: 'pointer',
+                  borderRadius: '4px',
+                }}
+              >
+                View Details
+              </button>
+            </div>
           </div>
-        </div>
 
-        {/* Card 3 - Piano */}
-        <div
-          style={{
-            width: '260px',
-            backgroundColor: 'white',
-            borderRadius: '8px',
-            overflow: 'hidden',
-            boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
-            textAlign: 'left',
-          }}
-        >
-          <img
-            src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/3055d8b7857b1bd22ed801e4d2d144c3dfbe18f9.png"
-            alt="Piano"
-            style={{ width: '100%', height: '160px', objectFit: 'cover' }}
-          />
-          
-          <div style={{ padding: '15px' }}>
-            <h3 style={{ margin: '0 0 10px', fontSize: '16px' }}>Piano / Keyboard</h3>
-            <p style={{ fontSize: '13px', marginBottom: '15px' }}>
-              Personalized piano lessons for all levels, available online or in person with expert instructors.
-            </p>
-            <button
-              style={{
-                fontSize: '12px',
-                padding: '6px 12px',
-                border: '1px solid black',
-                backgroundColor: 'white',
-                cursor: 'pointer',
-                borderRadius: '4px',
-              }}
-            >
-              View Details
-            </button>
+          {/* Card 2 - Drums */}
+          <div
+            style={{
+              width: '260px',
+              backgroundColor: 'white',
+              borderRadius: '8px',
+              overflow: 'hidden',
+              boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+              textAlign: 'left',
+            }}
+          >
+            <img
+              src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/8299e523ccec8e6e55c8239b5aebadd3328fce5f.png"
+              alt="Drums"
+              style={{ width: '100%', height: '160px', objectFit: 'cover' }}
+            />
+            <div style={{ padding: '15px' }}>
+              <h3 style={{ margin: '0 0 10px', fontSize: '16px' }}>Drums</h3>
+              <p style={{ fontSize: '13px', marginBottom: '15px' }}>
+                Drum lessons for all levels, tailored to your needs, available online or in person with expert instructors.
+              </p>
+              <button
+                style={{
+                  fontSize: '12px',
+                  padding: '6px 12px',
+                  border: '1px solid black',
+                  backgroundColor: 'white',
+                  cursor: 'pointer',
+                  borderRadius: '4px',
+                }}
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+
+          {/* Card 3 - Piano */}
+          <div
+            style={{
+              width: '260px',
+              backgroundColor: 'white',
+              borderRadius: '8px',
+              overflow: 'hidden',
+              boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+              textAlign: 'left',
+            }}
+          >
+            <img
+              src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/3055d8b7857b1bd22ed801e4d2d144c3dfbe18f9.png"
+              alt="Piano"
+              style={{ width: '100%', height: '160px', objectFit: 'cover' }}
+            />
+
+            <div style={{ padding: '15px' }}>
+              <h3 style={{ margin: '0 0 10px', fontSize: '16px' }}>Piano / Keyboard</h3>
+              <p style={{ fontSize: '13px', marginBottom: '15px' }}>
+                Personalized piano lessons for all levels, available online or in person with expert instructors.
+              </p>
+              <button
+                style={{
+                  fontSize: '12px',
+                  padding: '6px 12px',
+                  border: '1px solid black',
+                  backgroundColor: 'white',
+                  cursor: 'pointer',
+                  borderRadius: '4px',
+                }}
+              >
+                View Details
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-      
+
 
 
     </div>

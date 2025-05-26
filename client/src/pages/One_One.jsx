@@ -54,6 +54,7 @@ export default function LandingPage() {
   const getRandomYOffset = () => Math.floor(Math.random() * 41) - 20;
   const navigate = useNavigate();
 
+
   const handleJoinClick = () => {
     navigate('/institute'); // 👈 change '/institute' to your actual route if needed
   };
@@ -163,6 +164,7 @@ export default function LandingPage() {
   };
 
 
+
   return (
     <div>
       {/* HERO SECTION */}
@@ -174,31 +176,78 @@ export default function LandingPage() {
             alt="Chordifiers Logo"
             className="hero-logo"
           />
-          <span className="One_One_Page_Header"><p>Your Record Label, Production House <br /> & Music Institute</p></span>
+          <span className="One_One_Page_Header">
+            <p style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.4)' }}>
+              Your Record Label, Production House <br /> & Music Institute
+            </p>
+          </span>
+
           <span className="One_One_Page_Header_p"><p>"You Love being Creative? We Love You"</p></span>
         </div>
       </div>
 
-      {/* ONE11 SHOW SECTION */}
-      <div className="one11-section">
-        <h2 style={{
+      <div
+        style={{
+          padding: window.innerWidth < 600 ? '20px' : '40px',
           fontFamily: "'Orbitron', sans-serif",
-          fontSize: '54px',
           textAlign: 'center',
-          margin: '20px 0'
-        }}>
+        }}
+      >
+        <h2
+          style={{
+            fontSize: window.innerWidth < 600 ? '32px' : '54px',
+            margin: '20px 0',
+            fontWeight: 'bold',
+            fontFamily: 'Luckiest Guy'
+          }}
+        >
           The ONE11 Show
         </h2>
 
-        <p><strong>“The One11 Show”</strong> is an artist launch platform by The Chordifiers Studio, that focuses on launching artists and creators of various niches into the world.</p>
-        <div>
+        <p
+          style={{
+            fontSize: window.innerWidth < 600 ? '14px' : '18px',
+            lineHeight: '1.5',
+            margin: window.innerWidth < 600 ? '10px 0' : '20px auto',
+            maxWidth: '800px',
+          }}
+        >
+          <strong>“The One11 Show”</strong> is an artist launch platform by The Chordifiers Studio, that focuses on
+          launching artists and creators of various niches into the world.
+        </p>
+
+        <div style={{ margin: window.innerWidth < 600 ? '20px 0' : '30px 0' }}>
           <ImageCarousel />
         </div>
-        <h3>Click here to register for<br />“The ONE11 Show”</h3>
-         <button className="btn-dark" onClick={() => navigate('/one11register')}>
-      Register Now
-    </button>
+
+        <h3
+          style={{
+            fontSize: window.innerWidth < 600 ? '16px' : '22px',
+            margin: window.innerWidth < 600 ? '10px 0' : '20px 0',
+          }}
+        >
+          Click here to register for
+          <br />
+          “The ONE11 Show”
+        </h3>
+
+        <button
+          onClick={() => navigate('/one11register')}
+          style={{
+            backgroundColor: '#111',
+            color: '#fff',
+            padding: window.innerWidth < 600 ? '10px 20px' : '12px 30px',
+            fontSize: window.innerWidth < 600 ? '14px' : '16px',
+            border: 'none',
+            borderRadius: '20px',
+            cursor: 'pointer',
+            marginTop: '10px',
+          }}
+        >
+          Register Now
+        </button>
       </div>
+
 
 
 
@@ -222,13 +271,13 @@ export default function LandingPage() {
       <div
         style={{
           display: 'flex',
-          flexDirection: 'row', // changed from 'column' to 'row'
+          flexDirection: window.innerWidth < 768 ? 'column' : 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '40px',
+          padding: window.innerWidth < 768 ? '20px' : '40px 200px',
           gap: '20px',
           flexWrap: 'wrap',
-          padding: '0 200px'// allows wrapping on smaller screens
+          boxSizing: 'border-box',
         }}
       >
         {/* Left Side */}
@@ -236,15 +285,16 @@ export default function LandingPage() {
           style={{
             flex: '1',
             minWidth: '300px',
-            maxWidth: '50%',
+            maxWidth: window.innerWidth < 768 ? '100%' : '50%',
             boxSizing: 'border-box',
+            textAlign: window.innerWidth < 768 ? 'center' : 'left',
           }}
         >
           <p
             style={{
-              fontSize: '28px',
-
+              fontSize: window.innerWidth < 768 ? '22px' : '28px',
               marginBottom: '20px',
+              lineHeight: '1.4',
             }}
           >
             Are you ready to take your<br /> Music Career to the next level?
@@ -263,7 +313,7 @@ export default function LandingPage() {
             style={{
               backgroundColor: '#000',
               color: '#fff',
-              padding: '12px 24px',
+              padding: window.innerWidth < 768 ? '10px 20px' : '12px 24px',
               border: 'none',
               borderRadius: '20px',
               cursor: 'pointer',
@@ -272,7 +322,6 @@ export default function LandingPage() {
           >
             Join Us
           </button>
-
         </div>
 
         {/* Right Side */}
@@ -280,10 +329,9 @@ export default function LandingPage() {
           style={{
             flex: '1',
             minWidth: '300px',
-            maxWidth: '50%',
+            maxWidth: window.innerWidth < 768 ? '100%' : '50%',
             boxSizing: 'border-box',
             textAlign: 'center',
-
           }}
         >
           <img
@@ -301,40 +349,69 @@ export default function LandingPage() {
 
 
 
-
       {/* ++++++++++++++++++++++*/}
 
       <div
         style={{
           backgroundColor: '#f1e40b',
           display: 'flex',
+          flexDirection: window.innerWidth < 768 ? 'column' : 'row',
           justifyContent: 'center',
           alignItems: 'center',
-          padding: '60px 20px',
+          padding: window.innerWidth < 768 ? '40px 20px' : '60px 20px',
           fontFamily: 'Georgia, serif',
-          flexWrap: 'wrap'
+          flexWrap: 'wrap',
+          boxSizing: 'border-box',
+          textAlign: window.innerWidth < 768 ? 'center' : 'left',
         }}
       >
         {/* Left Side - Image */}
-        <div style={{ flex: '1 1 300px', textAlign: 'center', padding: '20px' }}>
+        <div
+          style={{
+            flex: '1 1 300px',
+            padding: '20px',
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
           <img
             src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/e6c328ba531ead0fc89cfd452baf5313246cdb0b.png"
             alt="Star Music"
             style={{
-              width: '350px',
-              height: '350px',
+              width: '100%',
+              maxWidth: '350px',
+              height: 'auto',
               borderRadius: '20px',
-              boxShadow: '0 8px 16px rgba(0,0,0,0.2)'
+              boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
             }}
           />
         </div>
 
         {/* Right Side - Text */}
-        <div style={{ flex: '1 1 400px', padding: '20px' }}>
-          <h1 style={{ fontSize: '40px', color: '#000', marginBottom: '20px' }}>
+        <div
+          style={{
+            flex: '1 1 400px',
+            padding: '20px',
+            maxWidth: '600px',
+          }}
+        >
+          <h1
+            style={{
+              fontSize: window.innerWidth < 768 ? '30px' : '40px',
+              color: '#000',
+              marginBottom: '20px',
+            }}
+          >
             Looking for Pro Music Services?
           </h1>
-          <p style={{ fontSize: '16px', color: '#111', lineHeight: '1.6', marginBottom: '30px' }}>
+          <p
+            style={{
+              fontSize: '16px',
+              color: '#111',
+              lineHeight: '1.6',
+              marginBottom: '30px',
+            }}
+          >
             Schedule a free consultation to discuss your musical aspirations and dreams. <br />
             We analyze your goals, advise you on the best approach, and explain our process.
           </p>
@@ -347,12 +424,12 @@ export default function LandingPage() {
               borderRadius: '999px',
               border: 'none',
               fontWeight: 'bold',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              fontSize: '16px',
             }}
           >
             Know more
           </button>
-
         </div>
       </div>
 
@@ -412,91 +489,127 @@ export default function LandingPage() {
         </div>
 
 
-       
+
       </div>
 
- <div
-      style={{
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        backgroundColor: '#ffffff', // optional
-        padding: '20px 0',
-      }}
-    >
-      <img
-        src="/curveImage.jpg" // replace with your image URL
-        alt="Banner"
+      <div
         style={{
           width: '100%',
-          maxWidth: '100%',
-          height: 'auto',
-          display: 'block',
-          marginTop:'-24px',
-          border:'none'
+          display: 'flex',
+          justifyContent: 'center',
+          backgroundColor: '#ffffff', // optional
+          padding: '20px 0',
         }}
-      />
-    </div>
+      >
+        <img
+          src="/curveImage.jpg" // replace with your image URL
+          alt="Banner"
+          style={{
+            width: '100%',
+            maxWidth: '100%',
+            height: 'auto',
+            display: 'block',
+            marginTop: '-24px',
+            border: 'none'
+          }}
+        />
+      </div>
 
-        {/* Photo Gallery */}
+      {/* Photo Gallery */}
 
-         <div style={gallerySection}>
+      <div style={gallerySection}>
 
 
-          <div style={gridContainer}>
-            {images.map((src, index) => (
-              <img
-                key={index}
-                src={src}
-                alt={`${index + 1}`}
-                style={{
-                  // increased width
-                  height: "180px",
-                  width: "150px",
-                  borderRadius: "8px",
-                  boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
-                  cursor: "pointer",
-                  transform: `translateY(${getRandomYOffset()}px)`,
-                  transition: "transform 0.3s ease",
-                  display: "block",
-                  objectFit: 'cover',
+       <div className="responsive-grid">
+  {images.map((src, index) => (
+    <img
+      key={index}
+      src={src}
+      alt={`${index + 1}`}
+      style={{
+        height: "180px",
+        width: "150px",
+        borderRadius: "8px",
+        boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+        cursor: "pointer",
+        transform: `translateY(${getRandomYOffset()}px)`,
+        transition: "transform 0.3s ease",
+        display: "block",
+        objectFit: "cover",
+      }}
+    />
+  ))}
+</div>
 
-                }}
-              />
-            ))}
+
+<style>
+{`
+  .responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .responsive-grid {
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 12px;
+    }
+  }
+`}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div style={{ testAlign: 'left', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', padding: '50px' }}>
+          <div>
+            <h2 style={{ textAlign: 'left', fontSize: '32px', fontWeight: 'bold', margin: '0 0 10px 0' }}>PHOTO GALLERY</h2>
+            <p style={{ textAlign: 'left', fontSize: '16px', color: '#555', maxWidth: '500px', lineHeight: '1.5', margin: 0 }}>
+              Explore moments from the production studio to crowds on tour. Glimpses
+              that define our artist journey and their on-stage presence.
+            </p>
           </div>
-          <div style={{ testAlign: 'left', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', padding: '50px' }}>
-            <div>
-              <h2 style={{ textAlign: 'left', fontSize: '32px', fontWeight: 'bold', margin: '0 0 10px 0' }}>PHOTO GALLERY</h2>
-              <p style={{ textAlign: 'left', fontSize: '16px', color: '#555', maxWidth: '500px', lineHeight: '1.5', margin: 0 }}>
-                Explore moments from the production studio to crowds on tour. Glimpses
-                that define our artist journey and their on-stage presence.
-              </p>
-            </div>
 
-            <div>
-              <button
-                style={{
-                  backgroundColor: '#000',
-                  color: '#fff',
-                  padding: '12px 24px',
-                  borderRadius: '30px',
-                  border: 'none',
-                  fontWeight: 'bold',
-                  cursor: 'pointer',
-                  fontSize: '16px'
-                }}
-                onClick={() => navigate('/one_one/upcoming')}  // 👈 Navigation to /upcoming
-              >
-                View More
-              </button>
-            </div>
+          <div>
+            <button
+              style={{
+                backgroundColor: '#000',
+                color: '#fff',
+                padding: '12px 24px',
+                borderRadius: '30px',
+                border: 'none',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                fontSize: '16px'
+              }}
+              onClick={() => navigate('/one_one/upcoming')}  // 👈 Navigation to /upcoming
+            >
+              View More
+            </button>
           </div>
-
         </div>
 
+      </div>
 
-{/* +++++++++++++++++++++WHERE EVER NOTE++++++++++++++ */}
+
+      {/* +++++++++++++++++++++WHERE EVER NOTE++++++++++++++ */}
 
       <div
         style={{
@@ -524,7 +637,7 @@ export default function LandingPage() {
 
 
 
-      <div style={{ fontFamily: 'Georgia, serif', padding: '40px', backgroundColor: '#fff', paddingLeft: '200px' }}>
+      <div style={{ fontFamily: 'Georgia, serif', padding: '20px', backgroundColor: '#fff', paddingLeft: '40px' }}>
         {/* Row 1 */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', marginBottom: '40px' }}>
 
@@ -560,7 +673,7 @@ export default function LandingPage() {
               <div style={{
                 backgroundColor: '#000',
                 color: '#fff',
-                padding: '25px',
+                padding: window.innerWidth >= 768 ? '25px' : '15px',
                 borderRadius: '6px'
               }}>
                 <div style={{ fontSize: '36px', fontWeight: 'bold' }}>12k</div>

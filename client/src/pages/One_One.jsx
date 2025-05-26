@@ -205,6 +205,7 @@ const isMobile = screenWidth < 768;
           padding: window.innerWidth < 600 ? '20px' : '40px',
           fontFamily: "'Orbitron', sans-serif",
           textAlign: 'center',
+          background:'#fff9f9'
 
         }}
       >

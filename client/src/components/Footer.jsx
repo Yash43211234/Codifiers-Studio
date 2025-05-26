@@ -25,6 +25,8 @@ function Footer() {
             <p>
               We are a Music Institute, Production house & an Independent Record Label from Siliguri, Darjeeling, India.
             </p>
+            
+
           </div>
 
           {/* Connect with Us */}

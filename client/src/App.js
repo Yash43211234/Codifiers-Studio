@@ -16,6 +16,8 @@ import NotFound from './components/NotFound';
 import One11ShowRegistrationForm from './components/One11ShowRegistrationForm';
 import Thank_you from './components/Thank_you';
 import QueryPage from './components/QueryPage';
+import { Copyright } from 'lucide-react';
+import CopyrightFooter from './components/CopyrightFooter';
 
 function App() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -44,6 +46,7 @@ function App() {
       <AuthModal isOpen={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
 
       <Footer />
+      <CopyrightFooter/>
     </Router>
   );
 }

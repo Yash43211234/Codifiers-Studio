@@ -19,21 +19,22 @@ export default function Pop() {
     <>
       <style>
         {`
-          .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 999;
-            opacity: 0;
-            transition: opacity 0.4s ease-in-out;
-            pointer-events: none;
-          }
+         .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9; /* Very high z-index to ensure it overlaps everything */
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  pointer-events: none;
+}
+
 
           .overlay.visible {
             opacity: 1;
@@ -135,7 +136,7 @@ export default function Pop() {
         `}
       </style>
 
-      <div className={`overlay ${isVisible ? 'visible' : ''}`}>
+      {/* <div className={`overlay ${isVisible ? 'visible' : ''}`}>
         <div className="popup-banner">
           <button className="close-btn" onClick={() => setIsVisible(false)}>×</button>
           <h1>Don't Miss Out!</h1>
@@ -143,7 +144,7 @@ export default function Pop() {
           <p>Join us today and enjoy premium benefits tailored just for you.</p>
           <button className="cta-btn" onClick={handleClick}>Get Started</button>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

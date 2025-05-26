@@ -31,7 +31,7 @@ export default function Home() {
       width: '100%',
       overflow: 'hidden',
       textAlign: 'left',
-      paddingTop: '60px',
+    
     },
     image: {
       width: '100%',

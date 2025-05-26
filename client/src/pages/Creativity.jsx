@@ -10,10 +10,10 @@ export default function Creativity() {
       fontFamily: 'sans-serif',
       background: 'linear-gradient(to bottom right, #e0e7ff, #bfdbfe)',
       color: '#333',
-      marginTop:'-20px'
+     
     },
     header: {
-      marginBottom: '20px',
+   
       backgroundColor: 'white',
       boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
       padding: '1rem 2rem',
@@ -84,9 +84,7 @@ export default function Creativity() {
 
   return (
     <div style={styles.page}>
-      <header style={styles.header}>
-        <h1 style={styles.logo}></h1>
-      </header>
+      
 
       {/* Section 1: Ignite Creativity */}
       <main style={styles.hero}>

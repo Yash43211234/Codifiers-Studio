@@ -67,17 +67,23 @@ export default function Navbar() {
             Institute
           </Link>
 
-          <div
+         
+
+          {/* <Link to="/one_one/upcoming" className="nav-item" onClick={handleLinkClick}>
+            The One 11 Show
+          </Link> */}
+
+ <div
             className="nav-item dropdown"
             ref={dropdownRef}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onClick={handleDropdownClick}
           >
-            <span className="dropdown-toggle">One11 Show</span>
+            <span className="dropdown-toggle">Services</span>
 
             <div className={`dropdown-menu ${dropdownOpen ? 'open' : ''}`}>
-              <Link to="/one_one" className="dropdown-item" onClick={handleLinkClick}>
+              <Link to="/one_one/upcoming" className="dropdown-item" onClick={handleLinkClick}>
                 Pro Music Composition
               </Link>
               <Link to="/one_one/upcoming" className="dropdown-item" onClick={handleLinkClick}>
@@ -119,9 +125,6 @@ export default function Navbar() {
             </div>
           </div>
 
-          <Link to="/one_one/upcoming" className="nav-item" onClick={handleLinkClick}>
-            Services
-          </Link>
           <Link to="/creativity" className="nav-item" onClick={handleLinkClick}>
             Record Label
           </Link>
@@ -137,7 +140,7 @@ export default function Navbar() {
 
       <style>{`
         .navbar {
-          position: fixed;
+          
           top: 0;
           left: 0;
           right: 0;
@@ -148,7 +151,7 @@ export default function Navbar() {
           background-color: #000;
           color: #fff;
           width: 100%;
-          height: 74px;
+          height: 103px;
           padding: 0 20px;
           box-sizing: border-box;
         }
@@ -160,13 +163,13 @@ export default function Navbar() {
           white-space: nowrap;
         }
         .brand img {
-          height: 145px !important;
-          width: 198px !important;
+             height: 153px !important;
+            width: 150px !important;
         }
 
         .nav-links {
           display: flex;
-          gap: 1rem;
+          gap: .3rem;
           align-items: center;
         }
 
@@ -181,6 +184,7 @@ export default function Navbar() {
           cursor: pointer;
           position: relative;
           user-select: none;
+          font-family: 'Arial';
         }
 
         .dropdown-toggle {

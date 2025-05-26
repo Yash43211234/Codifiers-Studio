@@ -3,7 +3,7 @@ import React from 'react';
 export default function About() {
   const styles = {
     page: {
-      marginTop: '65px',
+      
       minHeight: '100vh',
       display: 'flex',
       flexDirection: 'column',

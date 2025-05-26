@@ -1,642 +1,935 @@
 import React from 'react';
+import ImageCarousel from '../components/ImageCarousel ';
+import { useNavigate } from 'react-router-dom';
 
-export default function One_One() {
-  const styles = {
-    container: {
-      width: '100%',
-      marginTop:'0',
-      backgroundColor: '#0a0a0a',
-      color: '#ffffff',
-      fontFamily: '"Inter", Arial, sans-serif',
-      padding: '0',
-      overflowX: 'hidden',
-    },
-    hero: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      textAlign: 'center',
-      padding: '6rem 1rem',
-      background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
-      position: 'relative',
-      overflow: 'hidden',
-    },
-    heroOverlay: {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-      background: 'radial-gradient(circle at 70% 30%, rgba(229, 9, 20, 0.15) 0%, transparent 60%)',
-    },
-    heading: {
-      fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
-      fontWeight: '800',
-      marginBottom: '1.5rem',
-      color: '#ffffff',
-      lineHeight: '1.2',
-      position: 'relative',
-      textShadow: '0 4px 20px rgba(229, 9, 20, 0.5)',
-      background: 'linear-gradient(90deg, #fff, #e50914)',
-      WebkitBackgroundClip: 'text',
-      backgroundClip: 'text',
-      color: 'transparent',
-    },
-    subText: {
-      fontSize: 'clamp(1rem, 2vw, 1.4rem)',
-      maxWidth: '800px',
-      opacity: 0.9,
-      marginBottom: '3rem',
-      lineHeight: '1.6',
-    },
-    ctaButton: {
-      padding: '18px 42px',
-      fontSize: '1.2rem',
-      fontWeight: '700',
-      color: '#fff',
-      background: 'linear-gradient(45deg, #e50914, #b20710)',
-      border: 'none',
-      borderRadius: '50px',
-      cursor: 'pointer',
-      transition: 'all 0.3s ease',
-      boxShadow: '0 8px 30px rgba(229, 9, 20, 0.4)',
-      position: 'relative',
-      overflow: 'hidden',
-      zIndex: '1',
-    },
-    ctaButtonHover: {
-      transform: 'translateY(-3px)',
-      boxShadow: '0 12px 35px rgba(229, 9, 20, 0.6)',
-    },
-    features: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-      gap: '2.5rem',
-      padding: '6rem 2rem',
-      maxWidth: '1200px',
-      margin: '0 auto',
-    },
-    featureCard: {
-      background: 'linear-gradient(145deg, #1a1a2e, #16213e)',
-      padding: '2.5rem 2rem',
-      borderRadius: '16px',
-      textAlign: 'center',
-      border: '1px solid rgba(255, 255, 255, 0.05)',
-      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
-      transition: 'transform 0.4s ease, box-shadow 0.4s ease',
-      position: 'relative',
-      overflow: 'hidden',
-    },
-    featureCardHover: {
-      transform: 'translateY(-10px)',
-      boxShadow: '0 15px 40px rgba(229, 9, 20, 0.2)',
-    },
-    featureIcon: {
-      fontSize: '3rem',
-      marginBottom: '1.5rem',
-      background: 'linear-gradient(45deg, #e50914, #ff4d4d)',
-      WebkitBackgroundClip: 'text',
-      backgroundClip: 'text',
-      color: 'transparent',
-    },
-    featureTitle: {
-      fontSize: '1.5rem',
-      fontWeight: '700',
-      marginBottom: '1rem',
-      color: '#fff',
-    },
-    featureDesc: {
-      fontSize: '1.05rem',
-      opacity: 0.85,
-      lineHeight: '1.6',
-    },
-    sectionTitle: {
-      fontSize: 'clamp(2rem, 4vw, 3rem)',
-      fontWeight: '800',
-      textAlign: 'center',
-      marginBottom: '3rem',
-      background: 'linear-gradient(90deg, #fff, #e50914)',
-      WebkitBackgroundClip: 'text',
-      backgroundClip: 'text',
-      color: 'transparent',
-    },
-    testimonialSection: {
-      padding: '6rem 2rem',
-      background: 'linear-gradient(to bottom, #16213e, #0f3460)',
-      position: 'relative',
-    },
-    testimonials: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-      gap: '2rem',
-      maxWidth: '1200px',
-      margin: '0 auto',
-    },
-    testimonialCard: {
-      background: 'rgba(255, 255, 255, 0.05)',
-      backdropFilter: 'blur(10px)',
-      padding: '2rem',
-      borderRadius: '12px',
-      border: '1px solid rgba(255, 255, 255, 0.1)',
-    },
-    testimonialText: {
-      fontStyle: 'italic',
-      marginBottom: '1.5rem',
-      lineHeight: '1.6',
-    },
-    testimonialAuthor: {
-      fontWeight: '700',
-    },
-    testimonialRole: {
-      opacity: 0.7,
-      fontSize: '0.9rem',
-    },
-    courseSection: {
-      padding: '6rem 2rem',
-      background: '#0a0a0a',
-    },
-    courseGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-      gap: '2rem',
-      maxWidth: '1200px',
-      margin: '0 auto',
-    },
-    courseCard: {
-      background: 'linear-gradient(145deg, #1a1a2e, #16213e)',
-      borderRadius: '12px',
-      overflow: 'hidden',
-      boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
-      transition: 'transform 0.3s ease',
-    },
-    courseCardHover: {
-      transform: 'scale(1.03)',
-    },
-    courseImage: {
-      height: '200px',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-    },
-    courseContent: {
-      padding: '1.5rem',
-    },
-    courseTitle: {
-      fontSize: '1.4rem',
-      fontWeight: '700',
-      marginBottom: '0.5rem',
-    },
-    courseDesc: {
-      opacity: 0.8,
-      marginBottom: '1rem',
-      lineHeight: '1.5',
-    },
-    courseDuration: {
-      display: 'flex',
-      alignItems: 'center',
-      opacity: 0.7,
-      fontSize: '0.9rem',
-      marginBottom: '1rem',
-    },
-    pricingSection: {
-      padding: '6rem 2rem',
-      background: 'linear-gradient(to bottom, #0f3460, #16213e)',
-      textAlign: 'center',
-    },
-    pricingGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-      gap: '2rem',
-      maxWidth: '1200px',
-      margin: '3rem auto 0',
-    },
-    pricingCard: {
-      background: 'rgba(255, 255, 255, 0.05)',
-      backdropFilter: 'blur(10px)',
-      padding: '2.5rem 2rem',
-      borderRadius: '12px',
-      border: '1px solid rgba(255, 255, 255, 0.1)',
-      transition: 'transform 0.3s ease',
-      position: 'relative',
-      overflow: 'hidden',
-    },
-    pricingCardHover: {
-      transform: 'translateY(-10px)',
-      background: 'rgba(229, 9, 20, 0.1)',
-      borderColor: 'rgba(229, 9, 20, 0.3)',
-    },
-    pricingCardPopular: {
-      border: '2px solid #e50914',
-      boxShadow: '0 0 30px rgba(229, 9, 20, 0.2)',
-    },
-    popularBadge: {
-      position: 'absolute',
-      top: '0',
-      right: '20px',
-      background: '#e50914',
-      color: 'white',
-      padding: '0.3rem 1.5rem',
-      fontSize: '0.8rem',
-      fontWeight: '700',
-      borderRadius: '0 0 8px 8px',
-    },
-    pricingTitle: {
-      fontSize: '1.5rem',
-      fontWeight: '700',
-      marginBottom: '1rem',
-    },
-    pricingPrice: {
-      fontSize: '3rem',
-      fontWeight: '800',
-      marginBottom: '1.5rem',
-      background: 'linear-gradient(90deg, #fff, #e50914)',
-      WebkitBackgroundClip: 'text',
-      backgroundClip: 'text',
-      color: 'transparent',
-    },
-    pricingFeatures: {
-      textAlign: 'left',
-      marginBottom: '2rem',
-    },
-    pricingFeature: {
-      marginBottom: '0.8rem',
-      display: 'flex',
-      alignItems: 'center',
-    },
-    pricingFeatureIcon: {
-      color: '#e50914',
-      marginRight: '0.5rem',
-    },
-    faqSection: {
-      padding: '6rem 2rem',
-      background: '#0a0a0a',
-      maxWidth: '800px',
-      margin: '0 auto',
-    },
-    faqItem: {
-      marginBottom: '1.5rem',
-      borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-      paddingBottom: '1.5rem',
-    },
-    faqQuestion: {
-      fontSize: '1.2rem',
-      fontWeight: '700',
-      marginBottom: '0.8rem',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      cursor: 'pointer',
-    },
-    faqAnswer: {
-      opacity: 0.8,
-      lineHeight: '1.6',
-    },
-    ctaSection: {
-      padding: '6rem 2rem',
-      background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
-      textAlign: 'center',
-    },
-    ctaContent: {
-      maxWidth: '800px',
-      margin: '0 auto',
-    },
-    footer: {
-      padding: '3rem 2rem',
-      background: '#0a0a0a',
-      borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-      textAlign: 'center',
-    },
-    footerLinks: {
-      display: 'flex',
-      justifyContent: 'center',
-      flexWrap: 'wrap',
-      gap: '1.5rem',
-      marginBottom: '2rem',
-    },
-    footerLink: {
-      color: 'rgba(255, 255, 255, 0.7)',
-      textDecoration: 'none',
-      transition: 'color 0.3s ease',
-    },
-    footerLinkHover: {
-      color: '#e50914',
-    },
-    copyright: {
-      opacity: 0.6,
-      fontSize: '0.9rem',
-    },
+
+const gallerySection = {
+  padding: "20px",
+  textAlign: "center",
+};
+
+const galleryTitle = {
+  fontSize: "2rem",
+  marginBottom: "8px",
+};
+
+const gallerySubtitle = {
+  maxWidth: "00px",
+  margin: "0 auto 20px",
+};
+
+const gridContainer = {
+  display: "flex",
+  flexWrap: "wrap",
+  justifyContent: "center",
+  gap: "15px",
+};
+
+const viewMoreBtn = {
+  marginTop: "20px",
+  padding: "10px 20px",
+  fontSize: "1rem",
+  cursor: "pointer",
+  borderRadius: "5px",
+  border: "none",
+  backgroundColor: "#007BFF",
+  color: "#fff",
+};
+
+const images = [
+  "https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/fc8caa80c3fa6c47e578f7973c020161f59b5819+(1).jpg",
+  "https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/4539f9ab6535a9d947d9348ef2d084f25e263d9b.jpg",
+  "https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/225f634a885ea8917b80f7d57b48c05ef5e206ec.jpg",
+  "https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/87284b8c9ea35499751a7d8ee3d1cde0455e5c46.jpg",
+  "https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/fc8caa80c3fa6c47e578f7973c020161f59b5819+(1).jpg",
+  "https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/4539f9ab6535a9d947d9348ef2d084f25e263d9b.jpg",
+  "https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/225f634a885ea8917b80f7d57b48c05ef5e206ec.jpg",
+  "https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/87284b8c9ea35499751a7d8ee3d1cde0455e5c46.jpg",
+  "https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/fc8caa80c3fa6c47e578f7973c020161f59b5819+(1).jpg",
+  "https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/4539f9ab6535a9d947d9348ef2d084f25e263d9b.jpg",
+
+];
+
+export default function LandingPage() {
+  const getRandomYOffset = () => Math.floor(Math.random() * 41) - 20;
+  const navigate = useNavigate();
+
+  const handleJoinClick = () => {
+    navigate('/institute'); // 👈 change '/institute' to your actual route if needed
   };
 
-  const features = [
-    {
-      icon: '🎵',
-      title: 'Comprehensive Curriculum',
-      description: 'From basics to advanced techniques, our courses cover everything you need to become a professional music producer.',
-    },
-    {
-      icon: '🎚',
-      title: 'Industry Expert Instructors',
-      description: 'Learn directly from producers who have worked with top artists and labels in the industry.',
-    },
-    {
-      icon: '🎧',
-      title: 'Hands-on Projects',
-      description: 'Apply what you learn by creating real tracks and getting professional feedback.',
-    },
-    {
-      icon: '⚡',
-      title: 'Community & Networking',
-      description: 'Join our vibrant community of producers and collaborate on projects.',
-    },
-  ];
 
-  const testimonials = [
-    {
-      text: "This course transformed my approach to music production. I went from making beats in my bedroom to getting signed within 6 months!",
-      author: "Alex Johnson",
-      role: "Electronic Producer"
-    },
-    {
-      text: "The quality of instruction is unmatched. The instructors break down complex concepts in ways that are easy to understand and apply immediately.",
-      author: "Maria Garcia",
-      role: "Hip-Hop Producer"
-    },
-    {
-      text: "The community alone is worth the price. Being able to connect and collaborate with other producers at all levels has been invaluable.",
-      author: "James Wilson",
-      role: "Film Composer"
-    }
-  ];
+  const sectionStyle = {
+    backgroundColor: '#000',
+    color: '#fff',
+    fontFamily: 'Arial, sans-serif',
+    padding: '60px 20px',
+    textAlign: 'center'
+  };
 
-  const courses = [
-    {
-      title: "Music Production Fundamentals",
-      description: "Master the basics of DAWs, sound design, and music theory to create professional-quality tracks.",
-      duration: "8 weeks",
-      image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4"
-    },
-    {
-      title: "Advanced Mixing & Mastering",
-      description: "Learn professional techniques to make your tracks sound radio-ready and compete with commercial releases.",
-      duration: "6 weeks",
-      image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819"
-    },
-    {
-      title: "Electronic Music Production",
-      description: "Specialize in EDM, house, techno and other electronic genres with industry-standard techniques.",
-      duration: "10 weeks",
-      image: "https://images.unsplash.com/photo-1496293455970-f8581aae0e3b"
-    }
-  ];
+  const headingStyle = {
+    fontSize: '28px',
+    fontWeight: 'bold',
+    marginBottom: '10px',
+    textTransform: 'uppercase'
+  };
 
-  const pricingPlans = [
-    {
-      title: "Starter",
-      price: "$29",
-      period: "per month",
-      features: [
-        "Access to basic courses",
-        "Weekly Q&A sessions",
-        "Community access",
-        "2 project reviews/month"
-      ]
-    },
-    {
-      title: "Professional",
-      price: "$79",
-      period: "per month",
-      features: [
-        "All courses unlocked",
-        "Priority feedback",
-        "Weekly masterclasses",
-        "Unlimited project reviews",
-        "Exclusive sample packs"
-      ],
-      popular: true
-    },
-    {
-      title: "Mentorship",
-      price: "$199",
-      period: "per month",
-      features: [
-        "1-on-1 mentorship",
-        "Custom learning plan",
-        "Industry networking",
-        "Label submission guidance",
-        "All Professional benefits"
-      ]
-    }
-  ];
+  const descriptionStyle = {
+    color: '#ccc',
+    fontSize: '14px',
+    maxWidth: '800px',
+    margin: '0 auto 40px',
+    lineHeight: '1.6'
+  };
 
-  const faqs = [
-    {
-      question: "Do I need any prior experience to join?",
-      answer: "No! Our courses are designed for all skill levels, from complete beginners to advanced producers looking to refine their skills."
-    },
-    {
-      question: "What equipment do I need?",
-      answer: "At minimum, you'll need a computer capable of running a DAW (Digital Audio Workstation). We recommend headphones or monitors, but we'll guide you on budget-friendly options."
-    },
-    {
-      question: "How much time should I dedicate?",
-      answer: "We recommend 5-10 hours per week to make substantial progress, but you can go at your own pace. The courses are designed to be flexible."
-    },
-    {
-      question: "Can I get a refund if I'm not satisfied?",
-      answer: "Absolutely. We offer a 30-day money-back guarantee with no questions asked."
-    }
-  ];
+  const artistBlock = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: '30px',
+    flexWrap: 'wrap',
+    marginBottom: '60px'
+  };
+
+  const artistImg = {
+    width: '300px',
+    borderRadius: '8px'
+  };
+
+  const artistTextBlock = {
+    maxWidth: '400px',
+    textAlign: 'left'
+  };
+
+  const artistName = {
+    fontSize: '20px',
+    fontWeight: 'bold',
+    marginBottom: '10px'
+  };
+
+  const artistDesc = {
+    fontSize: '14px',
+    color: '#ccc',
+    lineHeight: '1.5',
+    fontFamily: 'roboto'
+  };
+
+  const gallerySection = {
+    backgroundColor: '#fff',
+    padding: '60px 20px',
+    color: '#000',
+    textAlign: 'center'
+
+  };
+
+  const galleryTitle = {
+    fontSize: '24px',
+    fontWeight: 'bold',
+    marginBottom: '10px'
+  };
+
+  const gallerySubtitle = {
+    fontSize: '14px',
+    color: '#444',
+    marginBottom: '30px',
+    maxWidth: '600px',
+    marginLeft: 'auto',
+    marginRight: 'auto'
+  };
+
+  const gridContainer = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+    gap: '15px',
+    maxWidth: '900px',
+    margin: '0 auto'
+  };
+
+  const galleryImage = {
+    width: '100%',
+    borderRadius: '10px',
+    objectFit: 'cover'
+  };
+
+  const viewMoreBtn = {
+    marginTop: '30px',
+    padding: '10px 20px',
+    borderRadius: '30px',
+    backgroundColor: '#f4e409',
+    color: '#000',
+    fontWeight: 'bold',
+    border: 'none',
+    cursor: 'pointer'
+  };
+
 
   return (
-    <div style={styles.container}>
+    <div>
       {/* HERO SECTION */}
-      <section style={styles.hero}>
-        <div style={styles.heroOverlay}></div>
-        <h1 style={styles.heading}>BECOME A PROFESSIONAL MUSIC PRODUCER</h1>
-        <p style={styles.subText}>
-          Join the most comprehensive music production program online. Learn from industry professionals, 
-          build an impressive portfolio, and launch your music career with confidence.
-        </p>
-        <button
-          style={styles.ctaButton}
-          onMouseOver={(e) => {
-            e.target.style.transform = 'translateY(-3px)';
-            e.target.style.boxShadow = '0 12px 35px rgba(229, 9, 20, 0.6)';
-          }}
-          onMouseOut={(e) => {
-            e.target.style.transform = 'translateY(0)';
-            e.target.style.boxShadow = '0 8px 30px rgba(229, 9, 20, 0.4)';
+      <div className="hero-section">
+        <div className="overlay" />
+        <div className="hero-content">
+          <img
+            src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/4d9261216de606e1cb701ad4448c05c248a6e160+(1).png"
+            alt="Chordifiers Logo"
+            className="hero-logo"
+          />
+          <span className="One_One_Page_Header"><p>Your Record Label, Production House <br /> & Music Institute</p></span>
+          <span className="One_One_Page_Header_p"><p>"You Love being Creative? We Love You"</p></span>
+        </div>
+      </div>
+
+      {/* ONE11 SHOW SECTION */}
+      <div className="one11-section">
+        <h2 style={{
+          fontFamily: "'Orbitron', sans-serif",
+          fontSize: '54px',
+          textAlign: 'center',
+          margin: '20px 0'
+        }}>
+          The ONE11 Show
+        </h2>
+
+        <p><strong>“The One11 Show”</strong> is an artist launch platform by The Chordifiers Studio, that focuses on launching artists and creators of various niches into the world.</p>
+        <div>
+          <ImageCarousel />
+        </div>
+        <h3>Click here to register for<br />“The ONE11 Show”</h3>
+         <button className="btn-dark" onClick={() => navigate('/one11register')}>
+      Register Now
+    </button>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      {/* +++++++++++++++++++ */}
+      {/* MUSIC CAREER + SERVICES SECTION */}
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row', // changed from 'column' to 'row'
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          padding: '40px',
+          gap: '20px',
+          flexWrap: 'wrap',
+          padding: '0 200px'// allows wrapping on smaller screens
+        }}
+      >
+        {/* Left Side */}
+        <div
+          style={{
+            flex: '1',
+            minWidth: '300px',
+            maxWidth: '50%',
+            boxSizing: 'border-box',
           }}
         >
-          START YOUR JOURNEY TODAY
-        </button>
-      </section>
+          <p
+            style={{
+              fontSize: '28px',
 
-      {/* FEATURES SECTION */}
-      <section>
-        <h2 style={{...styles.sectionTitle, paddingTop: '4rem'}}>WHY CHOOSE OUR PROGRAM</h2>
-        <div style={styles.features}>
-          {features.map((feature, index) => (
-            <div 
-              key={index} 
-              style={styles.featureCard}
-              onMouseOver={(e) => {
-                e.currentTarget.style.transform = 'translateY(-10px)';
-                e.currentTarget.style.boxShadow = '0 15px 40px rgba(229, 9, 20, 0.2)';
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.3)';
-              }}
-            >
-              <div style={styles.featureIcon}>{feature.icon}</div>
-              <h3 style={styles.featureTitle}>{feature.title}</h3>
-              <p style={styles.featureDesc}>{feature.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* TESTIMONIALS SECTION */}
-      <section style={styles.testimonialSection}>
-        <h2 style={styles.sectionTitle}>SUCCESS STORIES</h2>
-        <div style={styles.testimonials}>
-          {testimonials.map((testimonial, index) => (
-            <div key={index} style={styles.testimonialCard}>
-              <p style={styles.testimonialText}>"{testimonial.text}"</p>
-              <p style={styles.testimonialAuthor}>{testimonial.author}</p>
-              <p style={styles.testimonialRole}>{testimonial.role}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* COURSES SECTION */}
-      <section style={styles.courseSection}>
-        <h2 style={styles.sectionTitle}>OUR CORE COURSES</h2>
-        <div style={styles.courseGrid}>
-          {courses.map((course, index) => (
-            <div 
-              key={index} 
-              style={styles.courseCard}
-              onMouseOver={(e) => {
-                e.currentTarget.style.transform = 'scale(1.03)';
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.transform = 'scale(1)';
-              }}
-            >
-              <div style={{...styles.courseImage, }}></div>
-              <div style={styles.courseContent}>
-                <h3 style={styles.courseTitle}>{course.title}</h3>
-                <p style={styles.courseDesc}>{course.description}</p>
-                <div style={styles.courseDuration}>
-                  <span>⏱ {course.duration}</span>
-                </div>
-                <button style={styles.planButton}>Learn More</button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* PRICING SECTION */}
-      <section style={styles.pricingSection}>
-        <h2 style={styles.sectionTitle}>FLEXIBLE PRICING OPTIONS</h2>
-        <p style={{...styles.subText, maxWidth: '700px', margin: '0 auto 2rem'}}>
-          Choose the plan that fits your goals and budget. All plans include full access to our community and resources.
-        </p>
-        <div style={styles.pricingGrid}>
-          {pricingPlans.map((plan, index) => (
-            <div 
-              key={index} 
-              style={{
-                ...styles.pricingCard,
-                ...(plan.popular ? styles.pricingCardPopular : {})
-              }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.transform = 'translateY(-10px)';
-                e.currentTarget.style.background = 'rgba(229, 9, 20, 0.1)';
-                e.currentTarget.style.borderColor = 'rgba(229, 9, 20, 0.3)';
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.background = plan.popular 
-                  ? 'rgba(229, 9, 20, 0.1)' 
-                  : 'rgba(255, 255, 255, 0.05)';
-                e.currentTarget.style.borderColor = plan.popular 
-                  ? '#e50914' 
-                  : 'rgba(255, 255, 255, 0.1)';
-              }}
-            >
-              {plan.popular && <div style={styles.popularBadge}>MOST POPULAR</div>}
-              <h3 style={styles.pricingTitle}>{plan.title}</h3>
-              <div style={styles.pricingPrice}>{plan.price}</div>
-              <div style={styles.pricingFeatures}>
-                {plan.features.map((feature, i) => (
-                  <div key={i} style={styles.pricingFeature}>
-                    <span style={styles.pricingFeatureIcon}>✓</span>
-                    <span>{feature}</span>
-                  </div>
-                ))}
-              </div>
-              <button style={styles.planButton}>Get Started</button>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* FAQ SECTION */}
-      <section style={styles.faqSection}>
-        <h2 style={styles.sectionTitle}>FREQUENTLY ASKED QUESTIONS</h2>
-        <div>
-          {faqs.map((faq, index) => (
-            <div key={index} style={styles.faqItem}>
-              <div style={styles.faqQuestion}>
-                <span>{faq.question}</span>
-                <span>+</span>
-              </div>
-              <p style={styles.faqAnswer}>{faq.answer}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* FINAL CTA SECTION */}
-      <section style={styles.ctaSection}>
-        <div style={styles.ctaContent}>
-          <h2 style={styles.sectionTitle}>READY TO TRANSFORM YOUR MUSIC?</h2>
-          <p style={styles.subText}>
-            Join thousands of producers who've accelerated their careers with our program. 
-            Start your 7-day free trial today - no credit card required.
-          </p>
-          <button
-            style={styles.ctaButton}
-            onMouseOver={(e) => {
-              e.target.style.transform = 'translateY(-3px)';
-              e.target.style.boxShadow = '0 12px 35px rgba(229, 9, 20, 0.6)';
-            }}
-            onMouseOut={(e) => {
-              e.target.style.transform = 'translateY(0)';
-              e.target.style.boxShadow = '0 8px 30px rgba(229, 9, 20, 0.4)';
+              marginBottom: '20px',
             }}
           >
-            START FREE TRIAL
+            Are you ready to take your<br /> Music Career to the next level?
+          </p>
+          <p
+            style={{
+              fontSize: '16px',
+              lineHeight: '1.6',
+              marginBottom: '20px',
+            }}
+          >
+            Our team of industry professionals are here to guide you through every step of your music journey and provide you with tailored guidance, mentorship and strategies personalized for your success.
+          </p>
+          <button
+            onClick={handleJoinClick}
+            style={{
+              backgroundColor: '#000',
+              color: '#fff',
+              padding: '12px 24px',
+              border: 'none',
+              borderRadius: '20px',
+              cursor: 'pointer',
+              fontSize: '16px',
+            }}
+          >
+            Join Us
           </button>
-        </div>
-      </section>
 
-      {/* FOOTER */}
-      <footer style={styles.footer}>
-        <div style={styles.footerLinks}>
-          <a href="#" style={styles.footerLink}>About</a>
-          <a href="#" style={styles.footerLink}>Courses</a>
-          <a href="#" style={styles.footerLink}>Pricing</a>
-          <a href="#" style={styles.footerLink}>Testimonials</a>
-          <a href="#" style={styles.footerLink}>Contact</a>
-          <a href="#" style={styles.footerLink}>Blog</a>
         </div>
-        <p style={styles.copyright}>© {new Date().getFullYear()} Music Production Institute. All rights reserved.</p>
-      </footer>
+
+        {/* Right Side */}
+        <div
+          style={{
+            flex: '1',
+            minWidth: '300px',
+            maxWidth: '50%',
+            boxSizing: 'border-box',
+            textAlign: 'center',
+
+          }}
+        >
+          <img
+            src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/a8b709f32e0d0471875d176edce157947a33c467.png"
+            alt="Music Career Visual"
+            style={{
+              width: '100%',
+              maxWidth: '600px',
+              height: 'auto',
+            }}
+          />
+        </div>
+      </div>
+
+
+
+
+
+      {/* ++++++++++++++++++++++*/}
+
+      <div
+        style={{
+          backgroundColor: '#f1e40b',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: '60px 20px',
+          fontFamily: 'Georgia, serif',
+          flexWrap: 'wrap'
+        }}
+      >
+        {/* Left Side - Image */}
+        <div style={{ flex: '1 1 300px', textAlign: 'center', padding: '20px' }}>
+          <img
+            src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/e6c328ba531ead0fc89cfd452baf5313246cdb0b.png"
+            alt="Star Music"
+            style={{
+              width: '350px',
+              height: '350px',
+              borderRadius: '20px',
+              boxShadow: '0 8px 16px rgba(0,0,0,0.2)'
+            }}
+          />
+        </div>
+
+        {/* Right Side - Text */}
+        <div style={{ flex: '1 1 400px', padding: '20px' }}>
+          <h1 style={{ fontSize: '40px', color: '#000', marginBottom: '20px' }}>
+            Looking for Pro Music Services?
+          </h1>
+          <p style={{ fontSize: '16px', color: '#111', lineHeight: '1.6', marginBottom: '30px' }}>
+            Schedule a free consultation to discuss your musical aspirations and dreams. <br />
+            We analyze your goals, advise you on the best approach, and explain our process.
+          </p>
+          <button
+            onClick={() => window.open('https://wa.me/917811092672', '_blank')}
+            style={{
+              backgroundColor: '#000',
+              color: '#fff',
+              padding: '12px 24px',
+              borderRadius: '999px',
+              border: 'none',
+              fontWeight: 'bold',
+              cursor: 'pointer'
+            }}
+          >
+            Know more
+          </button>
+
+        </div>
+      </div>
+
+
+      {/* +++++++++++++++++++++++++++++++ */}
+
+
+      <div style={sectionStyle}>
+        <h2 style={headingStyle}>OUR LATEST SIGNED ARTIST</h2>
+        <p style={descriptionStyle}>
+          Meet the newest talent to join our creative family. With a unique sound and undeniable passion, this artist is set to make waves in the music industry. Stay tuned for their upcoming releases, exclusive performances, and more as they embark on an exciting journey with us.
+        </p>
+
+        {/* Artist 1 */}
+        <div style={artistBlock}>
+          <img
+            src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/bb0cfb4651b4fd60bd61928cd0d593ab6c731d0a+(1).jpg"
+            alt="MizzieLmb"
+            style={artistImg}
+          />
+          <div style={artistTextBlock}>
+            <h3 style={artistName}>MizzieLmb</h3>
+            <p style={artistDesc}>
+              is a talented artist from Zimbabwe, celebrated for her strong voice and electrifying energy. As part of The Chordifiers Studio, she’s redefining music with her unique approach. Don’t miss her latest creations!
+            </p>
+          </div>
+        </div>
+
+        {/* Artist 2 */}
+        <div style={{ ...artistBlock, flexDirection: 'row-reverse' }}>
+          <img
+            src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/23f4e11a55b906a4310e045982373adcbcdbef9a.jpg"
+            alt="Sweta"
+            style={artistImg}
+          />
+          <div style={artistTextBlock}>
+            <h3 style={artistName}>Sweta</h3>
+            <p style={artistDesc}>
+              a rising artist from Kurseong, is known for her heartfelt and soothing voice. Proudly representing The Chordifiers Studio, she’s bringing fresh energy to the music scene. Stay tuned for her upcoming projects!
+            </p>
+          </div>
+        </div>
+
+        {/* Artist 3 */}
+        <div style={artistBlock}>
+          <img
+            src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/ddd2b1b879f16ccc4ece2ec94c7d7b6abb4f315d.jpg"
+            alt="Divas"
+            style={artistImg}
+          />
+          <div style={artistTextBlock}>
+            <h3 style={artistName}>Diyaan</h3>
+            <p style={artistDesc}>
+              is a artist from Kashmir, known for their unique sound and captivating music. Representing The Chordifiers Studio, he is making waves from his heart out. Stay tuned for their latest hits!
+            </p>
+          </div>
+        </div>
+
+
+       
+      </div>
+
+ <div
+      style={{
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        backgroundColor: '#ffffff', // optional
+        padding: '20px 0',
+      }}
+    >
+      <img
+        src="/curveImage.jpg" // replace with your image URL
+        alt="Banner"
+        style={{
+          width: '100%',
+          maxWidth: '100%',
+          height: 'auto',
+          display: 'block',
+          marginTop:'-24px',
+          border:'none'
+        }}
+      />
+    </div>
+
+        {/* Photo Gallery */}
+
+         <div style={gallerySection}>
+
+
+          <div style={gridContainer}>
+            {images.map((src, index) => (
+              <img
+                key={index}
+                src={src}
+                alt={`${index + 1}`}
+                style={{
+                  // increased width
+                  height: "180px",
+                  width: "150px",
+                  borderRadius: "8px",
+                  boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+                  cursor: "pointer",
+                  transform: `translateY(${getRandomYOffset()}px)`,
+                  transition: "transform 0.3s ease",
+                  display: "block",
+                  objectFit: 'cover',
+
+                }}
+              />
+            ))}
+          </div>
+          <div style={{ testAlign: 'left', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', padding: '50px' }}>
+            <div>
+              <h2 style={{ textAlign: 'left', fontSize: '32px', fontWeight: 'bold', margin: '0 0 10px 0' }}>PHOTO GALLERY</h2>
+              <p style={{ textAlign: 'left', fontSize: '16px', color: '#555', maxWidth: '500px', lineHeight: '1.5', margin: 0 }}>
+                Explore moments from the production studio to crowds on tour. Glimpses
+                that define our artist journey and their on-stage presence.
+              </p>
+            </div>
+
+            <div>
+              <button
+                style={{
+                  backgroundColor: '#000',
+                  color: '#fff',
+                  padding: '12px 24px',
+                  borderRadius: '30px',
+                  border: 'none',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  fontSize: '16px'
+                }}
+                onClick={() => navigate('/one_one/upcoming')}  // 👈 Navigation to /upcoming
+              >
+                View More
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+
+{/* +++++++++++++++++++++WHERE EVER NOTE++++++++++++++ */}
+
+      <div
+        style={{
+          backgroundColor: '#f0e924',
+          width: '96.84%',
+          padding: '40px 20px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <p
+          style={{
+            fontSize: '1.8rem',
+            fontWeight: '400',
+            color: '#000000',
+            textAlign: 'center',
+            fontFamily: 'sans-serif',
+            margin: 0,
+          }}
+        >
+          Where every note resonate with passion
+        </p>
+      </div>
+
+
+
+      <div style={{ fontFamily: 'Georgia, serif', padding: '40px', backgroundColor: '#fff', paddingLeft: '200px' }}>
+        {/* Row 1 */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', marginBottom: '40px' }}>
+
+          {/* Left: Discovery */}
+          <div style={{ flex: '1 1 45%', minWidth: '280px' }}>
+            <h1 style={{ fontSize: '42px', color: '#111', marginBottom: '20px', lineHeight: '1.2' }}>
+              Discover <br /> our <br /> key insights
+            </h1>
+            <p style={{ fontSize: '18px', color: '#555', lineHeight: '1.6', marginBottom: '30px' }}>
+              Diving into the metrics behind our success: a detailed <br />
+              look at the key factors driving our achievements in the <br />
+              music industry.
+            </p>
+            <button onClick={() => navigate('/one_one/upcoming')}
+              style={{
+                backgroundColor: '#f1e40b',
+                border: 'none',
+                padding: '10px 25px',
+                borderRadius: '20px',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                fontSize: '16px'
+              }}
+            >
+              More Information
+            </button>
+          </div>
+
+          {/* Right: One Div that contains both cards in a row */}
+          <div style={{ flex: '1 1 50%', minWidth: '280px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: '339px' }}>
+              {/* 12k Card */}
+              <div style={{
+                backgroundColor: '#000',
+                color: '#fff',
+                padding: '25px',
+                borderRadius: '6px'
+              }}>
+                <div style={{ fontSize: '36px', fontWeight: 'bold' }}>12k</div>
+                <div style={{ fontSize: '18px', fontWeight: 'bold', marginTop: '10px' }}>
+                  Music Management Service
+                </div>
+                <p style={{ marginTop: '10px', fontSize: '14px', lineHeight: '1.5' }}>
+                  Explore a wide range of effective and impactful <br />
+                  promotional options.
+                </p>
+              </div>
+
+              {/* 72% Card */}
+              <div style={{
+                backgroundColor: '#f1e40b',
+                color: '#111',
+                padding: '25px',
+                borderRadius: '6px'
+              }}>
+                <div style={{ fontSize: '36px', fontWeight: 'bold' }}>72%</div>
+                <div style={{ fontSize: '18px', fontWeight: 'bold', marginTop: '10px' }}>
+                  More opportunities
+                </div>
+                <p style={{ marginTop: '10px', fontSize: '14px', lineHeight: '1.5' }}>
+                  Elevate your music career with an influx of new <br />
+                  opportunities.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+
+
+      {/* ================== */}
+      <div
+        style={{
+          backgroundColor: '#fcee09',
+          padding: '60px 20px',
+          textAlign: 'center',
+          fontFamily: 'Georgia, serif',
+        }}
+      >
+        <h1 style={{ fontSize: '3rem', margin: '0 0 20px' }}>The Chordifiers Studio</h1>
+        <p style={{ fontSize: '1rem', marginBottom: '10px' }}>
+          Client Rating (+50 on Google Maps)
+        </p>
+        <div style={{ fontSize: '1.2rem', marginBottom: '20px', color: '#000' }}>
+          ★★★★★
+        </div>
+        <div
+          style={{
+            display: 'inline-block',
+            backgroundColor: '#fff',
+            padding: '10px 20px',
+            borderRadius: '999px',
+            fontSize: '1rem',
+            color: '#000',
+            boxShadow: '0 2px 5px rgba(0, 0, 0, 0.15)',
+          }}
+        >
+          Want to book a studio session?{' '}
+          <span onClick={() => navigate('/one_one/upcoming')}
+            style={{
+              backgroundColor: '#fcee09',
+              padding: '2px 8px',
+              borderRadius: '8px',
+              fontSize: '0.8rem',
+              fontWeight: 'bold',
+              cursor: 'pointer'
+            }}
+          >
+            See More
+          </span>
+        </div>
+      </div>
+
+
+
+
+      {/* +++++++++++++++++++++++++++ */}
+      <div
+        style={{
+          backgroundImage: 'url("https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/4efcc2c0-8d10-4ae2-949f-1c29e20cc45e.png")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          padding: '40px 20px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: '70vh',
+          boxSizing: 'border-box',
+        }}
+      >
+        <div
+          style={{
+            backgroundColor: '#fff',
+            border: '3px solid #0080ff',
+            borderRadius: '8px',
+            padding: '20px',
+            maxWidth: '600px',
+            width: '100%',
+            textAlign: 'center',
+            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+          }}
+        >
+          <p style={{ fontSize: '1.1rem', lineHeight: '1.6', color: '#000' }}>
+            I would like to recommend "The Chordifiers Studio" to everyone. Here satisfaction is guaranteed with utmost
+            priority with reasonable pricing. The zeal and enthusiasm shown by the members are well exemplary.
+          </p>
+          <div style={{ marginTop: '20px' }}>
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/2922/2922506.png"
+              alt="User Avatar"
+              style={{
+                width: '40px',
+                height: '40px',
+                borderRadius: '50%',
+                objectFit: 'cover',
+                marginBottom: '8px',
+              }}
+            />
+            <div style={{ fontWeight: 'bold', fontSize: '0.9rem', color: '#333' }}>Sambid Dutta</div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      {/* +++++++++++++++++++++++++++ */}
+      <div
+        style={{
+          width: '100%',
+          backgroundColor: '#111',
+          color: '#fff',
+          padding: '40px 60px',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          boxSizing: 'border-box',
+        }}
+      >
+        <div style={{ maxWidth: '100%' }}>
+          <h2 style={{ fontSize: '2rem', marginBottom: '10px' }}>
+            Want to become a <span style={{ fontWeight: '600' }}>Music Producer</span>?
+          </h2>
+          <p style={{ fontSize: '1rem', color: '#ccc' }}>
+            We’ll help you to amplify your career and reach new heights.
+          </p>
+        </div>
+
+
+        <button onClick={() => navigate('/register')}
+          style={{
+            backgroundColor: '#fcee09',
+            color: '#000',
+            fontWeight: '600',
+            fontSize: '1rem',
+            border: 'none',
+            borderRadius: '999px',
+            padding: '12px 30px',
+            cursor: 'pointer',
+            marginTop: '20px',
+          }}
+        >
+          Apply
+        </button>
+      </div>
+
+
+      <style>{`
+       .hero-section {
+  position: relative;
+  height: 962px;
+  background-image: url('https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/3bb25b2526519f66c08b0cb47e42ad5d8cbd3adf.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* This keeps the background image fixed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+
+        .overlay {
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.6);
+          z-index: 10;
+         
+        }
+
+        .hero-content {
+          position: relative;
+          z-index: 2;
+
+        }
+
+        .hero-logo {
+      
+         width: 349px;
+            height: 349px;
+          border-radius: 50%;
+          background-color: black;
+          object-fit: contain;
+          margin-bottom: 20px;
+        }
+
+        h1, h2, h3 {
+          font-family: 'Arial Black', sans-serif;
+        }
+        h1{
+          font-size:30px;
+        }
+        .One_One_Page_Header {
+          font-size:40px;
+        }
+        .One_One_Page_Header_p{
+          font-size:17px;
+        }
+
+        .one11-section {
+          padding: 50px 20px ;
+          background: #f9e300;
+          text-align: center;
+        
+        }
+
+        .one11-section h2{
+          font-size:40px;
+          
+        }
+        .one11-section p{
+          font-size:25px;
+        padding:0 200px;
+         
+        }
+         .one11-section h3{
+          font-size:30px;
+          
+        }
+           .one11-section button{
+          font-size:30px;
+          
+        }
+        .cards {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          margin: 30px 0;
+          flex-wrap: wrap;
+        }
+
+        .cards img {
+          width: 200px;
+          height: auto;
+          border-radius: 10px;
+        }
+
+        .music-career-section, .pro-services-section {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 50px 20px;
+          gap: 40px;
+        }
+
+        .music-career-section .left,
+        .pro-services-section .right {
+          flex: 1;
+        }
+
+        .music-career-section .right img,
+        .pro-services-section .left img {
+          max-width: 100%;
+          border-radius: 10px;
+        }
+
+        .btn-dark {
+          background-color: black;
+          color: white;
+          border: none;
+          padding: 12px 24px;
+          border-radius: 6px;
+          cursor: pointer;
+          font-size: 1rem;
+          margin-top: 15px;
+        }
+
+        @media (max-width: 768px) {
+          .music-career-section,
+          .pro-services-section {
+            flex-direction: column;
+            text-align: center;
+          }
+
+          .cards {
+            flex-direction: column;
+          }
+
+          .hero-logo {
+            width: 90px;
+            height: 90px;
+          }
+
+          h1 {
+            font-size: 1.5rem;
+          }
+
+
+          /* Base styles already handled by your inline styles */
+
+@media screen and (max-width: 768px) {
+  /* Tablets */
+  .hero-content h1 {
+    font-size: 24px;
+  }
+
+  .music-career-section {
+    flex-direction: column;
+  }
+
+  .music-career-section img {
+    max-width: 100%;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Phones */
+  .hero-content h1 {
+    font-size: 20px;
+  }
+
+  .music-career-section {
+    flex-direction: column;
+  }
+
+  .gallery-title {
+    font-size: 20px;
+  }
+
+  .gallery-subtitle {
+    font-size: 12px;
+  }
+
+  .btn-dark,
+  .view-more-btn {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+        }
+      `}</style>
     </div>
   );
 }

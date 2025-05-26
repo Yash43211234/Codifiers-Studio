@@ -3,6 +3,7 @@ import ImageCarousel from '../components/ImageCarousel ';
 import { useNavigate } from 'react-router-dom';
 
 
+
 const gallerySection = {
   padding: "20px",
   textAlign: "center",
@@ -56,7 +57,7 @@ export default function LandingPage() {
 
 
   const handleJoinClick = () => {
-    navigate('/institute'); // 👈 change '/institute' to your actual route if needed
+    navigate('/query'); // 👈 change '/institute' to your actual route if needed
   };
 
 
@@ -191,24 +192,32 @@ export default function LandingPage() {
           padding: window.innerWidth < 600 ? '20px' : '40px',
           fontFamily: "'Orbitron', sans-serif",
           textAlign: 'center',
+
         }}
       >
-        <h2
-          style={{
-            fontSize: window.innerWidth < 600 ? '32px' : '54px',
-            margin: '20px 0',
-            fontWeight: 'bold',
-            fontFamily: 'Luckiest Guy'
-          }}
-        >
-          The ONE11 Show
+        <h2 style={{
+          fontFamily: "Null-Free",
+          fontSize: window.innerWidth < 600 ? '32px' : '54px',
+          margin: '20px 0',
+          fontWeight: 'Exile',
+        }}>
+          <img
+            src="one11mainlogo.png" // path to your image
+            alt="The ONE11 Show"
+            style={{
+              width: window.innerWidth < 600 ? '200px' : '356px',
+              margin: '-30px 0',
+            }}
+          />
         </h2>
+
+
 
         <p
           style={{
             fontSize: window.innerWidth < 600 ? '14px' : '18px',
             lineHeight: '1.5',
-            margin: window.innerWidth < 600 ? '10px 0' : '20px auto',
+            margin: window.innerWidth < 600 ? '26px 0px 10px 0px' : '20px auto',
             maxWidth: '800px',
           }}
         >
@@ -278,6 +287,7 @@ export default function LandingPage() {
           gap: '20px',
           flexWrap: 'wrap',
           boxSizing: 'border-box',
+          background: '#F0E81B'
         }}
       >
         {/* Left Side */}
@@ -335,11 +345,11 @@ export default function LandingPage() {
           }}
         >
           <img
-            src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/a8b709f32e0d0471875d176edce157947a33c467.png"
+            src="piano.jpg"
             alt="Music Career Visual"
             style={{
               width: '100%',
-              maxWidth: '600px',
+              maxWidth: '508px',
               height: 'auto',
             }}
           />
@@ -353,7 +363,7 @@ export default function LandingPage() {
 
       <div
         style={{
-          backgroundColor: '#f1e40b',
+
           display: 'flex',
           flexDirection: window.innerWidth < 768 ? 'column' : 'row',
           justifyContent: 'center',
@@ -375,7 +385,7 @@ export default function LandingPage() {
           }}
         >
           <img
-            src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/e6c328ba531ead0fc89cfd452baf5313246cdb0b.png"
+            src="diskone.jpg"
             alt="Star Music"
             style={{
               width: '100%',
@@ -400,6 +410,7 @@ export default function LandingPage() {
               fontSize: window.innerWidth < 768 ? '30px' : '40px',
               color: '#000',
               marginBottom: '20px',
+              fontFamily: 'auto'
             }}
           >
             Looking for Pro Music Services?
@@ -410,6 +421,7 @@ export default function LandingPage() {
               color: '#111',
               lineHeight: '1.6',
               marginBottom: '30px',
+              fontFamily: 'sans-serif'
             }}
           >
             Schedule a free consultation to discuss your musical aspirations and dreams. <br />
@@ -578,32 +590,44 @@ export default function LandingPage() {
 
 
 
-        <div style={{ testAlign: 'left', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', padding: '50px' }}>
-          <div>
-            <h2 style={{ textAlign: 'left', fontSize: '32px', fontWeight: 'bold', margin: '0 0 10px 0' }}>PHOTO GALLERY</h2>
-            <p style={{ textAlign: 'left', fontSize: '16px', color: '#555', maxWidth: '500px', lineHeight: '1.5', margin: 0 }}>
-              Explore moments from the production studio to crowds on tour. Glimpses
-              that define our artist journey and their on-stage presence.
-            </p>
-          </div>
+        <div style={{
+          textAlign: 'left',
+          display: 'flex',
+          flexDirection: 'column',
+          padding: '50px',
+          gap: '20px',
+          padding: '0px',
+          marginTop: '23px',
+          maxWidth: '600px'
+        }}>
+          <h2 style={{ fontSize: '32px', fontWeight: 'bold', margin: 0 }}>PHOTO GALLERY</h2>
+          <p style={{
+            fontSize: '16px',
+            color: '#555',
+            lineHeight: '1.5',
+            margin: 0
+          }}>
+            Explore moments from the production studio to crowds on tour. Glimpses
+            that define our artist journey and their on-stage presence.
+          </p>
 
-          <div>
-            <button
-              style={{
-                backgroundColor: '#000',
-                color: '#fff',
-                padding: '12px 24px',
-                borderRadius: '30px',
-                border: 'none',
-                fontWeight: 'bold',
-                cursor: 'pointer',
-                fontSize: '16px'
-              }}
-              onClick={() => navigate('/one_one/upcoming')}  // 👈 Navigation to /upcoming
-            >
-              View More
-            </button>
-          </div>
+          <button
+            style={{
+              backgroundColor: '#000',
+              color: '#fff',
+              padding: '12px 6px',
+              borderRadius: '30px',
+              border: 'none',
+              fontWeight: 'bold',
+              cursor: 'pointer',
+              fontSize: '16px',
+              width: 'fit-content',
+              marginTop: '20px'
+            }}
+            onClick={() => navigate('/one_one/upcoming')}
+          >
+            View More
+          </button>
         </div>
 
       </div>
@@ -650,16 +674,16 @@ export default function LandingPage() {
 
 
 
-      <div style={{ fontFamily: 'Georgia, serif', padding: '20px', backgroundColor: '#fff', paddingLeft: '10px' }}>
+      <div style={{ fontFamily: 'Georgia, serif', padding: '50px 220px', backgroundColor: '#fff',  textAlign:'center' }}>
         {/* Row 1 */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', marginBottom: '40px' }}>
 
           {/* Left: Discovery */}
           <div style={{ flex: '1 1 45%', minWidth: '280px' }}>
-            <h1 style={{ fontSize: '42px', color: '#111', marginBottom: '20px', lineHeight: '1.2' }}>
+            <h1 style={{ fontSize: '42px', color: '#111', marginBottom: '20px', lineHeight: '1.2',  textAlign:'left' }}>
               Discover <br /> our <br /> key insights
             </h1>
-            <p style={{ fontSize: '18px', color: '#555', lineHeight: '1.6', marginBottom: '30px' }}>
+            <p style={{ fontSize: '18px', color: '#555', lineHeight: '1.6', marginBottom: '30px',  textAlign:'left' }}>
               Diving into the metrics behind our success: a detailed <br />
               look at the key factors driving our achievements in the <br />
               music industry.
@@ -672,7 +696,8 @@ export default function LandingPage() {
                 borderRadius: '20px',
                 fontWeight: 'bold',
                 cursor: 'pointer',
-                fontSize: '16px'
+                fontSize: '16px',
+                textAlign:'left'
               }}
             >
               More Information
@@ -720,7 +745,7 @@ export default function LandingPage() {
           </div>
         </div>
         <style>
-{`
+          {`
   .right-container {
     flex: 1 1 50%;
     min-width: 280px;
@@ -787,7 +812,7 @@ export default function LandingPage() {
     }
   }
 `}
-</style>
+        </style>
 
 
 
@@ -1069,8 +1094,8 @@ export default function LandingPage() {
           }
 
           .hero-logo {
-            width: 90px;
-            height: 90px;
+            width: 175px;
+            height: 175px;
           }
 
           h1 {

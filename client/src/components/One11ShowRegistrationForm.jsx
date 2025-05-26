@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 const One11ShowRegistrationForm = () => {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -97,17 +98,17 @@ const One11ShowRegistrationForm = () => {
 
   // Styles
   const formStyle = {
-    backgroundColor: '#ff4b4b',
+    backgroundColor: '#F0E81B',
     padding: '40px 20px',
     fontFamily: 'sans-serif',
     color: '#000',
     display: 'flex',
     justifyContent: 'center',
-    minHeight: '100vh',
+    minHeight: '100vh'
   };
 
   const containerStyle = {
-    maxWidth: '600px',
+    maxWidth: '700px',
     width: '100%',
   };
 
@@ -157,7 +158,7 @@ const One11ShowRegistrationForm = () => {
     border: 'none',
     borderRadius: '20px',
     fontSize: '16px',
-    marginTop: '20px',
+    marginTop: '51px',
     cursor: 'pointer',
     float: 'right',
   };
@@ -165,10 +166,11 @@ const One11ShowRegistrationForm = () => {
   return (
     <div style={formStyle}>
       <div style={containerStyle}>
-        <h2 style={{ textAlign: 'center', fontSize: '40px', fontWeight: 'bold', marginBottom: '30px' }}>
+        <h2 style={{ textAlign: 'center', fontSize: '47px', fontWeight: 'bold', marginBottom: '60px', fontFamily:'Crimson Text' }}>
           The One 11 Show Registration
         </h2>
         
+
         <form onSubmit={handleSubmit}>
           {[{ label: 'Full Name*', name: 'fullName', type: 'text' },
             { label: 'Contact Number*', name: 'contactNumber', type: 'tel' },

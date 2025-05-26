@@ -63,7 +63,7 @@ export default function Navbar() {
           <Link to="/" className="nav-item" onClick={handleLinkClick}>
             Home
           </Link>
-          <Link to="/institute" className="nav-item" onClick={handleLinkClick}>
+          <Link to="/one_one/upcoming" className="nav-item" onClick={handleLinkClick}>
             Institute
           </Link>
 
@@ -125,7 +125,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          <Link to="/creativity" className="nav-item" onClick={handleLinkClick}>
+          <Link to="/one_one/upcoming" className="nav-item" onClick={handleLinkClick}>
             Record Label
           </Link>
           <Link to="/about" className="nav-item" onClick={handleLinkClick}>
@@ -280,12 +280,12 @@ export default function Navbar() {
             @media (max-width: 480px) {
   .navbar {
     padding: 10px 15px;
-    height: 64px;
+    height: 54px;
   }
 
   .brand img {
-               height: 128px !important;
-            width: 109px !important;
+                          height: 90px !important;
+            width: 100px !important;
   }
 
   .nav-item {

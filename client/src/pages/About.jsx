@@ -41,6 +41,7 @@ export default function About() {
       maxWidth: '450px',
       borderRadius: '16px',
       boxShadow: '0 8px 20px rgba(0, 0, 0, 0.1)',
+          borderRadius: '50%'
     },
     content: {
       maxWidth: '500px',
@@ -63,7 +64,7 @@ export default function About() {
 
         <section className="about-section" style={styles.section}>
           <img
-            src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=900&q=80"
+            src="tcs.jpg"
             alt="Creative Workspace"
             style={styles.image}
           />

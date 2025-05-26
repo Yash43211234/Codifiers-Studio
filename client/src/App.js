@@ -15,6 +15,7 @@ import ComingSoon from './components/ComingSoon';
 import NotFound from './components/NotFound';
 import One11ShowRegistrationForm from './components/One11ShowRegistrationForm';
 import Thank_you from './components/Thank_you';
+import QueryPage from './components/QueryPage';
 
 function App() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -35,6 +36,7 @@ function App() {
           <Route path="/one11Register" element={< One11ShowRegistrationForm />} />
           <Route path="/submission-successfully" element={< Thank_you />} />
           <Route path="/one_one/upcoming" element={<ComingSoon />} />
+          <Route path="/query" element={<QueryPage />} />
           <Route path="*" element={<NotFound />} />
 
         </Routes>

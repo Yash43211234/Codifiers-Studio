@@ -1,7 +1,7 @@
-import React from 'react';
+
 import ImageCarousel from '../components/ImageCarousel ';
 import { useNavigate } from 'react-router-dom';
-
+import React, { useState, useEffect } from 'react';
 
 
 const gallerySection = {
@@ -36,6 +36,7 @@ const viewMoreBtn = {
   backgroundColor: "#007BFF",
   color: "#fff",
 };
+  
 
 const images = [
   "https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/fc8caa80c3fa6c47e578f7973c020161f59b5819+(1).jpg",
@@ -60,6 +61,18 @@ export default function LandingPage() {
     navigate('/query'); // 👈 change '/institute' to your actual route if needed
   };
 
+
+ const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+
+const isMobile = screenWidth < 768;
 
   const sectionStyle = {
     backgroundColor: '#000',
@@ -277,86 +290,86 @@ export default function LandingPage() {
 
       {/* +++++++++++++++++++ */}
       {/* MUSIC CAREER + SERVICES SECTION */}
+     <div
+      style={{
+        display: 'flex',
+        flexDirection: isMobile ? 'column' : 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: isMobile ? '20px' : '40px 200px',
+        gap: '20px',
+        flexWrap: 'wrap',
+        boxSizing: 'border-box',
+        background: '#F0E81B',
+      }}
+    >
+      {/* Left Side */}
       <div
         style={{
-          display: 'flex',
-          flexDirection: window.innerWidth < 768 ? 'column' : 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          padding: window.innerWidth < 768 ? '20px' : '40px 200px',
-          gap: '20px',
-          flexWrap: 'wrap',
+          flex: '1',
+          minWidth: '300px',
+          maxWidth: isMobile ? '100%' : '50%',
           boxSizing: 'border-box',
-          background: '#F0E81B'
+          textAlign: isMobile ? 'center' : 'left',
         }}
       >
-        {/* Left Side */}
-        <div
+        <p
           style={{
-            flex: '1',
-            minWidth: '300px',
-            maxWidth: window.innerWidth < 768 ? '100%' : '50%',
-            boxSizing: 'border-box',
-            textAlign: window.innerWidth < 768 ? 'center' : 'left',
+            fontSize: isMobile ? '22px' : '28px',
+            marginBottom: '20px',
+            lineHeight: '1.4',
           }}
         >
-          <p
-            style={{
-              fontSize: window.innerWidth < 768 ? '22px' : '28px',
-              marginBottom: '20px',
-              lineHeight: '1.4',
-            }}
-          >
-            Are you ready to take your<br /> Music Career to the next level?
-          </p>
-          <p
-            style={{
-              fontSize: '16px',
-              lineHeight: '1.6',
-              marginBottom: '20px',
-            }}
-          >
-            Our team of industry professionals are here to guide you through every step of your music journey and provide you with tailored guidance, mentorship and strategies personalized for your success.
-          </p>
-          <button
-            onClick={handleJoinClick}
-            style={{
-              backgroundColor: '#000',
-              color: '#fff',
-              padding: window.innerWidth < 768 ? '10px 20px' : '12px 24px',
-              border: 'none',
-              borderRadius: '20px',
-              cursor: 'pointer',
-              fontSize: '16px',
-            }}
-          >
-            Join Us
-          </button>
-        </div>
-
-        {/* Right Side */}
-        <div
+          Are you ready to take your<br /> Music Career to the next level?
+        </p>
+        <p
           style={{
-            flex: '1',
-            minWidth: '300px',
-            maxWidth: window.innerWidth < 768 ? '100%' : '50%',
-            boxSizing: 'border-box',
-            textAlign: 'center',
+            fontSize: '16px',
+            lineHeight: '1.6',
+            marginBottom: '20px',
           }}
         >
-          <img
-            src="piano.jpg"
-            alt="Music Career Visual"
-            style={{
-              width: '100%',
-              maxWidth: '508px',
-              height: 'auto',
-            }}
-          />
-        </div>
+          Our team of industry professionals are here to guide you through every
+          step of your music journey and provide you with tailored guidance,
+          mentorship and strategies personalized for your success.
+        </p>
+        <button
+          onClick={handleJoinClick}
+          style={{
+            backgroundColor: '#000',
+            color: '#fff',
+            padding: isMobile ? '10px 20px' : '12px 24px',
+            border: 'none',
+            borderRadius: '20px',
+            cursor: 'pointer',
+            fontSize: '16px',
+          }}
+        >
+          Join Us
+        </button>
       </div>
 
-
+      {/* Right Side */}
+      <div
+        style={{
+          flex: '1',
+          minWidth: '300px',
+          maxWidth: isMobile ? '100%' : '50%',
+          boxSizing: 'border-box',
+          textAlign: 'center',
+        }}
+      >
+        <img
+          src="piano.jpg"
+          alt="Music Career Visual"
+          style={{
+            width: '100%',
+            maxWidth: '508px',
+            height: 'auto',
+          }}
+        />
+      </div>
+    </div>
 
 
       {/* ++++++++++++++++++++++*/}
@@ -674,151 +687,173 @@ export default function LandingPage() {
 
 
 
-      <div style={{ fontFamily: 'Georgia, serif', padding: '50px 220px', backgroundColor: '#fff',  textAlign:'center' }}>
-        {/* Row 1 */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', marginBottom: '40px' }}>
+      <div className="insight-container">
+      {/* Row: Two Columns */}
+      <div className="insight-row">
+        {/* Left Column */}
+        <div className="insight-left">
+          <h1 className="insight-title">
+            Discover <br /> our <br /> key insights
+          </h1>
+          <p className="insight-subtitle">
+            Diving into the metrics behind our success: a detailed <br />
+            look at the key factors driving our achievements in the <br />
+            music industry.
+          </p>
+          <button className="insight-button" onClick={() => navigate('/one_one/upcoming')}>
+            More Information
+          </button>
+        </div>
 
-          {/* Left: Discovery */}
-          <div style={{ flex: '1 1 45%', minWidth: '280px' }}>
-            <h1 style={{ fontSize: '42px', color: '#111', marginBottom: '20px', lineHeight: '1.2',  textAlign:'left' }}>
-              Discover <br /> our <br /> key insights
-            </h1>
-            <p style={{ fontSize: '18px', color: '#555', lineHeight: '1.6', marginBottom: '30px',  textAlign:'left' }}>
-              Diving into the metrics behind our success: a detailed <br />
-              look at the key factors driving our achievements in the <br />
-              music industry.
+        {/* Right Column */}
+        <div className="insight-right">
+          <div className="insight-card card-black">
+            <div className="card-heading">12k</div>
+            <div className="card-subheading">Music Management Service</div>
+            <p className="card-text">
+              Explore a wide range of effective and impactful <br />
+              promotional options.
             </p>
-            <button onClick={() => navigate('/one_one/upcoming')}
-              style={{
-                backgroundColor: '#f1e40b',
-                border: 'none',
-                padding: '10px 25px',
-                borderRadius: '20px',
-                fontWeight: 'bold',
-                cursor: 'pointer',
-                fontSize: '16px',
-                textAlign:'left'
-              }}
-            >
-              More Information
-            </button>
           </div>
 
-          {/* Right: One Div that contains both cards in a row */}
-          <div style={{ flex: '1 1 50%', minWidth: '280px' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: '339px' }}>
-              {/* 12k Card */}
-              <div style={{
-                backgroundColor: '#000',
-                color: '#fff',
-                padding: window.innerWidth >= 768 ? '25px' : '15px',
-                borderRadius: '6px'
-              }}>
-                <div style={{ fontSize: '36px', fontWeight: 'bold' }}>12k</div>
-                <div style={{ fontSize: '18px', fontWeight: 'bold', marginTop: '10px' }}>
-                  Music Management Service
-                </div>
-                <p style={{ marginTop: '10px', fontSize: '14px', lineHeight: '1.5' }}>
-                  Explore a wide range of effective and impactful <br />
-                  promotional options.
-                </p>
-              </div>
-
-              {/* 72% Card */}
-              <div style={{
-                backgroundColor: '#f1e40b',
-                color: '#111',
-                padding: '25px',
-                borderRadius: '6px'
-              }}>
-                <div style={{ fontSize: '36px', fontWeight: 'bold' }}>72%</div>
-                <div style={{ fontSize: '18px', fontWeight: 'bold', marginTop: '10px' }}>
-                  More opportunities
-                </div>
-                <p style={{ marginTop: '10px', fontSize: '14px', lineHeight: '1.5' }}>
-                  Elevate your music career with an influx of new <br />
-                  opportunities.
-                </p>
-              </div>
-            </div>
-
+          <div className="insight-card card-yellow">
+            <div className="card-heading">72%</div>
+            <div className="card-subheading">More opportunities</div>
+            <p className="card-text">
+              Elevate your music career with an influx of new <br />
+              opportunities.
+            </p>
           </div>
         </div>
-        <style>
-          {`
-  .right-container {
-    flex: 1 1 50%;
-    min-width: 280px;
-  }
-
-  .card-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 339px;
-  }
-
-  .card-black, .card-yellow {
-    border-radius: 6px;
-    padding: 25px;
-  }
-
-  .card-black {
-    background-color: #000;
-    color: #fff;
-  }
-
-  .card-yellow {
-    background-color: #f1e40b;
-    color: #111;
-  }
-
-  .card-heading {
-    font-size: 36px;
-    font-weight: bold;
-  }
-
-  .card-subheading {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-
-  .card-text {
-    margin-top: 10px;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  @media (max-width: 768px) {
-    .card-wrapper {
-      width: 100%;
-    }
-
-    .card-black, .card-yellow {
-      padding-left: 0px;
-    }
-
-    .card-heading {
-      font-size: 28px;
-    }
-
-    .card-subheading {
-      font-size: 16px;
-    }
-
-    .card-text {
-      font-size: 13px;
-    }
-  }
-`}
-        </style>
-
-
-
-
       </div>
 
+      {/* Media styles */}
+      <style>
+        {`
+          .insight-container {
+            font-family: Georgia, serif;
+            padding: 50px 220px;
+            background-color: #fff;
+            text-align: center;
+          }
+
+          .insight-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+            justify-content: space-between;
+          }
+
+          .insight-left {
+            flex: 1 1 45%;
+            min-width: 280px;
+            text-align: left;
+          }
+
+          .insight-title {
+            font-size: 42px;
+            color: #111;
+            margin-bottom: 20px;
+            line-height: 1.2;
+          }
+
+          .insight-subtitle {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 30px;
+          }
+
+          .insight-button {
+            background-color: #f1e40b;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+          }
+
+          .insight-right {
+            flex: 1 1 50%;
+            min-width: 280px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 339px;
+          }
+
+          .insight-card {
+            border-radius: 6px;
+            padding: 25px;
+          }
+
+          .card-black {
+            background-color: #000;
+            color: #fff;
+          }
+
+          .card-yellow {
+            background-color: #f1e40b;
+            color: #111;
+          }
+
+          .card-heading {
+            font-size: 36px;
+            font-weight: bold;
+          }
+
+          .card-subheading {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+          }
+
+          .card-text {
+            margin-top: 10px;
+            font-size: 14px;
+            line-height: 1.5;
+          }
+
+          @media (max-width: 768px) {
+            .insight-container {
+              padding: 40px 20px;
+              text-align: center;
+            }
+
+            .insight-left {
+              text-align: center;
+            }
+
+            .insight-title {
+              font-size: 32px;
+            }
+
+            .insight-subtitle {
+              font-size: 16px;
+            }
+
+            .insight-right {
+              width: 100%;
+              align-items: center;
+            }
+
+            .card-heading {
+              font-size: 28px;
+            }
+
+            .card-subheading {
+              font-size: 16px;
+            }
+
+            .card-text {
+              font-size: 13px;
+            }
+          }
+        `}
+      </style>
+    </div>
 
 
 

@@ -281,6 +281,7 @@ export default function Navbar() {
   .navbar {
     padding: 10px 15px;
     height: 54px;
+    z-index: 1001;
   }
 
   .brand img {
@@ -313,7 +314,7 @@ export default function Navbar() {
     display: none;
     max-height: 80vh; /* 🆕 Limit height */
     overflow-y: auto;  /* 🆕 Enable vertical scroll */
-    z-index: 999;      /* Make sure it's above other content */
+    z-index: 1001;    /* Make sure it's above other content */
   }
 
   .nav-links.open {

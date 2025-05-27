@@ -36,7 +36,7 @@ const viewMoreBtn = {
   backgroundColor: "#007BFF",
   color: "#fff",
 };
-  
+
 
 const images = [
   "https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/fc8caa80c3fa6c47e578f7973c020161f59b5819+(1).jpg",
@@ -58,11 +58,12 @@ export default function LandingPage() {
 
 
   const handleJoinClick = () => {
-    navigate('/query'); // 👈 change '/institute' to your actual route if needed
+    navigate('/query');
+     window.scrollTo(0, 0);  // 👈 change '/institute' to your actual route if needed
   };
 
 
- const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => setScreenWidth(window.innerWidth);
@@ -72,7 +73,7 @@ export default function LandingPage() {
   }, []);
 
 
-const isMobile = screenWidth < 768;
+  const isMobile = screenWidth < 768;
 
   const sectionStyle = {
     backgroundColor: '#000',
@@ -205,7 +206,7 @@ const isMobile = screenWidth < 768;
           padding: window.innerWidth < 600 ? '20px' : '40px',
           fontFamily: "'Orbitron', sans-serif",
           textAlign: 'center',
-          background:'#fff9f9'
+          background: '#fff9f9'
 
         }}
       >
@@ -255,7 +256,9 @@ const isMobile = screenWidth < 768;
         </h3>
 
         <button
-          onClick={() => navigate('/one11register')}
+          onClick={() =>{ navigate('/one11register');
+             window.scrollTo(0, 0); 
+          }}
           style={{
             backgroundColor: '#111',
             color: '#fff',
@@ -291,86 +294,86 @@ const isMobile = screenWidth < 768;
 
       {/* +++++++++++++++++++ */}
       {/* MUSIC CAREER + SERVICES SECTION */}
-     <div
-      style={{
-        display: 'flex',
-        flexDirection: isMobile ? 'column' : 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: isMobile ? '20px' : '40px 200px',
-        gap: '20px',
-        flexWrap: 'wrap',
-        boxSizing: 'border-box',
-        background: '#F0E81B',
-      }}
-    >
-      {/* Left Side */}
       <div
         style={{
-          flex: '1',
-          minWidth: '300px',
-          maxWidth: isMobile ? '100%' : '50%',
+          display: 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          padding: isMobile ? '20px' : '40px 200px',
+          gap: '20px',
+          flexWrap: 'wrap',
           boxSizing: 'border-box',
-          textAlign: isMobile ? 'center' : 'left',
+          background: '#F0E81B',
         }}
       >
-        <p
+        {/* Left Side */}
+        <div
           style={{
-            fontSize: isMobile ? '22px' : '28px',
-            marginBottom: '20px',
-            lineHeight: '1.4',
+            flex: '1',
+            minWidth: '300px',
+            maxWidth: isMobile ? '100%' : '50%',
+            boxSizing: 'border-box',
+            textAlign: isMobile ? 'center' : 'left',
           }}
         >
-          Are you ready to take your<br /> Music Career to the next level?
-        </p>
-        <p
-          style={{
-            fontSize: '16px',
-            lineHeight: '1.6',
-            marginBottom: '20px',
-          }}
-        >
-          Our team of industry professionals are here to guide you through every
-          step of your music journey and provide you with tailored guidance,
-          mentorship and strategies personalized for your success.
-        </p>
-        <button
-          onClick={handleJoinClick}
-          style={{
-            backgroundColor: '#000',
-            color: '#fff',
-            padding: isMobile ? '10px 20px' : '12px 24px',
-            border: 'none',
-            borderRadius: '20px',
-            cursor: 'pointer',
-            fontSize: '16px',
-          }}
-        >
-          Join Us
-        </button>
-      </div>
+          <p
+            style={{
+              fontSize: isMobile ? '22px' : '28px',
+              marginBottom: '20px',
+              lineHeight: '1.4',
+            }}
+          >
+            Are you ready to take your<br /> Music Career to the next level?
+          </p>
+          <p
+            style={{
+              fontSize: '16px',
+              lineHeight: '1.6',
+              marginBottom: '20px',
+            }}
+          >
+            Our team of industry professionals are here to guide you through every
+            step of your music journey and provide you with tailored guidance,
+            mentorship and strategies personalized for your success.
+          </p>
+          <button
+            onClick={handleJoinClick}
+            style={{
+              backgroundColor: '#000',
+              color: '#fff',
+              padding: isMobile ? '10px 20px' : '12px 24px',
+              border: 'none',
+              borderRadius: '20px',
+              cursor: 'pointer',
+              fontSize: '16px',
+            }}
+          >
+            Join Us
+          </button>
+        </div>
 
-      {/* Right Side */}
-      <div
-        style={{
-          flex: '1',
-          minWidth: '300px',
-          maxWidth: isMobile ? '100%' : '50%',
-          boxSizing: 'border-box',
-          textAlign: 'center',
-        }}
-      >
-        <img
-          src="piano.jpg"
-          alt="Music Career Visual"
+        {/* Right Side */}
+        <div
           style={{
-            width: '100%',
-            maxWidth: '508px',
-            height: 'auto',
+            flex: '1',
+            minWidth: '300px',
+            maxWidth: isMobile ? '100%' : '50%',
+            boxSizing: 'border-box',
+            textAlign: 'center',
           }}
-        />
+        >
+          <img
+            src="piano.jpg"
+            alt="Music Career Visual"
+            style={{
+              width: '100%',
+              maxWidth: '508px',
+              height: 'auto',
+            }}
+          />
+        </div>
       </div>
-    </div>
 
 
       {/* ++++++++++++++++++++++*/}
@@ -638,7 +641,11 @@ const isMobile = screenWidth < 768;
               width: 'fit-content',
               marginTop: '20px'
             }}
-            onClick={() => navigate('/one_one/upcoming')}
+            onClick={() => {
+              navigate('/one_one/upcoming');
+              window.scrollTo(0, 0);  // Scrolls to the top after navigation
+            }}
+
           >
             View More
           </button>
@@ -653,7 +660,7 @@ const isMobile = screenWidth < 768;
         {`
   .responsive-banner {
     background-color: #f0e924;
-    width: 98.4%;
+    width: 94%;
     padding: 40px 20px;
     display: flex;
     justify-content: center;
@@ -689,48 +696,50 @@ const isMobile = screenWidth < 768;
 
 
       <div className="insight-container">
-      {/* Row: Two Columns */}
-      <div className="insight-row">
-        {/* Left Column */}
-        <div className="insight-left">
-          <h1 className="insight-title">
-            Discover <br /> our <br /> key insights
-          </h1>
-          <p className="insight-subtitle">
-            Diving into the metrics behind our success: a detailed <br />
-            look at the key factors driving our achievements in the <br />
-            music industry.
-          </p>
-          <button className="insight-button" onClick={() => navigate('/one_one/upcoming')}>
-            More Information
-          </button>
-        </div>
-
-        {/* Right Column */}
-        <div className="insight-right">
-          <div className="insight-card card-black">
-            <div className="card-heading">12k</div>
-            <div className="card-subheading">Music Management Service</div>
-            <p className="card-text">
-              Explore a wide range of effective and impactful <br />
-              promotional options.
+        {/* Row: Two Columns */}
+        <div className="insight-row">
+          {/* Left Column */}
+          <div className="insight-left">
+            <h1 className="insight-title">
+              Discover <br /> our <br /> key insights
+            </h1>
+            <p className="insight-subtitle">
+              Diving into the metrics behind our success: a detailed <br />
+              look at the key factors driving our achievements in the <br />
+              music industry.
             </p>
+            <button className="insight-button" onClick={() =>{;
+               window.scrollTo(0, 0); 
+            }}>
+              More Information
+            </button>
           </div>
 
-          <div className="insight-card card-yellow">
-            <div className="card-heading">72%</div>
-            <div className="card-subheading">More opportunities</div>
-            <p className="card-text">
-              Elevate your music career with an influx of new <br />
-              opportunities.
-            </p>
+          {/* Right Column */}
+          <div className="insight-right">
+            <div className="insight-card card-black">
+              <div className="card-heading">12k</div>
+              <div className="card-subheading">Music Management Service</div>
+              <p className="card-text">
+                Explore a wide range of effective and impactful <br />
+                promotional options.
+              </p>
+            </div>
+
+            <div className="insight-card card-yellow">
+              <div className="card-heading">72%</div>
+              <div className="card-subheading">More opportunities</div>
+              <p className="card-text">
+                Elevate your music career with an influx of new <br />
+                opportunities.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Media styles */}
-      <style>
-        {`
+        {/* Media styles */}
+        <style>
+          {`
           .insight-container {
             font-family: Georgia, serif;
             padding: 50px 220px;
@@ -853,8 +862,8 @@ const isMobile = screenWidth < 768;
             }
           }
         `}
-      </style>
-    </div>
+        </style>
+      </div>
 
 
 
@@ -886,7 +895,9 @@ const isMobile = screenWidth < 768;
           }}
         >
           Want to book a studio session?{' '}
-          <span onClick={() => navigate('/one_one/upcoming')}
+          <span onClick={() => {navigate('/one_one/upcoming');
+             window.scrollTo(0, 0); 
+          }}
             style={{
               backgroundColor: '#fcee09',
               padding: '2px 8px',
@@ -979,7 +990,9 @@ const isMobile = screenWidth < 768;
         </div>
 
 
-        <button onClick={() => navigate('/one_one/upcoming')}
+        <button onClick={() => {navigate('/one_one/upcoming');
+           window.scrollTo(0, 0); 
+        }}
           style={{
             backgroundColor: '#fcee09',
             color: '#000',

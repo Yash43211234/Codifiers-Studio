@@ -232,8 +232,8 @@ const One11ShowRegistrationForm = () => {
           </div>
 
           {/* Textareas */}
-          {[{ label: 'Share Your Demo (Google drive link)*', name: 'demoLink' },
-            { label: 'Upload Your Photo/Logo (Google drive link)*', name: 'photoLink' },
+          {[{ label: 'Share Your Portfolio/Work (Google drive link)*', name: 'demoLink' },
+            { label: 'Share Your Photo/Logo (Google drive link)*', name: 'photoLink' },
             { label: 'Short Artist/Band Bio*', name: 'bio' }
           ].map(({ label, name }) => (
             <div key={name}>

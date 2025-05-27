@@ -18,6 +18,7 @@ import Thank_you from './components/Thank_you';
 import QueryPage from './components/QueryPage';
 import { Copyright } from 'lucide-react';
 import CopyrightFooter from './components/CopyrightFooter';
+import Oneshow from './components/Oneshow';
 
 function App() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -38,6 +39,7 @@ function App() {
           <Route path="/one11Register" element={< One11ShowRegistrationForm />} />
           <Route path="/submission-successfully" element={< Thank_you />} />
           <Route path="/one_one/upcoming" element={<ComingSoon />} />
+          <Route path="/newone" element={<Oneshow />} />
           <Route path="/query" element={<QueryPage />} />
           <Route path="*" element={<NotFound />} />
 

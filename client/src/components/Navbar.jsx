@@ -67,13 +67,13 @@ export default function Navbar() {
             Institute
           </Link>
 
-         
 
-          {/* <Link to="/one_one/upcoming" className="nav-item" onClick={handleLinkClick}>
+
+          <Link to="/newone" className="nav-item" onClick={handleLinkClick}>
             The One 11 Show
-          </Link> */}
+          </Link>
 
- <div
+          <div
             className="nav-item dropdown"
             ref={dropdownRef}
             onMouseEnter={handleMouseEnter}

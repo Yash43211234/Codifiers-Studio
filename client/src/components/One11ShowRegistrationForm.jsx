@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './One11ShowRegistrationForm.css';
 
 const One11ShowRegistrationForm = () => {
   const [formData, setFormData] = useState({
@@ -9,8 +10,7 @@ const One11ShowRegistrationForm = () => {
     email: '',
     category: '',
     performanceType: '',
-    demoLink: '',
-    photoLink: '',
+    portfolioLink: '',
     bio: '',
     signature: '',
   });
@@ -51,8 +51,7 @@ const One11ShowRegistrationForm = () => {
       Email: formData.email,
       Category: formData.category,
       PerformanceType: formData.performanceType,
-      DemoLink: formData.demoLink,
-      PhotoLink: formData.photoLink,
+      PortfolioLink: formData.portfolioLink,
       Bio: formData.bio,
       Signature: formData.signature,
       Timestamp: new Date().toLocaleString(),
@@ -78,8 +77,7 @@ const One11ShowRegistrationForm = () => {
           email: '',
           category: '',
           performanceType: '',
-          demoLink: '',
-          photoLink: '',
+          portfolioLink: '',
           bio: '',
           signature: '',
         });
@@ -95,110 +93,44 @@ const One11ShowRegistrationForm = () => {
     }
   };
 
-  // Styles
-  const formStyle = {
-    backgroundColor: '#F0E81B',
-    padding: '40px 20px',
-    fontFamily: 'sans-serif',
-    color: '#000',
-    display: 'flex',
-    justifyContent: 'center',
-    minHeight: '100vh',
-  };
-
-  const containerStyle = {
-    maxWidth: '700px',
-    width: '100%',
-  };
-
-  const fieldStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    marginBottom: '15px',
-    flexWrap: 'wrap',
-  };
-
-  const labelStyle = {
-    flex: '0 0 180px',
-    fontWeight: 'bold',
-    fontSize: '18px',
-  };
-
-  const fieldInput = {
-    flex: 1,
-    padding: '10px',
-    borderRadius: '8px',
-    border: 'none',
-    fontSize: '16px',
-    width: '100%',
-    boxSizing: 'border-box',
-  };
-
-  const textareaStyle = {
-    ...fieldInput,
-    height: '60px',
-    resize: 'none',
-  };
-
-  const errorStyle = {
-    color: 'white',
-    fontSize: '12px',
-    marginLeft: '180px',
-    marginTop: '-10px',
-    marginBottom: '10px',
-  };
-
-  const buttonStyle = {
-    backgroundColor: '#000',
-    color: '#fff',
-    padding: '10px 25px',
-    border: 'none',
-    borderRadius: '20px',
-    fontSize: '16px',
-    marginTop: '40px',
-    cursor: 'pointer',
-    float: 'right',
-  };
-
   return (
-    <div style={formStyle}>
-      <div style={containerStyle}>
-        <h2 style={{ textAlign: 'center', fontSize: '47px', fontWeight: 'bold', marginBottom: '60px', fontFamily: 'Crimson Text' }}>
-          The One 11 Show Registration
-        </h2>
+    <div className="form-wrapper">
+      <div className="form-container">
+        <h2 className="form-title">The One 11 Show Registration</h2>
 
         <form onSubmit={handleSubmit}>
-          {[{ label: 'Full Name*', name: 'fullName', type: 'text' },
+          {[
+            { label: 'Full Name*', name: 'fullName', type: 'text' },
             { label: 'Contact Number*', name: 'contactNumber', type: 'tel' },
             { label: 'Stage Name / Band Name*', name: 'stageName', type: 'text' },
-            { label: 'Email Address*', name: 'email', type: 'email' }
+            { label: 'Email Address*', name: 'email', type: 'email' },
           ].map(({ label, name, type }) => (
             <div key={name}>
-              <div style={fieldStyle}>
-                <label htmlFor={name} style={labelStyle}>{label}</label>
+              <div className="form-field">
+                <label htmlFor={name} className="form-label">{label}</label>
                 <input
                   type={type}
                   name={name}
                   id={name}
                   value={formData[name]}
                   onChange={handleChange}
-                  style={fieldInput}
+                  className="form-input"
                 />
               </div>
-              {errors[name] && <div style={errorStyle}>{errors[name]}</div>}
+              {errors[name] && <div className="form-error">{errors[name]}</div>}
             </div>
           ))}
 
           {/* Category */}
           <div>
-            <div style={fieldStyle}>
-              <label htmlFor="category" style={labelStyle}>Choose Category*</label>
+            <div className="form-field">
+              <label htmlFor="category" className="form-label">Choose Category*</label>
               <select
                 name="category"
                 id="category"
                 value={formData.category}
                 onChange={handleChange}
-                style={fieldInput}
+                className="form-select"
               >
                 <option value="">-- Select --</option>
                 <option value="Battle of Bands">Battle of Bands</option>
@@ -208,19 +140,19 @@ const One11ShowRegistrationForm = () => {
                 <option value="Battle of Musicians (Instrument Battle)">Battle of Musicians (Instrument Battle)</option>
               </select>
             </div>
-            {errors.category && <div style={errorStyle}>{errors.category}</div>}
+            {errors.category && <div className="form-error">{errors.category}</div>}
           </div>
 
           {/* Performance Type */}
           <div>
-            <div style={fieldStyle}>
-              <label htmlFor="performanceType" style={labelStyle}>Solo or Group?*</label>
+            <div className="form-field">
+              <label htmlFor="performanceType"  className="form-label">Solo or Group?*</label>
               <select
                 name="performanceType"
                 id="performanceType"
                 value={formData.performanceType}
                 onChange={handleChange}
-                style={fieldInput}
+                className="form-select"
               >
                 <option value="">-- Select --</option>
                 <option value="Solo">Solo</option>
@@ -228,84 +160,66 @@ const One11ShowRegistrationForm = () => {
                 <option value="Band/Group">Band/Group</option>
               </select>
             </div>
-            {errors.performanceType && <div style={errorStyle}>{errors.performanceType}</div>}
+            {errors.performanceType && <div className="form-error">{errors.performanceType}</div>}
           </div>
 
-          {/* Textareas */}
-          {[{ label: 'Share Your Portfolio/Work (Google drive link)*', name: 'demoLink' },
-            { label: 'Share Your Photo/Logo (Google drive link)*', name: 'photoLink' },
-            { label: 'Short Artist/Band Bio*', name: 'bio' }
-          ].map(({ label, name }) => (
-            <div key={name}>
-              <div style={fieldStyle}>
-                <label htmlFor={name} style={labelStyle}>{label}</label>
-                <textarea
-                  name={name}
-                  id={name}
-                  value={formData[name]}
-                  onChange={handleChange}
-                  style={textareaStyle}
-                />
-              </div>
-              {errors[name] && <div style={errorStyle}>{errors[name]}</div>}
+          {/* Portfolio Link */}
+          <div>
+            <div className="form-field">
+              <label htmlFor="portfolioLink" className='form-label'>
+                Share your Work/Portfolio (Google Drive link)*<br />
+                <small style={{ color: "gray" }}>
+                  (*Note - Give access to this <strong>theone11show@gmail.com</strong> mail)
+                </small>
+              </label>
+              <textarea
+                name="portfolioLink"
+                id="portfolioLink"
+                value={formData.portfolioLink}
+                onChange={handleChange}
+                className="form-textarea"
+              />
             </div>
-          ))}
+
+            {errors.portfolioLink && <div className="form-error">{errors.portfolioLink}</div>}
+          </div>
+
+          {/* Bio */}
+          <div>
+            <div className="form-field">
+              <label htmlFor="bio" className="form-label">Short Artist/Band Bio*</label>
+              <textarea
+                name="bio"
+                id="bio"
+                value={formData.bio}
+                onChange={handleChange}
+                className="form-textarea"
+              />
+            </div>
+            {errors.bio && <div className="form-error">{errors.bio}</div>}
+          </div>
 
           {/* Signature */}
           <div>
-            <div style={fieldStyle}>
-              <label htmlFor="signature" style={labelStyle}>Type Your Name to Sign*</label>
+            <div className="form-field">
+              <label htmlFor="signature" className="form-label">Type Your Name to Sign*</label>
               <input
                 type="text"
                 name="signature"
                 id="signature"
                 value={formData.signature}
                 onChange={handleChange}
-                style={fieldInput}
+                className="form-input"
               />
             </div>
-            {errors.signature && <div style={errorStyle}>{errors.signature}</div>}
+            {errors.signature && <div className="form-error">{errors.signature}</div>}
           </div>
 
-          {submitMessage && <p style={{ color: 'white', textAlign: 'center' }}>{submitMessage}</p>}
+          {submitMessage && <p className="submit-message">{submitMessage}</p>}
 
-          <button type="submit" style={buttonStyle}>Submit</button>
+          <button type="submit" className="submit-button">Submit</button>
         </form>
       </div>
-
-      {/* Responsive Styles */}
-      <style>
-        {`
-          @media (max-width: 600px) {
-            div[style*="display: flex"][style*="alignItems: center"] {
-              flex-direction: column !important;
-              align-items: flex-start !important;
-            }
-
-            div[style*="display: flex"][style*="alignItems: center"] > label {
-              margin-bottom: 6px;
-              font-size: 14px !important;
-            }
-
-            div[style*="display: flex"][style*="alignItems: center"] > input,
-            div[style*="display: flex"][style*="alignItems: center"] > select,
-            div[style*="display: flex"][style*="alignItems: center"] > textarea {
-              width: 100% !important;
-              font-size: 14px !important;
-            }
-
-            button[style*="float: right"] {
-              float: none !important;
-              width: 100% !important;
-              margin-top: 30px;
-            }
-
-            div[style*="marginLeft: 180px"] {
-              margin-left: 0px !important;
-            }
-          }
-        `}
-      </style>
     </div>
   );
 };

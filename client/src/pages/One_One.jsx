@@ -2,6 +2,7 @@
 import ImageCarousel from '../components/ImageCarousel ';
 import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import TestimonialSlider from '../components/TestimonialSlider';
 
 
 const gallerySection = {
@@ -589,24 +590,6 @@ export default function LandingPage() {
         </style>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <div style={{
           textAlign: 'left',
           display: 'flex',
@@ -916,52 +899,7 @@ export default function LandingPage() {
 
 
       {/* +++++++++++++++++++++++++++ */}
-      <div
-        style={{
-          backgroundImage: 'url("https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/4efcc2c0-8d10-4ae2-949f-1c29e20cc45e.png")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          padding: '40px 20px',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          minHeight: '70vh',
-          boxSizing: 'border-box',
-        }}
-      >
-        <div
-          style={{
-            backgroundColor: '#fff',
-            border: '3px solid #0080ff',
-            borderRadius: '8px',
-            padding: '20px',
-            maxWidth: '600px',
-            width: '100%',
-            textAlign: 'center',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-          }}
-        >
-          <p style={{ fontSize: '1.1rem', lineHeight: '1.6', color: '#000' }}>
-            I would like to recommend "The Chordifiers Studio" to everyone. Here satisfaction is guaranteed with utmost
-            priority with reasonable pricing. The zeal and enthusiasm shown by the members are well exemplary.
-          </p>
-          <div style={{ marginTop: '20px' }}>
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/2922/2922506.png"
-              alt="User Avatar"
-              style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                objectFit: 'cover',
-                marginBottom: '8px',
-              }}
-            />
-            <div style={{ fontWeight: 'bold', fontSize: '0.9rem', color: '#333' }}>Sambid Dutta</div>
-          </div>
-        </div>
-      </div>
-
+     <TestimonialSlider/>
 
 
 

@@ -12,7 +12,7 @@ const ImageCarousel = () => {
   const getResponsiveValues = () => {
     const width = window.innerWidth;
     if (width < 480) {
-      return { imageWidth: 160, visibleCount: 1 };
+      return { imageWidth: 300, visibleCount: 1 };
     } else if (width < 768) {
       return { imageWidth: 200, visibleCount: 2 };
     } else {

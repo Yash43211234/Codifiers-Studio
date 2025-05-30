@@ -69,9 +69,16 @@ export default function Navbar() {
 
 
 
-          <Link to="/newone" className="nav-item" onClick={handleLinkClick}>
+          <a
+            href="https://theone11.show/"
+            className="nav-item"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleLinkClick}
+          >
             The One 11 Show
-          </Link>
+          </a>
+
 
           <div
             className="nav-item dropdown"
@@ -83,43 +90,43 @@ export default function Navbar() {
             <span className="dropdown-toggle">Services</span>
 
             <div className={`dropdown-menu ${dropdownOpen ? 'open' : ''}`}>
-              <Link to="/one_one/upcoming" className="dropdown-item" onClick={handleLinkClick}>
+              <Link to="/pro-music-production" className="dropdown-item" onClick={handleLinkClick}>
                 Pro Music Composition
               </Link>
-              <Link to="/one_one/upcoming" className="dropdown-item" onClick={handleLinkClick}>
+              <Link to="/pro-audio-recording" className="dropdown-item" onClick={handleLinkClick}>
                 Pro Audio Recording
               </Link>
-              <Link to="/one_one/upcoming" className="dropdown-item" onClick={handleLinkClick}>
+              <Link to="/pro-audio-editing" className="dropdown-item" onClick={handleLinkClick}>
                 Pro Audio Editing & Arrangement
               </Link>
-              <Link to="/one_one/upcoming" className="dropdown-item" onClick={handleLinkClick}>
+              <Link to="/pro-sound-design" className="dropdown-item" onClick={handleLinkClick}>
                 Pro Sound Design
               </Link>
-              <Link to="/one_one/upcoming" className="dropdown-item" onClick={handleLinkClick}>
+              <Link to="/pro-audio-mastering" className="dropdown-item" onClick={handleLinkClick}>
                 Pro Audio Mixing
               </Link>
-              <Link to="/one_one/upcoming" className="dropdown-item" onClick={handleLinkClick}>
+              <Link to="/pro-audio-mastering" className="dropdown-item" onClick={handleLinkClick}>
                 Pro Audio Mastering
               </Link>
-              <Link to="/one_one/upcoming" className="dropdown-item" onClick={handleLinkClick}>
+              <Link to="/music-distribution" className="dropdown-item" onClick={handleLinkClick}>
                 Music Distribution
               </Link>
-              <Link to="/one_one/upcoming" className="dropdown-item" onClick={handleLinkClick}>
+              <Link to="/video-production" className="dropdown-item" onClick={handleLinkClick}>
                 Video Production
               </Link>
-              <Link to="/one_one/upcoming" className="dropdown-item" onClick={handleLinkClick}>
+              <Link to="/portfolio-shoot" className="dropdown-item" onClick={handleLinkClick}>
                 Portfolio Shoot
               </Link>
-              <Link to="/one_one/upcoming" className="dropdown-item" onClick={handleLinkClick}>
+              <Link to="/music-production" className="dropdown-item" onClick={handleLinkClick}>
                 Music Promotion
               </Link>
-              <Link to="/one_one/upcoming" className="dropdown-item" onClick={handleLinkClick}>
+              <Link to="/artist" className="dropdown-item" onClick={handleLinkClick}>
                 Artist
               </Link>
-              <Link to="/one_one/upcoming" className="dropdown-item" onClick={handleLinkClick}>
+              <Link to="/artist-promotion" className="dropdown-item" onClick={handleLinkClick}>
                 Artist Promotion
               </Link>
-              <Link to="/one_one/upcoming" className="dropdown-item" onClick={handleLinkClick}>
+              <Link to="/artist-management" className="dropdown-item" onClick={handleLinkClick}>
                 Artist Management
               </Link>
             </div>

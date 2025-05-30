@@ -1,20 +1,25 @@
 {
-  "short_name": "creatous_collective_media",
-  "name": "Create thechordifiers App Sample",
+  "short_name": "Creatous Media",
+  "name": "Creatous Collective Media - The Chordifiers Studio",
   "icons": [
     {
-      "src": "creatous_collective_media_logo.jpeg",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "creatous_collective_media_logo.png",
+      "type": "image/png",
+      "sizes": "16x16"
     },
     {
-      "src": "creatous_collective_media_logo.jpeg",
-      "type": "image/jpeg",
+      "src": "creatous_collective_media_logo.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "creatous_collective_media_logo.png",
+      "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "creatous_collective_media_logo.jpeg",
-      "type": "image/jpeg",
+      "src": "creatous_collective_media_logo.png",
+      "type": "image/png",
       "sizes": "512x512"
     }
   ],

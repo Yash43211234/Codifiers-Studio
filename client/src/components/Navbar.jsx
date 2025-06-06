@@ -5,46 +5,56 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const timeoutRef = useRef(null);
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 
   const handleMouseEnter = () => {
     if (window.innerWidth > 768) {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
       setDropdownOpen(true);
     }
   };
 
   const handleMouseLeave = () => {
     if (window.innerWidth > 768) {
-      setDropdownOpen(false);
+      // Delay closing dropdown on mouse leave
+      timeoutRef.current = setTimeout(() => setDropdownOpen(false), 100);
     }
   };
 
   const handleDropdownClick = () => {
     if (window.innerWidth <= 768) {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
       setDropdownOpen((prev) => !prev);
     }
   };
 
   const handleLinkClick = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setMenuOpen(false);
     setDropdownOpen(false);
   };
 
-  // ✅ Corrected: Handles outside clicks safely for all devices
+  // Handles outside clicks safely with delay and timeout clearing
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target)
       ) {
-        // Delay prevents dropdown from closing before link click
-        setTimeout(() => setDropdownOpen(false), 100);
+        // Clear any existing timeout
+        if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        // Delay closing dropdown
+        timeoutRef.current = setTimeout(() => setDropdownOpen(false), 100);
       }
     };
 
     document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
   }, []);
 
 
@@ -53,7 +63,7 @@ export default function Navbar() {
       <nav className="navbar">
         <Link to="/" className="brand" onClick={handleLinkClick}>
           <img
-            src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/4d9261216de606e1cb701ad4448c05c248a6e160+(1).png"
+            src="tcs.png"
             alt="theChordifiersStudio"
             style={{ height: '24px' }}
           />
@@ -63,10 +73,9 @@ export default function Navbar() {
           <Link to="/" className="nav-item" onClick={handleLinkClick}>
             Home
           </Link>
-          <Link to="/one_one/upcoming" className="nav-item" onClick={handleLinkClick}>
+          <Link to="/institute" className="nav-item" onClick={handleLinkClick}>
             Institute
           </Link>
-
 
 
           <a
@@ -76,7 +85,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
             onClick={handleLinkClick}
           >
-            The One 11 Show
+            The One11 Show
           </a>
 
 
@@ -88,6 +97,7 @@ export default function Navbar() {
             onClick={handleDropdownClick}
           >
             <span className="dropdown-toggle">Services</span>
+
 
             <div className={`dropdown-menu ${dropdownOpen ? 'open' : ''}`}>
               <Link to="/pro-music-production" className="dropdown-item" onClick={handleLinkClick}>
@@ -102,37 +112,37 @@ export default function Navbar() {
               <Link to="/pro-sound-design" className="dropdown-item" onClick={handleLinkClick}>
                 Pro Sound Design
               </Link>
-              <Link to="/pro-audio-mastering" className="dropdown-item" onClick={handleLinkClick}>
+              <Link to="/pro-audio-mixing" className="dropdown-item" onClick={handleLinkClick}>
                 Pro Audio Mixing
               </Link>
               <Link to="/pro-audio-mastering" className="dropdown-item" onClick={handleLinkClick}>
                 Pro Audio Mastering
               </Link>
-              <Link to="/music-distribution" className="dropdown-item" onClick={handleLinkClick}>
+              <Link to="/upcoming" className="dropdown-item" onClick={handleLinkClick}>
                 Music Distribution
               </Link>
               <Link to="/video-production" className="dropdown-item" onClick={handleLinkClick}>
                 Video Production
-              </Link>
-              <Link to="/portfolio-shoot" className="dropdown-item" onClick={handleLinkClick}>
+              </Link>           
+              {/* <Link to="/portfolio-shoot" className="dropdown-item" onClick={handleLinkClick}>
                 Portfolio Shoot
-              </Link>
+              </Link> */}
               <Link to="/music-production" className="dropdown-item" onClick={handleLinkClick}>
                 Music Promotion
               </Link>
-              <Link to="/artist" className="dropdown-item" onClick={handleLinkClick}>
+              {/* <Link to="/artist" className="dropdown-item" onClick={handleLinkClick}>
                 Artist
-              </Link>
-              <Link to="/artist-promotion" className="dropdown-item" onClick={handleLinkClick}>
+              </Link> */}
+              {/* <Link to="/artist-promotion" className="dropdown-item" onClick={handleLinkClick}>
                 Artist Promotion
-              </Link>
+              </Link> */}
               <Link to="/artist-management" className="dropdown-item" onClick={handleLinkClick}>
                 Artist Management
               </Link>
             </div>
           </div>
 
-          <Link to="/one_one/upcoming" className="nav-item" onClick={handleLinkClick}>
+          <Link to="/upcoming" className="nav-item" onClick={handleLinkClick}>
             Record Label
           </Link>
           <Link to="/about" className="nav-item" onClick={handleLinkClick}>
@@ -179,8 +189,8 @@ export default function Navbar() {
           gap: .3rem;
           align-items: center;
         }
-
-        .nav-item {
+                                                                                     
+        .nav-item { 
           padding: 0 12px;
           color: #fff;
           text-decoration: none;
@@ -242,7 +252,7 @@ export default function Navbar() {
           }
           .nav-links {
             position: absolute;
-            top: 74px;
+            top: 53px;
             left: 0;
             right: 0;
             background-color: #000;
@@ -313,7 +323,7 @@ export default function Navbar() {
   @media (max-width: 768px) {
   .nav-links {
     position: absolute;
-    top: 74px;
+    top: 53px;
     left: 0;
     right: 0;
     background-color: #000;

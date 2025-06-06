@@ -8,12 +8,14 @@ const PortfolioShoot = () => {
       {/* Left Boxes */}
       <div className="services-column">
         <div className="service-box yellow-box">
-          <h3>Editing Tools</h3>
-          <p>Advanced DAWs for pro mixing</p>
+          <h3>Service Range</h3>
+          <p>Visuals of recording, editing, and lesson</p>
         </div>
         <div className="service-box gray-box">
-          <h3>Flexible Setup</h3>
-          <p>Multi-track and live recording</p>
+          <h3>Creative Outputs</h3>
+          <p>Previews of completed projects or setups
+
+</p>
         </div>
       </div>
 
@@ -25,20 +27,20 @@ const PortfolioShoot = () => {
           className="center-image"
         />
         <div className="center-overlay">
-          <h2>Ready to Record?</h2>
-          <button>Book Your Session</button>
+          <h2>Step into the Spotlight</h2>
+          <button>Shoot Today!</button>
         </div>
       </div>
 
       {/* Right Boxes */}
       <div className="services-column">
         <div className="service-box gray-box">
-          <h3>Acoustic Room</h3>
-          <p>Reaching new heights together</p>
+          <h3>Equipment</h3>
+          <p>Close-ups of mics, mixers, and DAWs</p>
         </div>
-        <div className="service-box yellow-box">
-          <h3>Creative Space</h3>
-          <p>Inspiring, comfortable environment to boost creativity</p>
+        <div className="service-box yellow-box random-yellow-box">
+          <h3>Workflow Shots</h3>
+          <p>Team in action, recording, or editing</p>
         </div>
       </div>
 

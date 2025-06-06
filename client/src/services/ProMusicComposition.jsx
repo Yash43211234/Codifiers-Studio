@@ -1,14 +1,21 @@
 import React from 'react';
 import './ServicesSection.css'; // Reuses the same CSS styles
-
+import { useNavigate } from 'react-router-dom';
 const ProMusicComposition = () => {
+  const navigate = useNavigate();
+
+  const HandleNavigate = () => {
+    navigate('/request-form'); // <-- Update with your actual route
+  };
+
+
   return (
     <div className="services-container">
       
       {/* Left Boxes */}
       <div className="services-column">
         <div className="service-box yellow-box">
-          <h3>Song Writing</h3>
+          <h3>SongWriting</h3>
           <p>Crafting lyrics and melodies for your next hit</p>
         </div>
         <div className="service-box gray-box">
@@ -26,7 +33,7 @@ const ProMusicComposition = () => {
         />
         <div className="center-overlay">
           <h2>Let’s Compose Your Hit!</h2>
-          <button>Compose Now</button>
+          <button onClick={HandleNavigate}>Compose Now</button>
         </div>
       </div>
 
@@ -34,18 +41,18 @@ const ProMusicComposition = () => {
       <div className="services-column">
         <div className="service-box gray-box">
           <h3>Soundtracks</h3>
-          <p>Emotionally powerful music tailored to your story</p>
+          <p>Scoring the perfect soundtrack for your project</p>
         </div>
-        <div className="service-box yellow-box">
+        <div className="service-box yellow-box random-yellow-box">
           <h3>Music for Media</h3>
-          <p>Custom compositions for film, ads, and games</p>
+          <p>Composing the perfect soundtrack for film, ads, or games</p>
         </div>
       </div>
 
       {/* Mobile CTA */}
       <div className="services-center-2">
         <h2>Let’s Compose Your Hit!</h2>
-        <button>Compose Now</button>
+        <button onClick={HandleNavigate}>Compose Now</button>
       </div>
     </div>
   );

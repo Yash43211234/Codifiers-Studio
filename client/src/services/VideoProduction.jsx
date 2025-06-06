@@ -1,7 +1,16 @@
 import React from 'react';
 import './ServicesSection.css'; // Import the CSS file
+import { useNavigate } from 'react-router-dom';
+
 
 const VideoProduction = () => {
+
+  const navigate = useNavigate();
+
+  const HandleNavigate = () => {
+    navigate('/request-form'); // <-- Update with your actual route
+  };
+
   return (
     <div className="services-container">
       
@@ -26,7 +35,7 @@ const VideoProduction = () => {
         />
         <div className="center-overlay">
           <h2>Capture with Us</h2>
-          <button>Book Your Session</button>
+          <button onClick={HandleNavigate}>Book Your Session</button>
         </div>
       </div>
 
@@ -36,7 +45,7 @@ const VideoProduction = () => {
           <h3>Short Films</h3>
           <p>Cinematic production for impactful storytelling</p>
         </div>
-        <div className="service-box yellow-box">
+        <div className="service-box yellow-box random-yellow-box">
         <h3>Custom Projects</h3>
         <p>Inspiring, comfortable environment to boost creativity</p>
         </div>
@@ -44,7 +53,7 @@ const VideoProduction = () => {
 
       <div className="services-center-2">
           <h2>Capture with Us</h2>
-          <button>Book Your Session</button>
+          <button onClick={HandleNavigate}>Book Your Session</button>
       </div>
     </div>
   );

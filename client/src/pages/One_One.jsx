@@ -40,16 +40,16 @@ const viewMoreBtn = {
 
 
 const images = [
-  "https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/fc8caa80c3fa6c47e578f7973c020161f59b5819+(1).jpg",
-  "https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/4539f9ab6535a9d947d9348ef2d084f25e263d9b.jpg",
-  "https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/225f634a885ea8917b80f7d57b48c05ef5e206ec.jpg",
-  "https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/87284b8c9ea35499751a7d8ee3d1cde0455e5c46.jpg",
-  "https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/fc8caa80c3fa6c47e578f7973c020161f59b5819+(1).jpg",
-  "https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/4539f9ab6535a9d947d9348ef2d084f25e263d9b.jpg",
-  "https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/225f634a885ea8917b80f7d57b48c05ef5e206ec.jpg",
-  "https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/87284b8c9ea35499751a7d8ee3d1cde0455e5c46.jpg",
-  "https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/fc8caa80c3fa6c47e578f7973c020161f59b5819+(1).jpg",
-  "https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/4539f9ab6535a9d947d9348ef2d084f25e263d9b.jpg",
+  "159.jpg",
+  "26_10.jpg",
+  "37.jpg",
+  "48.jpg",
+  "159.jpg",
+  "26_10.jpg",
+  "37.jpg",
+  "48.jpg",
+  "159.jpg",
+  "26_10.jpg",
 
 ];
 
@@ -60,7 +60,7 @@ export default function LandingPage() {
 
   const handleJoinClick = () => {
     navigate('/query');
-     window.scrollTo(0, 0);  // 👈 change '/institute' to your actual route if needed
+    window.scrollTo(0, 0);  // 👈 change '/institute' to your actual route if needed
   };
 
 
@@ -136,7 +136,6 @@ export default function LandingPage() {
     padding: '60px 20px',
     color: '#000',
     textAlign: 'center'
-
   };
 
   const galleryTitle = {
@@ -188,7 +187,7 @@ export default function LandingPage() {
         <div className="overlay" />
         <div className="hero-content">
           <img
-            src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/4d9261216de606e1cb701ad4448c05c248a6e160+(1).png"
+            src="tcs.png"
             alt="Chordifiers Logo"
             className="hero-logo"
           />
@@ -241,9 +240,17 @@ export default function LandingPage() {
           launching artists and creators of various niches into the world.
         </p>
 
-        <div style={{ margin: window.innerWidth < 600 ? '20px 0' : '30px 0' }}>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            marginTop: window.innerWidth < 600 ? '20px' : '30px',
+            marginBottom: window.innerWidth < 600 ? '20px' : '30px',
+          }}
+        >
           <ImageCarousel />
         </div>
+
 
         <h3
           style={{
@@ -257,8 +264,8 @@ export default function LandingPage() {
         </h3>
 
         <button
-          onClick={() =>{ navigate('/one11register');
-             window.scrollTo(0, 0); 
+          onClick={() => {
+            window.open('https://theone11.show/', '_blank');
           }}
           style={{
             backgroundColor: '#111',
@@ -274,23 +281,6 @@ export default function LandingPage() {
           Register Now
         </button>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
       {/* +++++++++++++++++++ */}
@@ -476,7 +466,7 @@ export default function LandingPage() {
         {/* Artist 1 */}
         <div style={artistBlock}>
           <img
-            src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/bb0cfb4651b4fd60bd61928cd0d593ab6c731d0a+(1).jpg"
+            src="mizzie.jpg"
             alt="MizzieLmb"
             style={artistImg}
           />
@@ -491,7 +481,7 @@ export default function LandingPage() {
         {/* Artist 2 */}
         <div style={{ ...artistBlock, flexDirection: 'row-reverse' }}>
           <img
-            src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/23f4e11a55b906a4310e045982373adcbcdbef9a.jpg"
+            src="welcome-yellow.jpg"
             alt="Sweta"
             style={artistImg}
           />
@@ -506,7 +496,7 @@ export default function LandingPage() {
         {/* Artist 3 */}
         <div style={artistBlock}>
           <img
-            src="https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/ddd2b1b879f16ccc4ece2ec94c7d7b6abb4f315d.jpg"
+            src="phone-call.jpg"
             alt="Divas"
             style={artistImg}
           />
@@ -625,7 +615,7 @@ export default function LandingPage() {
               marginTop: '20px'
             }}
             onClick={() => {
-              navigate('/one_one/upcoming');
+              navigate('/upcoming');
               window.scrollTo(0, 0);  // Scrolls to the top after navigation
             }}
 
@@ -643,7 +633,7 @@ export default function LandingPage() {
         {`
   .responsive-banner {
     background-color: #f0e924;
-    width: 94%;
+    width: 97%;
     padding: 40px 20px;
     display: flex;
     justify-content: center;
@@ -691,8 +681,9 @@ export default function LandingPage() {
               look at the key factors driving our achievements in the <br />
               music industry.
             </p>
-            <button className="insight-button" onClick={() =>{;
-               window.scrollTo(0, 0); 
+            <button className="insight-button" onClick={() => {
+              navigate('/about');
+              window.scrollTo(0, 0);
             }}>
               More Information
             </button>
@@ -725,9 +716,10 @@ export default function LandingPage() {
           {`
           .insight-container {
             font-family: Georgia, serif;
-            padding: 50px 220px;
+            
             background-color: #fff;
             text-align: center;
+            padding: 50px 5%;
           }
 
           .insight-row {
@@ -878,8 +870,9 @@ export default function LandingPage() {
           }}
         >
           Want to book a studio session?{' '}
-          <span onClick={() => {navigate('/one_one/upcoming');
-             window.scrollTo(0, 0); 
+          <span onClick={() => {
+            navigate('/upcoming');
+            window.scrollTo(0, 0);
           }}
             style={{
               backgroundColor: '#fcee09',
@@ -899,7 +892,7 @@ export default function LandingPage() {
 
 
       {/* +++++++++++++++++++++++++++ */}
-     <TestimonialSlider/>
+      <TestimonialSlider />
 
 
 
@@ -928,8 +921,9 @@ export default function LandingPage() {
         </div>
 
 
-        <button onClick={() => {navigate('/one_one/upcoming');
-           window.scrollTo(0, 0); 
+        <button onClick={() => {
+          navigate('/request-form');
+          window.scrollTo(0, 0);
         }}
           style={{
             backgroundColor: '#fcee09',

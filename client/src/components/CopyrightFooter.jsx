@@ -25,7 +25,7 @@ const CopyrightFooter = () => {
 
   return (
     <footer style={style}>
-      &copy; {currentYear} Creatous Collective Media. All rights reserved.
+      &copy; {currentYear} The Chordifiers Studio. All rights reserved.
     </footer>
   );
 };

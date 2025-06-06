@@ -1,7 +1,14 @@
 import React from 'react';
 import './ServicesSection.css'; // Import the CSS file
-
+import { useNavigate } from 'react-router-dom';
 const ProAudioRecording = () => {
+
+const navigate = useNavigate();
+
+  const HandleNavigate = () => {
+      navigate('/request-form'); // <-- Update with your actual route
+  };
+
   return (
     <div className="services-container">
       
@@ -26,7 +33,7 @@ const ProAudioRecording = () => {
         />
         <div className="center-overlay">
           <h2>Ready to Record?</h2>
-          <button>Book Your Session</button>
+          <button onClick={HandleNavigate}>Book Your Session</button>
         </div>
       </div>
 
@@ -36,7 +43,7 @@ const ProAudioRecording = () => {
           <h3>Acoustic Room</h3>
           <p>Reaching new heights together</p>
         </div>
-        <div className="service-box yellow-box">
+        <div className="service-box yellow-box random-yellow-box">
           <h3>Creative Space</h3>
           <p>Inspiring, comfortable environment to boost creativity</p>
         </div>
@@ -44,10 +51,12 @@ const ProAudioRecording = () => {
 
       <div className="services-center-2">
           <h2>Ready to Record?</h2>
-          <button>Book Your Session</button>
+          <button onClick={HandleNavigate}>Book Your Session</button>
       </div>
     </div>
   );
 };
 
 export default ProAudioRecording;
+
+

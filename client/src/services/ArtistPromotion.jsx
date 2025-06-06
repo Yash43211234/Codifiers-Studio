@@ -1,7 +1,15 @@
 import React from 'react';
 import './ServicesSection.css'; // Import the CSS file
+import { useNavigate } from 'react-router-dom';
+
 
 const ArtistPromotion = () => {
+  const navigate = useNavigate();
+
+  const HandleNavigate = () => {
+    navigate('/request-form'); // <-- Update with your actual route
+  };
+
   return (
     <div className="services-container">
       
@@ -26,7 +34,7 @@ const ArtistPromotion = () => {
         />
         <div className="center-overlay">
           <h2>Ready to Record?</h2>
-          <button>Book Your Session</button>
+          <button onClick={HandleNavigate}>Book Your Session</button>
         </div>
       </div>
 
@@ -44,7 +52,7 @@ const ArtistPromotion = () => {
 
       <div className="services-center-2">
           <h2>Ready to Record?</h2>
-          <button>Book Your Session</button>
+          <button onClick={HandleNavigate}>Book Your Session</button>
       </div>
     </div>
   );

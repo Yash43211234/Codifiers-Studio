@@ -28,7 +28,7 @@ function Booking() {
         let description = '';
 
         if (isFirst) {
-          imageUrl = 'https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/4c1616793e2b0571fa739cffa93b13a63adbc649+-+Copy.jpg';
+          imageUrl = '';
           heading = 'Electronic Beat Crafting';
           description =
             'Dive into synths, drums, and sequencing. Create your own beats using modern tools like FL Studio and Ableton.';

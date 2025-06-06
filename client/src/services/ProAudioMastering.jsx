@@ -1,7 +1,14 @@
 import React from 'react';
 import './ServicesSection.css'; // Import the CSS file
+import { useNavigate } from 'react-router-dom';
 
 const ProAudioMastering = () => {
+  const navigate = useNavigate();
+
+  const HandleNavigate = () => {
+    navigate('/request-form'); // <-- Update with your actual route
+  };
+
   return (
     <div className="services-container">
       
@@ -13,7 +20,7 @@ const ProAudioMastering = () => {
         </div>
         <div className="service-box gray-box">
           <h3>EQ Balance</h3>
-          <p>Multi-track and live recording</p>
+          <p>Adjusting EQ for clarity and punch</p>
         </div>
       </div>
 
@@ -26,7 +33,7 @@ const ProAudioMastering = () => {
         />
         <div className="center-overlay">
           <h2>Master your track now!</h2>
-          <button>Master Now</button>
+          <button onClick={HandleNavigate}>Master Now</button>
         </div>
       </div>
 
@@ -44,7 +51,7 @@ const ProAudioMastering = () => {
 
       <div className="services-center-2">
          <h2>Master your track now!</h2>
-          <button>Master Now</button>
+          <button onClick={HandleNavigate}>Master Now</button>
       </div>
     </div>
   );

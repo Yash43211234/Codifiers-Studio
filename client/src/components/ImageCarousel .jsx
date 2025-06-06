@@ -2,11 +2,11 @@ import React, { useRef, useEffect, useState } from 'react';
 
 const ImageCarousel = () => {
   const images = [
-    { src: 'https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/122.jpg', alt: 'Battle of Rappers' },
-    { src: 'https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/30.jpg', alt: 'Battle of Singers' },
-    { src: 'https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/4.jpg', alt: 'Another Battle' },
-    { src: 'https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/18.jpg', alt: 'New Show 1' },
-    { src: 'https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/26.jpg', alt: 'New Show 2' },
+    { src: '/crowserImages/122.jpg', alt: 'Battle of Rappers' },
+    { src: '/crowserImages/30.jpg', alt: 'Battle of Singers' },
+    { src: '/crowserImages/4.jpg', alt: 'Another Battle' },
+    { src: '/crowserImages/18.jpg', alt: 'New Show 1' },
+    { src: '/crowserImages/26.jpg', alt: 'New Show 2' },
   ];
 
   const getResponsiveValues = () => {
@@ -75,13 +75,14 @@ const ImageCarousel = () => {
 
   const arrowSize = imageWidth <= 160 ? 30 : imageWidth <= 200 ? 35 : 40;
 
-  const wrapperStyle = {
-    overflow: 'hidden',
-    width: `${visibleCount * (imageWidth + imageMargin) - imageMargin}px`,
-    height: imageWidth <= 160 ? '200px' : imageWidth <= 200 ? '250px' : '300px',
-    margin: '0 auto',
-    position: 'relative',
-  };
+ const wrapperStyle = {
+  overflow: 'hidden',
+  width: `${visibleCount * (imageWidth + imageMargin) - imageMargin}px`,
+  height: imageWidth <= 160 ? '200px' : imageWidth <= 200 ? '250px' : '300px',
+  margin: '0 auto',
+  position: 'relative',
+};
+
 
   const containerStyle = {
     width: `${(imageWidth + imageMargin) * totalImages}px`,

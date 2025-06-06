@@ -1,24 +1,19 @@
 {
-  "short_name": "Creatous Media",
-  "name": "Creatous Collective Media - The Chordifiers Studio",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
-      "src": "creatous_collective_media_logo.png",
-      "type": "image/png",
-      "sizes": "16x16"
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
     },
     {
-      "src": "creatous_collective_media_logo.png",
-      "type": "image/png",
-      "sizes": "32x32"
-    },
-    {
-      "src": "creatous_collective_media_logo.png",
+      "src": "logo192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "creatous_collective_media_logo.png",
+      "src": "logo512.png",
       "type": "image/png",
       "sizes": "512x512"
     }

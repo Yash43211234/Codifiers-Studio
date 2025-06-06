@@ -1,8 +1,14 @@
 import React from 'react';
 import './ServicesSection.css'; // Import the CSS file
 import { Music } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const MusicPromotion = () => {
+    const navigate = useNavigate();
+
+  const HandleNavigate = () => {
+    navigate('/request-form'); // <-- Update with your actual route
+  };
     return (
         <div className="services-container">
 
@@ -27,7 +33,7 @@ const MusicPromotion = () => {
                 />
                 <div className="center-overlay">
                     <h2>Boost your Music</h2>
-                    <button>Start now!</button>
+                    <button onClick={HandleNavigate}>Start now!</button>
                 </div>
             </div>
 
@@ -45,7 +51,7 @@ const MusicPromotion = () => {
 
             <div className="services-center-2">
                 <h2>Boost your Music</h2>
-                <button>Start now!</button>
+                <button onClick={HandleNavigate}>Start now!</button>
             </div>
         </div>
     );

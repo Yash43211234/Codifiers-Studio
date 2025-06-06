@@ -1,6 +1,6 @@
 .services-container {
   background-color: #000;
-  color: #fff;
+  color: #e7e7e7;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -16,35 +16,49 @@
 }
 
 .service-box {
-  width: 260px;
-  padding: 3.8rem;
+  align-items: center;
+  padding-top: 50px;
+  width: 280px;
+  height: 250px;
   border-radius: 1rem;
   text-align: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .yellow-box {
-  background-color: #facc15; /* similar to Tailwind's yellow-400 */
-  color: #000;
+  background: linear-gradient(to right bottom, #3d3d3d, #141313);
+  color: #fcfafa;
+}
+
+.service-box h3 {
+  font-weight: 200;
+  font-size: 40px;
+  margin-bottom: 0.3rem;
+}
+
+.yellow-box p {
+  margin-top: 0;
+  font-size: 12px;
 }
 
 .gray-box {
-  background-color: #f3f4f6; /* light gray */
+  background-color: #f3f4f6;
   color: #000;
 }
 
 .services-center {
   position: relative;
   width: 100%;
-  max-width: 420px;
-  height: 400px;
+  max-width: 580px;
+  max-height: 620px;
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
-.services-center-2{
-    display: none;
-    text-align: center;
+
+.services-center-2 {
+  display: none;
+  text-align: center;
 }
 
 .center-image {
@@ -66,60 +80,134 @@
 }
 
 .center-overlay h2 {
-  font-size: 1.8rem;
+  font-size: 2.8rem;
   margin-bottom: 1rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.random-yellow-box {
+  background: #f2ec44;
+  color: #000;
 }
 
 .center-overlay button {
-  background-color: #facc15;
+  background-color: #f2ec44;
   color: #000;
   font-weight: bold;
-  padding: 0.6rem 1.2rem;
+  padding: 0.6rem 2rem;
   border: none;
-  border-radius: 9999px;
+  border-radius: 9px;
   cursor: pointer;
+  font-weight: 200;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
   transition: background-color 0.3s ease;
 }
 
 .center-overlay button:hover {
-  background-color: #eab308; /* darker yellow on hover */
+  background-color: #eab308;
 }
 
-/* Responsive Design */
+/* Responsive: Tablets and below (max-width: 1024px) */
+/* Responsive: Tablets and below (max-width: 1024px) */
 @media (max-width: 1024px) {
   .services-container {
     flex-direction: column;
     align-items: center;
-    
   }
-  .services-center-2{
+
+  .services-center-2 {
     display: block;
   }
-  .center-overlay{
+
+  .center-overlay {
     display: none;
   }
+
   .service-box {
-  width: 160px;
-  border-radius: 1rem;
-  text-align: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    height: auto;
+    padding-top: 30px;
+  }
 }
 
-.services-center-2 button {
-  background-color: #facc15;
-  color: #000;
-  font-weight: bold;
-  padding: 0.6rem 1.2rem;
-  border: none;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+/* Responsive: Large Phones and below (max-width: 768px) */
+@media (max-width: 768px) {
+  .services-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 0.5rem;
+  }
+
+  .service-box {
+    width: 300px;
+    height: auto;
+    padding-top: 20px;
+  }
+
+  .service-box h3 {
+    font-size: 28px;
+  }
+
+  .yellow-box p {
+    font-size: 11px;
+  }
+
+  .center-overlay h2 {
+    font-size: 2rem;
+  }
+
   
+  .services-center-2 button {
+    background-color: #f2ec44;
+    color: #020101;
+    font-weight: bold;
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+   
+  }
+
+  .services-center-2 button:hover {
+    background-color: #eab308;
+  }
 }
 
-.services-center-2 button:hover {
-  background-color: #eab308; /* darker yellow on hover */
-}
 
+/* Responsive: Small Phones and below (max-width: 480px) */
+@media (max-width: 480px) {
+  .service-box {
+    width: 300px;
+    margin-top:10px ;
+    padding-top: 0px;  
+    padding: 10px 0;
+  }
 
+  .service-box h3 {
+    font-size: 22px;
+  }
+
+  .yellow-box p {
+    font-size: 10px;
+  }
+
+  .services-container {
+    gap: 0.8rem;
+    padding: 1.5rem 0.5rem;
+  }
+
+  .center-overlay h2 {
+    font-size: 1.6rem;
+  }
+  .services-center-2 button{
+   background-color: #f2ec44;
+    color: #020101;
+    padding: 10px;
+    border-radius: 50px;
+    border: none;
+    
+  }
 }

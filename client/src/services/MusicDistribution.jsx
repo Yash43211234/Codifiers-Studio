@@ -1,7 +1,13 @@
 import React from 'react';
 import './ServicesSection.css'; // Import the CSS file
+import { useNavigate } from 'react-router-dom';
 
 const MusicDistribution = () => {
+  const navigate = useNavigate();
+
+  const HandleNavigate = () => {
+    navigate('/request-form'); // <-- Update with your actual route
+  };
   return (
     <div className="services-container">
       
@@ -26,7 +32,7 @@ const MusicDistribution = () => {
         />
         <div className="center-overlay">
           <h2>Capture with Us</h2>
-          <button>Book Your Session</button>
+          <button onClick={HandleNavigate}>Book Your Session</button>
         </div>
       </div>
 
@@ -44,7 +50,7 @@ const MusicDistribution = () => {
 
       <div className="services-center-2">
           <h2>Capture with Us</h2>
-          <button>Book Your Session</button>
+          <button onClick={HandleNavigate}>Book Your Session</button>
       </div>
     </div>
   );

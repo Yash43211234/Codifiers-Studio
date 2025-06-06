@@ -1,7 +1,13 @@
 import React from 'react';
 import './ServicesSection.css'; // Import the CSS file
+import { useNavigate } from 'react-router-dom';
 
 const Artist = () => {
+  const navigate = useNavigate();
+
+  const HandleNavigate = () => {
+    navigate('/request-form'); // <-- Update with your actual route
+  };
   return (
     <div className="services-container">
       
@@ -26,7 +32,7 @@ const Artist = () => {
         />
         <div className="center-overlay">
           <h2>Ready to hit the Road?</h2>
-          <button>Sign up with Us</button>
+          <button onClick={HandleNavigate}>Sign up with Us</button>
         </div>
       </div>
 
@@ -36,7 +42,7 @@ const Artist = () => {
           <h3>Contract Deals</h3>
           <p>Negotiating fair terms</p>
         </div>
-        <div className="service-box yellow-box">
+        <div className="service-box yellow-box random-yellow-box">
           <h3>Tour Support</h3>
           <p>Planning, coordinating, and promoting your tours</p>
         </div>
@@ -44,7 +50,7 @@ const Artist = () => {
 
       <div className="services-center-2">
         <h2>Ready to hit the Road?</h2>
-          <button>Sign up with Us</button>
+          <button onClick={HandleNavigate}>Sign up with Us</button>
       </div>
     </div>
   );

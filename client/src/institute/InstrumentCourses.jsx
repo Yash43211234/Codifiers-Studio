@@ -2,11 +2,11 @@ import React from 'react';
 import guiter from '../assets/guiter.png';
 import drums from '../assets/drums.png';
 import piano from '../assets/piano.png';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function InstrumentCourses() {
-
   const navigate = useNavigate();
+
   const instruments = [
     {
       id: 'guitar',
@@ -40,17 +40,21 @@ export default function InstrumentCourses() {
         boxSizing: 'border-box',
       }}
     >
-      <div style={{ maxWidth: '1280px', margin: '0 auto', maxHeight: '372px' }}>
+      <div
+        style={{
+          maxWidth: '1280px',
+          margin: '0 auto',
+        }}
+      >
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
           <h1
             style={{
-              fontSize: '48.75px',
+              fontSize: '2.5rem',
               fontWeight: '700',
               color: 'black',
               fontFamily: 'Plus Jakarta Sans, sans-serif',
               marginBottom: '1rem',
-
             }}
           >
             Instrument Courses
@@ -73,12 +77,10 @@ export default function InstrumentCourses() {
                 backgroundColor: 'white',
                 borderRadius: '12px',
                 boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-                overflow: 'hidden',
                 transition: 'box-shadow 0.3s',
-                width: '100%',
-                maxWidth: '329.33px',
-
                 flex: '1 1 300px',
+                maxWidth: '100%',
+                minWidth: '280px',
               }}
               onMouseEnter={(e) =>
                 (e.currentTarget.style.boxShadow = '0 6px 12px rgba(0,0,0,0.2)')
@@ -117,7 +119,6 @@ export default function InstrumentCourses() {
                     marginBottom: '1rem',
                     color: '#000',
                     textAlign: 'center',
-
                   }}
                 >
                   {instrument.name}
@@ -133,34 +134,34 @@ export default function InstrumentCourses() {
                 >
                   {instrument.description}
                 </p>
-                <button
-                  onClick={() => {
-                    navigate('/upcoming');
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
-
-
-                  style={{
-                    backgroundColor: '#000',
-                    color: '#fff',
-                    padding: '7px 13px 7px 13px ',
-                    borderRadius: '999px',
-                    fontSize: '13px',
-                    fontWeight: '500',
-                    border: 'none',
-                    cursor: 'pointer',
-                    height: '32px',
-                    maxWidth: '98px'
-                  }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.backgroundColor = '#222')
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.backgroundColor = '#000')
-                  }
-                >
-                  View Details
-                </button>
+                <div style={{ textAlign: 'center' }}>
+                  <button
+                    onClick={() => {
+                      navigate('/upcoming');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    style={{
+                      backgroundColor: '#000',
+                      color: '#fff',
+                      padding: '7px 13px',
+                      borderRadius: '999px',
+                      fontSize: '13px',
+                      fontWeight: '500',
+                      border: 'none',
+                      cursor: 'pointer',
+                      height: '32px',
+                      width: '128px',
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.backgroundColor = '#222')
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.backgroundColor = '#000')
+                    }
+                  >
+                    Coming Soon
+                  </button>
+                </div>
               </div>
             </div>
           ))}

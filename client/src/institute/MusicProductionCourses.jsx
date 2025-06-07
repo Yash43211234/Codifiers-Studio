@@ -61,7 +61,7 @@ export default function MusicProductionCourses() {
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
           <h1 style={{
-            fontSize: '5rem',
+            fontSize: '4rem',
             color: 'white',
             fontFamily: 'sans-serif',
             fontWeight: 'bold'

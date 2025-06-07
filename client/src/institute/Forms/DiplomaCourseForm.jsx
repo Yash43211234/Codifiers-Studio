@@ -168,7 +168,7 @@ const DiplomaCourseForm = () => {
             gap: "10px",
           }}
         >
-          <FaGraduationCap /> Register for Our Diploma Courses
+        Register for Our Diploma Courses
         </h2>
         <p style={{ marginBottom: "30px", fontSize: "16px", color: "#333" }}>
           Fill out the form below to sign up for our course and take your music

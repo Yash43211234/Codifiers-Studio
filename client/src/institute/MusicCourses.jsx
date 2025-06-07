@@ -143,7 +143,10 @@ const MusicCourses = () => {
           <h2 style={{ fontSize: '32px', fontFamily: 'Crimson Text, serif' }}>Limited Seats Available</h2>
           <p style={{ fontSize: '18px', margin: '10px 0' }}>Get your seat as soon as possible!</p>
           <button
-            onClick={() => navigate('/institute/Music-course-form')}
+            onClick={() => {navigate('/institute/Music-course-form')
+               window.scrollTo({ top: 0, behavior: "smooth" })}
+            }
+            
             style={{
               padding: '10px 20px',
               borderRadius: '8px',

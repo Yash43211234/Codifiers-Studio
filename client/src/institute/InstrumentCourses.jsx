@@ -2,8 +2,11 @@ import React from 'react';
 import guiter from '../assets/guiter.png';
 import drums from '../assets/drums.png';
 import piano from '../assets/piano.png';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 export default function InstrumentCourses() {
+
+  const navigate = useNavigate();
   const instruments = [
     {
       id: 'guitar',
@@ -37,16 +40,17 @@ export default function InstrumentCourses() {
         boxSizing: 'border-box',
       }}
     >
-      <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', maxHeight: '372px' }}>
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
           <h1
             style={{
-              fontSize: '5rem',
-              fontWeight: 'bold',
+              fontSize: '48.75px',
+              fontWeight: '700',
               color: 'black',
               fontFamily: 'Plus Jakarta Sans, sans-serif',
               marginBottom: '1rem',
+
             }}
           >
             Instrument Courses
@@ -72,7 +76,8 @@ export default function InstrumentCourses() {
                 overflow: 'hidden',
                 transition: 'box-shadow 0.3s',
                 width: '100%',
-                maxWidth: '380px',
+                maxWidth: '329.33px',
+
                 flex: '1 1 300px',
               }}
               onMouseEnter={(e) =>
@@ -111,6 +116,8 @@ export default function InstrumentCourses() {
                     fontFamily: 'Playfair Display, serif',
                     marginBottom: '1rem',
                     color: '#000',
+                    textAlign: 'center',
+
                   }}
                 >
                   {instrument.name}
@@ -127,16 +134,23 @@ export default function InstrumentCourses() {
                   {instrument.description}
                 </p>
                 <button
+                  onClick={() => {
+                    navigate('/upcoming');
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+
+
                   style={{
                     backgroundColor: '#000',
                     color: '#fff',
-                    padding: '0.6rem 1.4rem',
+                    padding: '7px 13px 7px 13px ',
                     borderRadius: '999px',
-                    fontSize: '0.95rem',
+                    fontSize: '13px',
                     fontWeight: '500',
                     border: 'none',
                     cursor: 'pointer',
-                    width: '30%',
+                    height: '32px',
+                    maxWidth: '98px'
                   }}
                   onMouseEnter={(e) =>
                     (e.currentTarget.style.backgroundColor = '#222')

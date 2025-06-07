@@ -23,7 +23,7 @@ const ProfessionalCertificationCourses = () => {
       title: "Instrument Courses",
       image: instrument,
       description: "Master the art of playing your favorite instrument with our expertly designed Instrument Courses, tailored for musicians and aspiring professionals. Whether you're strumming a guitar, rocking out on the drums, or playing classical pieces on the piano, we have the right course to match your goals and passion.",
-      link1: "/upcoming",
+      link1: "/institute/instrument-certificate",
       link2: "/upcoming",
     },
     {

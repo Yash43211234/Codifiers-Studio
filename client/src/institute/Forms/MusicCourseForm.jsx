@@ -2,13 +2,23 @@ import React, { useState } from 'react';
 import { FaUser, FaEnvelope, FaPhone, FaGraduationCap, FaCheck, FaBookOpen } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-
+import {
+  Music,
+  User,
+  Mail,
+  Phone,
+  GraduationCap,
+  Award,
+  Calendar,
+  MessageSquare,
+  Monitor,
+  Users
+} from 'lucide-react';
 
 const MusicCourseForm = () => {
   const navigate = useNavigate();
-  
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -44,15 +54,14 @@ const MusicCourseForm = () => {
     if (formData.courses.length === 0) errors.courses = 'Select at least one course.';
     return errors;
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const errors = validateForm();
     setFormErrors(errors);
     if (Object.keys(errors).length > 0) return;
 
-    setIsSubmitting(true);  // start submitting
-
+    setIsSubmitting(true);
     const payload = {
       Name: formData.name,
       Email: formData.email,
@@ -65,7 +74,7 @@ const MusicCourseForm = () => {
     };
 
     try {
-      const response = await fetch("https://api.sheetbest.com/sheets/d44f0ab8-40bb-4eb3-bb8c-4b42c4354c34", {
+      const response = await fetch("https://api.sheetbest.com/sheets/d44f0ab8-40bb-4eb3-bb8c-4b42c4354c34/tabs/Music_Production_Diploma", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -92,22 +101,27 @@ const MusicCourseForm = () => {
       console.error("Error submitting form:", error);
       setSubmitStatus("❌ An error occurred. Please try again later.");
     } finally {
-      setIsSubmitting(false);  // end submitting
+      setIsSubmitting(false);
     }
   };
 
-
   return (
     <div style={backgroundStyle}>
-      {/* Animated Icons */}
-      <motion.div animate={{ y: [0, -20, 0] }} transition={{ repeat: Infinity, duration: 3 }} style={iconStyle1}>
-        <FaGraduationCap size={60} color="#fff" />
+      {/* Lucide Animated Background Icons */}
+      <motion.div animate={{ y: [0, -20, 0] }} transition={{ repeat: Infinity, duration: 3 }} style={lucideIconStyle1}>
+        <GraduationCap size={70} color="#000" />
       </motion.div>
-      <motion.div animate={{ y: [0, -25, 0] }} transition={{ repeat: Infinity, duration: 4 }} style={iconStyle2}>
-        <FaBookOpen size={60} color="#fff" />
+      <motion.div animate={{ y: [0, -25, 0] }} transition={{ repeat: Infinity, duration: 4 }} style={lucideIconStyle2}>
+        <Music size={70} color="#000" />
       </motion.div>
-      <motion.div animate={{ y: [0, -15, 0] }} transition={{ repeat: Infinity, duration: 5 }} style={iconStyle3}>
-        <FaCheck size={60} color="#fff" />
+      <motion.div animate={{ y: [0, -15, 0] }} transition={{ repeat: Infinity, duration: 5 }} style={lucideIconStyle3}>
+        <Monitor size={70} color="#000" />
+      </motion.div>
+      <motion.div animate={{ y: [0, -10, 0] }} transition={{ repeat: Infinity, duration: 6 }} style={lucideIconStyle4}>
+        <Award size={60} color="#000" />
+      </motion.div>
+      <motion.div animate={{ y: [0, -30, 0] }} transition={{ repeat: Infinity, duration: 7 }} style={lucideIconStyle5}>
+        <Users size={60} color="#000" />
       </motion.div>
 
       <div style={formContainer}>
@@ -173,7 +187,6 @@ const MusicCourseForm = () => {
           >
             {isSubmitting ? 'Submitting...' : 'Submit'}
           </button>
-
         </form>
       </div>
     </div>
@@ -186,7 +199,7 @@ const courseList = [
   'Diploma in Music Production, Sound Designing & Music Business'
 ];
 
-// Inline styles
+// --- Inline Styles ---
 const backgroundStyle = {
   backgroundColor: '#fcd936',
   position: 'relative',
@@ -201,7 +214,9 @@ const formContainer = {
   padding: '30px',
   maxWidth: '600px',
   margin: '0 auto',
-  boxShadow: '0 4px 20px rgba(0,0,0,0.2)'
+  boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
+  zIndex: 1,
+  position: 'relative'
 };
 
 const heading = {
@@ -261,32 +276,18 @@ const checkboxContainer = {
   marginBottom: '10px'
 };
 
-const iconStyle1 = {
-  position: 'absolute',
-  top: '30px',
-  left: '10%',
-  zIndex: 0
-};
-
-const iconStyle2 = {
-  position: 'absolute',
-  top: '500px',
-  right: '15%',
-  zIndex: 0
-};
-
-const iconStyle3 = {
-  position: 'absolute',
-  bottom: '23%',
-  left: '15%',
-  zIndex: 0
-};
-
 const errorStyle = {
   color: 'red',
   fontSize: '14px',
   marginTop: '-15px',
   marginBottom: '10px'
 };
+
+// Animated Lucide Icon Styles
+const lucideIconStyle1 = { position: 'absolute', top: '30px', left: '5%', zIndex: 0, opacity: 0.15 };
+const lucideIconStyle2 = { position: 'absolute', top: '100px', right: '5%', zIndex: 0, opacity: 0.15 };
+const lucideIconStyle3 = { position: 'absolute', bottom: '20%', left: '10%', zIndex: 0, opacity: 0.15 };
+const lucideIconStyle4 = { position: 'absolute', top: '70%', right: '15%', zIndex: 0, opacity: 0.15 };
+const lucideIconStyle5 = { position: 'absolute', bottom: '5%', left: '40%', zIndex: 0, opacity: 0.15 };
 
 export default MusicCourseForm;

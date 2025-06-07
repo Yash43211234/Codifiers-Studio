@@ -6,6 +6,7 @@ import { Clock, Headphones, Guitar, Piano, Mic, Drum, Volume2, Radio, Disc3, } f
 
 export default function CourseRegistrationForm() {
     const navigate = useNavigate();
+    const [formErrors, setFormErrors] = useState({});
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
@@ -93,9 +94,7 @@ export default function CourseRegistrationForm() {
         // Goals validation
         if (!formData.goals.trim()) {
             newErrors.goals = 'Please describe your goals for this course';
-        } else if (formData.goals.trim().length < 10) {
-            newErrors.goals = 'Please provide more details about your goals (at least 10 characters)';
-        }
+        } 
 
         // Availability validation
         // if (formData.availability.length === 0) {
@@ -144,40 +143,68 @@ export default function CourseRegistrationForm() {
         }
     };
 
-    const handleSubmit = async () => {
-        if (!validateForm()) return;
-        setIsSubmitting(true);
-        const formEncoded = new URLSearchParams();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-        for (const key in formData) {
-            const value = formData[key];
-            formEncoded.append(key, Array.isArray(value) ? value.join(', ') : value);
-        }
+        const errors = validateForm();
+        setFormErrors(errors);
+        if (Object.keys(errors).length > 0) return;
+
+        setIsSubmitting(true);
+
+        // Prepare JSON payload for SheetBest
+        const payload = {
+            Timestamp: `${new Date().toDateString()} ${new Date().toLocaleTimeString()}`,
+            FullName: formData.fullName,
+            Email: formData.email,
+            Phone: formData.phone,
+            CertificationCourses: Array.isArray(formData.certificationCourses)
+                ? formData.certificationCourses.join(', ')
+                : formData.certificationCourses,
+            DiplomaCourses: Array.isArray(formData.diplomaCourses)
+                ? formData.diplomaCourses.join(', ')
+                : formData.diplomaCourses,
+            LearningMode: formData.learningMode,
+            DAWs: Array.isArray(formData.daws)
+                ? formData.daws.join(', ')
+                : formData.daws,
+            OtherDAW: formData.otherDAW,
+            Goals: formData.goals,
+            Experience: formData.experience,
+            FinalNotes: formData.finalNotes,
+            HearAboutUs: formData.hearAboutUs,
+           
+        };
 
         try {
-            const res = await axios.post(
-                'https://script.google.com/macros/s/AKfycbwrn69kC36fjdNXmh8f36ZpUPpnAJKCYJtLpcYMIFpuhLWMCxNAg3QvQD5ttZ8GTOArlQ/exec',
-                formEncoded,
+            const response = await fetch(
+                'https://api.sheetbest.com/sheets/d44f0ab8-40bb-4eb3-bb8c-4b42c4354c34/tabs/Professional_Certification_Courses',
                 {
+                    method: 'POST',
                     headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    }
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
                 }
             );
 
-            if (res.data.status === 'success') {
-                alert('Form submitted successfully!');
-                setIsSubmitted(true); // Set submitted state to true
+            if (response.ok) {
+                alert('✅ Form submitted successfully!');
+                resetForm(); // Clear form
+                setIsSubmitted(true);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                navigate('/submission-successfully');
             } else {
-                alert('Submission failed.');
+                alert('❌ Submission failed.');
             }
         } catch (err) {
             console.error('Submission error:', err);
-            alert('Something went wrong. Check the console for details.');
+            alert('⚠️ Something went wrong. Check the console for details.');
         } finally {
             setIsSubmitting(false);
         }
     };
+
 
     const resetForm = () => {
         setFormData({
@@ -460,7 +487,7 @@ export default function CourseRegistrationForm() {
                                 onChange={(e) => handleInputChange('fullName', e.target.value)}
                                 placeholder="Enter your full name"
                                 style={{
-                                    width: '100%',
+                                    width: '95%',
                                     padding: '0.75rem 1rem', // py-3 px-4
                                     borderRadius: '1rem', // rounded-xl ~ 16px
                                     borderWidth: '2px',
@@ -510,7 +537,7 @@ export default function CourseRegistrationForm() {
                                 onChange={(e) => handleInputChange('email', e.target.value)}
                                 placeholder="your.email@example.com"
                                 style={{
-                                    width: '100%',
+                                    width: '95%',
                                     padding: '0.75rem 1rem',
                                     borderRadius: '1rem',
                                     borderWidth: '2px',
@@ -560,7 +587,7 @@ export default function CourseRegistrationForm() {
                                 onChange={(e) => handleInputChange('phone', e.target.value)}
                                 placeholder="+1 (555) 123-4567"
                                 style={{
-                                    width: '100%',
+                                    width: '95%',
                                     padding: '0.75rem 1rem',
                                     borderRadius: '1rem',
                                     borderWidth: '2px',
@@ -905,7 +932,7 @@ export default function CourseRegistrationForm() {
                                     rows={4}
                                     placeholder="Describe what you want to achieve through this course..."
                                     style={{
-                                        width: '100%',
+                                        width: '95%',
                                         padding: '0.75rem 1rem',
                                         borderRadius: '1rem',
                                         borderWidth: '2px',
@@ -952,7 +979,7 @@ export default function CourseRegistrationForm() {
                                     rows={4}
                                     placeholder="Tell us about your background in music production, if any..."
                                     style={{
-                                        width: '100%',
+                                        width: '95%',
                                         padding: '0.75rem 1rem',
                                         borderRadius: '1rem',
                                         borderWidth: '2px',
@@ -1059,7 +1086,7 @@ export default function CourseRegistrationForm() {
                                 rows={4}
                                 placeholder="Share any additional information, special requirements, or questions..."
                                 style={{
-                                    width: '100%',
+                                    width: '95%',
                                     padding: '0.75rem 1rem',
                                     borderRadius: '1rem',
                                     borderWidth: '2px',
@@ -1096,7 +1123,7 @@ export default function CourseRegistrationForm() {
                                 onChange={(e) => handleInputChange('hearAboutUs', e.target.value)}
                                 placeholder="Social media, Google search, referral, etc."
                                 style={{
-                                    width: '100%',
+                                    width: '95%',
                                     padding: '0.75rem 1rem',
                                     borderRadius: '1rem',
                                     borderWidth: '2px',

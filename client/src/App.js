@@ -91,8 +91,6 @@ function App() {
           <Route path="/institute/Music-certificate" element={<MusicCourses />} />
           <Route path="/institute/Music-course-form" element={<MusicCourseForm />} />
           <Route path="/institute/diploma-course-form" element={<DiplomaCourseForm />} />
-
-
           
 
           {/* dashboard */}

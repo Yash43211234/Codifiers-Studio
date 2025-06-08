@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useState, useEffect }from 'react';
 import { useNavigate } from 'react-router-dom';
 import music from "../assets/MusicCourse.png";
 import Production from "../assets/MusicProduction.png";
@@ -6,6 +6,15 @@ import instrument from "../assets/InstrumentCourse.png";
 
 const ProfessionalCertificationCourses = () => {
   const navigate = useNavigate();
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+      const checkScreen = () => {
+        setIsMobile(window.innerWidth < 768);
+      };
+      checkScreen(); // initial check
+      window.addEventListener('resize', checkScreen);
+      return () => window.removeEventListener('resize', checkScreen);
+    }, []);
 
   const courses = [
     {
@@ -49,14 +58,14 @@ const ProfessionalCertificationCourses = () => {
   };
 
   const titleStyle = {
-    fontSize: '2.5rem',
+    fontSize: isMobile?'25px':'39px',
     fontWeight: 'bold',
     color: '#000',
     marginBottom: '0.5rem',
   };
 
   const subtitleStyle = {
-    fontSize: '1.222rem',
+    fontSize: isMobile?'1.022rem':'1.222rem',
     color: '#000',
     lineHeight:'-1px'
   };
@@ -84,7 +93,7 @@ const ProfessionalCertificationCourses = () => {
     fontSize: '7rem',
     fontWeight: 'normal',
     color: '#000',
-    textAlign: 'left',
+    textAlign: isMobile?'center':'left',
     marginBottom: '1rem',
     
   };
@@ -98,7 +107,7 @@ const ProfessionalCertificationCourses = () => {
   };
 
   const courseTitleStyle = {
-    fontSize: '2.8rem',
+    fontSize: isMobile?'16.25px':'19.5px',
     fontWeight: 'bold',
     color: '#000',
     marginBottom: '1rem',
@@ -115,7 +124,7 @@ const ProfessionalCertificationCourses = () => {
 
   const buttonContainerStyle = {
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: isMobile?'column':'row',
     gap: '0.75rem',
   };
 

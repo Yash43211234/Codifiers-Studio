@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useEffect, useState} from 'react';
 import guiter from '../assets/guiter.png';
 import drums from '../assets/drums.png';
 import piano from '../assets/piano.png';
@@ -6,6 +6,16 @@ import { useNavigate } from 'react-router-dom';
 
 export default function InstrumentCourses() {
   const navigate = useNavigate();
+  const [isMobile, setIsMobile] = useState(false);
+        useEffect(() => {
+            const checkScreen = () => {
+              setIsMobile(window.innerWidth < 768);
+            };
+            checkScreen(); // initial check
+            window.addEventListener('resize', checkScreen);
+            return () => window.removeEventListener('resize', checkScreen);
+          }, []);
+  
 
   const instruments = [
     {
@@ -50,7 +60,7 @@ export default function InstrumentCourses() {
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
           <h1
             style={{
-              fontSize: '2.5rem',
+              fontSize: isMobile?'2rem':'2.5rem',
               fontWeight: '700',
               color: 'black',
               fontFamily: 'Plus Jakarta Sans, sans-serif',

@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Music, User, Mail, Phone, GraduationCap, Award, Calendar, MessageSquare, Monitor, Users } from 'lucide-react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Clock, Headphones, Guitar, Piano, Mic, Drum, Volume2, Radio, Disc3, } from 'lucide-react';
 
 export default function CourseRegistrationForm() {
+
+    const [isMobile, setIsMobile] = useState(false);
+          useEffect(() => {
+              const checkScreen = () => {
+                setIsMobile(window.innerWidth < 768);
+              };
+              checkScreen(); // initial check
+              window.addEventListener('resize', checkScreen);
+              return () => window.removeEventListener('resize', checkScreen);
+            }, []);
+
     const navigate = useNavigate();
     const [formErrors, setFormErrors] = useState({});
     const [formData, setFormData] = useState({
@@ -59,57 +70,50 @@ export default function CourseRegistrationForm() {
     const validateForm = () => {
         const newErrors = {};
 
-        // Full Name validation
         if (!formData.fullName.trim()) {
             newErrors.fullName = 'Full name is required';
-        } else if (formData.fullName.trim().length < 2) {
+        } else if (formData.fullName.length < 2) {
             newErrors.fullName = 'Full name must be at least 2 characters';
         }
 
-        // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!formData.email.trim()) {
-            newErrors.email = 'Email address is required';
+            newErrors.email = 'Email is required';
         } else if (!emailRegex.test(formData.email)) {
-            newErrors.email = 'Please enter a valid email address';
+            newErrors.email = 'Invalid email format';
         }
 
-        // Course selection validation
-        if (formData.certificationCourses.length === 0 && formData.diplomaCourses.length === 0) {
+        if (
+            formData.certificationCourses.length === 0 &&
+            formData.diplomaCourses.length === 0
+        ) {
             newErrors.courses = 'Please select at least one course';
         }
 
-        // Learning mode validation
         if (!formData.learningMode) {
-            newErrors.learningMode = 'Please select your preferred learning mode';
+            newErrors.learningMode = 'Select a learning mode';
         }
 
-        // DAW validation
         if (formData.daws.length === 0) {
-            newErrors.daws = 'Please select at least one DAW';
-        } else if (formData.daws.includes('Other (please specify)') && !formData.otherDAW.trim()) {
-            newErrors.otherDAW = 'Please specify the other DAW';
+            newErrors.daws = 'Select at least one DAW';
+        } else if (
+            formData.daws.includes('Other (please specify)') &&
+            !formData.otherDAW.trim()
+        ) {
+            newErrors.otherDAW = 'Specify the other DAW';
         }
 
-        // Goals validation
         if (!formData.goals.trim()) {
-            newErrors.goals = 'Please describe your goals for this course';
-        } 
+            newErrors.goals = 'Goals are required';
+        }
 
-        // Availability validation
-        // if (formData.availability.length === 0) {
-        //     newErrors.availability = 'Please select your availability';
-        // }
-
-        // How did you hear about us validation
         if (!formData.hearAboutUs.trim()) {
-            newErrors.hearAboutUs = 'Please let us know how you heard about the course';
+            newErrors.hearAboutUs = 'Please tell us how you heard about us';
         }
 
         setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
+        return newErrors;
     };
-
     const handleInputChange = (field, value) => {
         setFormData(prev => ({
             ...prev,
@@ -173,7 +177,7 @@ export default function CourseRegistrationForm() {
             Experience: formData.experience,
             FinalNotes: formData.finalNotes,
             HearAboutUs: formData.hearAboutUs,
-           
+
         };
 
         try {
@@ -359,7 +363,7 @@ export default function CourseRegistrationForm() {
 
             <div
                 style={{
-                    position: 'absolute',
+
                     top: 0,
                     left: 0,
                     right: 0,
@@ -421,7 +425,7 @@ export default function CourseRegistrationForm() {
 
                     <h1
                         style={{
-                            fontSize: '3rem', // text-3xl ~ 30px
+                            fontSize: isMobile?'2rem':'3rem', // text-3xl ~ 30px
                             fontWeight: '700',
                             color: 'black',
                             marginBottom: '0.75rem', // mb-3

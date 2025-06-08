@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import image1 from '../assets/3.jpg';
@@ -9,6 +9,16 @@ import image4 from "../assets/4.jpg";
 export default function MusicProductionCourses() {
   const [expandedCards, setExpandedCards] = useState({});
   const navigate = useNavigate();
+
+  const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const checkScreen = () => {
+          setIsMobile(window.innerWidth < 768);
+        };
+        checkScreen(); // initial check
+        window.addEventListener('resize', checkScreen);
+        return () => window.removeEventListener('resize', checkScreen);
+      }, []);
 
   const toggleCard = (cardId, questionId) => {
     const key = `${cardId}-${questionId}`;
@@ -61,7 +71,7 @@ export default function MusicProductionCourses() {
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
           <h1 style={{
-            fontSize: '4rem',
+            fontSize: isMobile?'1.5rem':'4rem',
             color: 'white',
             fontFamily: 'sans-serif',
             fontWeight: 'bold'

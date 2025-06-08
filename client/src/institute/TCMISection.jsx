@@ -32,7 +32,7 @@ const TCMISection = () => {
       >
         <h1
           style={{
-            fontSize: isMobile ? '1.8rem' : '2.8rem',
+            fontSize: isMobile ? '24px' : '39px',
             fontWeight: 'bold',
             color: '#1a1a1a',
             marginBottom: '1.5rem',
@@ -44,7 +44,7 @@ const TCMISection = () => {
 
         <p
           style={{
-            fontSize: isMobile ? '1rem' : '1.525rem',
+            fontSize: isMobile ? '13px' : '16.25px',
             color: '#4B5563',
             lineHeight: '1.75',
             maxWidth: '1152px',

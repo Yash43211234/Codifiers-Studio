@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import d3 from "../assets/d3.jpg";
@@ -6,6 +6,15 @@ import d5 from "../assets/d5.jpg";
 
 const MusicCourses = () => {
     const navigate = useNavigate();
+    const [isMobile, setIsMobile] = useState(false);
+        useEffect(() => {
+            const checkScreen = () => {
+              setIsMobile(window.innerWidth < 768);
+            };
+            checkScreen(); // initial check
+            window.addEventListener('resize', checkScreen);
+            return () => window.removeEventListener('resize', checkScreen);
+          }, []);
 
   const [expandedSections, setExpandedSections] = useState({});
 
@@ -45,7 +54,7 @@ const MusicCourses = () => {
   return (
     <div style={{ backgroundColor: 'black', color: 'white', minHeight: '100vh', padding: '20px' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-        <h1 style={{ fontSize: '40px', fontWeight: 'bold', textAlign: 'center', marginBottom: '40px' }}>
+        <h1 style={{ fontSize: isMobile?'30px':'40px', fontWeight: 'bold', textAlign: 'center', marginBottom: '40px' }}>
           Professional Diploma Courses
         </h1>
 

@@ -45,7 +45,7 @@ export default function CourseRegistrationForm() {
         'Professional Music Production'
     ];
 
-    const diplomaOptions = [
+    const diplomaOptions = [ 
         'Diploma in Music Production',
         'Diploma in Sound Designing',
         'Diploma in Music Production & Music Business',
@@ -137,7 +137,7 @@ export default function CourseRegistrationForm() {
                 : [...prev[field], option]
         }));
 
-        // Clear related errors
+        // Clear related error
         if (errors[field] || errors.courses) {
             setErrors(prev => ({
                 ...prev,

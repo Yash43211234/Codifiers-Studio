@@ -7,14 +7,14 @@ import { Clock, Headphones, Guitar, Piano, Mic, Drum, Volume2, Radio, Disc3, } f
 export default function CourseRegistrationForm() {
 
     const [isMobile, setIsMobile] = useState(false);
-          useEffect(() => {
-              const checkScreen = () => {
-                setIsMobile(window.innerWidth < 768);
-              };
-              checkScreen(); // initial check
-              window.addEventListener('resize', checkScreen);
-              return () => window.removeEventListener('resize', checkScreen);
-            }, []);
+    useEffect(() => {
+        const checkScreen = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        checkScreen(); // initial check
+        window.addEventListener('resize', checkScreen);
+        return () => window.removeEventListener('resize', checkScreen);
+    }, []);
 
     const navigate = useNavigate();
     const [formErrors, setFormErrors] = useState({});
@@ -45,7 +45,7 @@ export default function CourseRegistrationForm() {
         'Professional Music Production'
     ];
 
-    const diplomaOptions = [ 
+    const diplomaOptions = [
         'Diploma in Music Production',
         'Diploma in Sound Designing',
         'Diploma in Music Production & Music Business',
@@ -338,13 +338,14 @@ export default function CourseRegistrationForm() {
         { Icon: Guitar, delay: '1s' },
         { Icon: Piano, delay: '1.5s' },
         { Icon: Mic, delay: '2s' },
-        { Icon: Drum, delay: '2.5s' },
-        { Icon: Volume2, delay: '3s' },
-        { Icon: Radio, delay: '3.5s' },
-        { Icon: Disc3, delay: '4s' },
-        { Icon: Clock, delay: '4.5s' }
+        
+        // { Icon: Volume2, delay: '3s' },
+        // { Icon: Radio, delay: '3.5s' },
+        // { Icon: Disc3, delay: '4s' },
+        // { Icon: Clock, delay: '4.5s' }
     ];
 
+    
 
     return (
         <div style={{
@@ -425,7 +426,7 @@ export default function CourseRegistrationForm() {
 
                     <h1
                         style={{
-                            fontSize: isMobile?'2rem':'3rem', // text-3xl ~ 30px
+                            fontSize: isMobile ? '2rem' : '3rem', // text-3xl ~ 30px
                             fontWeight: '700',
                             color: 'black',
                             marginBottom: '0.75rem', // mb-3
@@ -452,6 +453,18 @@ export default function CourseRegistrationForm() {
                     </p>
                 </div>
 
+                <div
+                    style={{
+
+                        top: 20,
+                        left: 20,
+                        right: 20,
+                        bottom: 20,
+                        overflow: 'hidden',
+                    }}
+                >
+                    
+                </div>
 
                 {/* Form */}
                 <div
@@ -1226,8 +1239,23 @@ export default function CourseRegistrationForm() {
                         </style>
                     </div>
 
+                     
                 </div>
+                <div
+                    style={{
+
+                        top: 400,
+                        left: 40,
+                        right: 40,
+                        bottom: 40,
+                        overflow: 'hidden',
+                    }}
+                >
+                    
+                </div>
+
             </div>
+            
         </div>
     );
 }

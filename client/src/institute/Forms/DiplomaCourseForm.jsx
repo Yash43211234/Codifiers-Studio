@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-
+import { GraduationCap } from 'lucide-react';
 import { FaUser, FaEnvelope, FaPhone, FaGraduationCap, FaCheck, FaBookOpen, FaMusic, FaHeadphones } from 'react-icons/fa';
 
 const iconStyle = {
   position: "absolute",
   color: "rgba(0,0,0,0.1)",
-  fontSize: "60px",
+  fontSize: "48px",
   userSelect: "none",
   pointerEvents: "none",
   animationTimingFunction: "ease-in-out",
   animationIterationCount: "infinite",
 };
+
 
 const DiplomaCourseForm = () => {
   const navigate = useNavigate();
@@ -25,6 +26,32 @@ const DiplomaCourseForm = () => {
     goals: "",
     experience: "",
   });
+
+  const backgroundIcons = [
+    { Icon: FaMusic, top: "5%", left: "5%", animation: "float1", duration: "2s" },
+    { Icon: FaHeadphones, top: "10%", left: "20%", animation: "float2", duration: "2s" },
+    { Icon: FaGraduationCap, top: "15%", left: "35%", animation: "float3", duration: "2s" },
+    { Icon: FaUser, top: "20%", left: "50%", animation: "float4", duration: "2s" },
+    { Icon: FaBookOpen, top: "25%", left: "65%", animation: "float1", duration: "2s" },
+    { Icon: FaEnvelope, top: "30%", left: "80%", animation: "float2", duration: "2s" },
+    { Icon: FaPhone, top: "40%", left: "10%", animation: "float3", duration: "2s" },
+    { Icon: FaCheck, top: "45%", left: "25%", animation: "float4", duration: "2s" },
+    { Icon: FaMusic, top: "50%", left: "40%", animation: "float1", duration: "2s" },
+    { Icon: FaHeadphones, top: "55%", left: "55%", animation: "float2", duration: "2s" },
+    { Icon: FaGraduationCap, top: "60%", left: "70%", animation: "float3", duration: "2s" },
+    { Icon: FaUser, top: "65%", left: "85%", animation: "float4", duration: "2s" },
+    { Icon: FaBookOpen, top: "70%", left: "15%", animation: "float1", duration: "2s" },
+    { Icon: FaEnvelope, top: "75%", left: "30%", animation: "float2", duration: "2s" },
+    { Icon: FaPhone, top: "80%", left: "45%", animation: "float3", duration: "2s" },
+    { Icon: FaCheck, top: "85%", left: "60%", animation: "float4", duration: "2s" },
+    { Icon: FaMusic, top: "90%", left: "75%", animation: "float1", duration: "2s" },
+    { Icon: FaHeadphones, top: "5%", right: "10%", animation: "float2", duration: "2s" },
+    { Icon: FaBookOpen, bottom: "10%", right: "20%", animation: "float3", duration: "2s" },
+    { Icon: FaGraduationCap, bottom: "5%", left: "10%", animation: "float4", duration: "2s" },
+  ];
+
+
+
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState("");
@@ -103,53 +130,27 @@ const DiplomaCourseForm = () => {
       }}
     >
       {/* Animated background icons */}
-      <FaMusic
-        style={{
-          ...iconStyle,
-          top: "10%",
-          left: "5%",
-          animationName: "float1",
-          animationDuration: "6s",
-        }}
-      />
-      <FaHeadphones
-        style={{
-          ...iconStyle,
-          top: "30%",
-          right: "10%",
-          animationName: "float2",
-          animationDuration: "8s",
-        }}
-      />
-      <FaMusic
-        style={{
-          ...iconStyle,
-          bottom: "20%",
-          left: "15%",
-          animationName: "float3",
-          animationDuration: "7s",
-        }}
-      />
-      <FaGraduationCap
-        style={{
-          ...iconStyle,
-          bottom: "5%",
-          right: "10%",
-          animationName: "float4",
-          animationDuration: "9s",
-        }}
-      />
-     
-      
-      
-     
+      {backgroundIcons.map(({ Icon, animation, duration, ...styleProps }, idx) => (
+        <Icon
+          key={idx}
+          style={{
+            ...iconStyle,
+            ...styleProps,
+            animationName: animation,
+            animationDuration: duration,
+            animationIterationCount: "infinite",
+            animationTimingFunction: "ease-in-out",
+          }}
+        />
+      ))}
 
       <form
         onSubmit={handleSubmit}
         style={{
+          border: '1px solid rgba(0, 0, 0, 0.2',
+          backgroundColor: "#e3c73b",
           maxWidth: "600px",
           width: "100%",
-          backgroundColor: "#fcd936",
           padding: "30px",
           borderRadius: "12px",
           boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
@@ -157,6 +158,21 @@ const DiplomaCourseForm = () => {
           zIndex: 1, // ensure form is above icons
         }}
       >
+        <div
+          style={{
+            width: "5rem",
+            height: "5rem",
+            backgroundColor: "#000",
+            borderRadius: "9999px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            margin: "0 auto 1.5rem",
+          }}
+        >
+          <GraduationCap style={{ width: "2.5rem", height: "2.5rem", color: "#facc15" }} />
+        </div>
+
         <h2
           style={{
             fontSize: "28px",
@@ -168,7 +184,7 @@ const DiplomaCourseForm = () => {
             gap: "10px",
           }}
         >
-        Register for Our Diploma Courses
+          Register for Our Diploma Courses
         </h2>
         <p style={{ marginBottom: "30px", fontSize: "16px", color: "#333" }}>
           Fill out the form below to sign up for our course and take your music
@@ -231,7 +247,7 @@ const DiplomaCourseForm = () => {
           <FaGraduationCap /> Diploma Courses
         </h3>
 
-        {[  
+        {[
           "Diploma in Music Production",
           "Diploma in Sound Designing",
           "Diploma in Music Production & Music Business",
@@ -303,23 +319,24 @@ const DiplomaCourseForm = () => {
 
       {/* CSS Keyframes as style tag */}
       <style>{`
-        @keyframes float1 {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-20px); }
-        }
-        @keyframes float2 {
-          0%, 100% { transform: translateX(0); }
-          50% { transform: translateX(20px); }
-        }
-        @keyframes float3 {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(15px); }
-        }
-        @keyframes float4 {
-          0%, 100% { transform: translateX(0); }
-          50% { transform: translateX(-15px); }
-        }
-      `}</style>
+  @keyframes float1 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+  @keyframes float2 {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(15px); }
+  }
+  @keyframes float3 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+  }
+  @keyframes float4 {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-10px); }
+  }
+`}</style>
+
     </div>
   );
 };

@@ -41,6 +41,10 @@ import CourseRegistrationForm from './institute/Forms/CourseRegistrationForm';
 import ComingSoon from './pages/ComingSoon';
 import MusicCourseForm from './institute/Forms/MusicCourseForm';
 import DiplomaCourseForm from './institute/Forms/DiplomaCourseForm';
+import ConnectWithUs from './components/Footer/ConnectWithUs';
+import FooterServices from './components/Footer/FooterServices';
+import ScrollToTop from './components/ScrollToTop';
+
 
 
 
@@ -49,6 +53,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop/>
       <Navbar />
       <div className="app-wrapper">
         <Pop />
@@ -101,6 +106,10 @@ function App() {
           <Route path="/request-form" element={<ComposeMusicRequestForm />} />
           <Route path="/pro-audio-recording-form" element={<ProAudioRecordingForm />} />
 
+
+          {/* footer items */}
+           <Route path="/connect-with-us" element={<ConnectWithUs />} />
+           <Route path="/services" element={<FooterServices />} />
 
           {/* error and upcoming pages */}
           <Route path="/upcoming" element={<ComingSoon />} />

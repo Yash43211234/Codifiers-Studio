@@ -1,19 +1,46 @@
 import React, { useState } from 'react';
-import { FaUser, FaEnvelope, FaPhone, FaGraduationCap, FaCheck, FaBookOpen } from 'react-icons/fa';
+import {FaMusic,FaHeadphones, FaUser, FaEnvelope, FaPhone, FaGraduationCap, FaCheck, FaBookOpen } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import {
-  Music,
-  User,
-  Mail,
-  Phone,
-  GraduationCap,
-  Award,
-  Calendar,
-  MessageSquare,
-  Monitor,
-  Users
-} from 'lucide-react';
+import { GraduationCap } from 'lucide-react';
+
+
+const iconStyle = {
+  position: "absolute",
+  color: "rgba(0,0,0,0.1)",
+  fontSize: "48px",
+  userSelect: "none",
+  pointerEvents: "none",
+  animationTimingFunction: "ease-in-out",
+  animationIterationCount: "infinite",
+};
+
+const backgroundIcons = [
+  { Icon: FaMusic, top: "5%", left: "5%", animation: "float1", duration: "2s" },
+  { Icon: FaHeadphones, top: "10%", left: "20%", animation: "float2", duration: "2s" },
+  { Icon: FaGraduationCap, top: "15%", left: "35%", animation: "float3", duration: "2s" },
+  { Icon: FaUser, top: "20%", left: "50%", animation: "float4", duration: "2s" },
+  { Icon: FaBookOpen, top: "25%", left: "65%", animation: "float1", duration: "2s" },
+  { Icon: FaEnvelope, top: "30%", left: "80%", animation: "float2", duration: "2s" },
+  { Icon: FaPhone, top: "40%", left: "10%", animation: "float3", duration: "2s" },
+  { Icon: FaCheck, top: "45%", left: "25%", animation: "float4", duration: "2s" },
+  { Icon: FaMusic, top: "50%", left: "40%", animation: "float1", duration: "2s" },
+  { Icon: FaHeadphones, top: "55%", left: "55%", animation: "float2", duration: "2s" },
+  { Icon: FaGraduationCap, top: "60%", left: "70%", animation: "float3", duration: "2s" },
+  { Icon: FaUser, top: "65%", left: "85%", animation: "float4", duration: "2s" },
+  { Icon: FaBookOpen, top: "70%", left: "15%", animation: "float1", duration: "2s" },
+  { Icon: FaEnvelope, top: "75%", left: "30%", animation: "float2", duration: "2s" },
+  { Icon: FaPhone, top: "80%", left: "45%", animation: "float3", duration: "2s" },
+  { Icon: FaCheck, top: "85%", left: "60%", animation: "float4", duration: "2s" },
+  { Icon: FaMusic, top: "90%", left: "75%", animation: "float1", duration: "2s" },
+  { Icon: FaHeadphones, top: "5%", right: "10%", animation: "float2", duration: "2s" },
+  { Icon: FaBookOpen, bottom: "10%", right: "20%", animation: "float3", duration: "2s" },
+  { Icon: FaGraduationCap, bottom: "5%", left: "10%", animation: "float4", duration: "2s" },
+];
+
+
+
+
 
 const MusicCourseForm = () => {
   const navigate = useNavigate();
@@ -108,23 +135,40 @@ const MusicCourseForm = () => {
   return (
     <div style={backgroundStyle}>
       {/* Lucide Animated Background Icons */}
-      <motion.div animate={{ y: [0, -20, 0] }} transition={{ repeat: Infinity, duration: 3 }} style={lucideIconStyle1}>
-        <GraduationCap size={70} color="#000" />
+      {/* <motion.div animate={{ y: [0, -20, 0] }} transition={{ repeat: Infinity, duration: 3 }} style={lucideIconStyle1}>
+        <GraduationCap size={48} color="#000" />
       </motion.div>
       <motion.div animate={{ y: [0, -25, 0] }} transition={{ repeat: Infinity, duration: 4 }} style={lucideIconStyle2}>
-        <Music size={70} color="#000" />
+        <Music size={48} color="#000" />
       </motion.div>
       <motion.div animate={{ y: [0, -15, 0] }} transition={{ repeat: Infinity, duration: 5 }} style={lucideIconStyle3}>
-        <Monitor size={70} color="#000" />
+        <Monitor size={48} color="#000" />
       </motion.div>
       <motion.div animate={{ y: [0, -10, 0] }} transition={{ repeat: Infinity, duration: 6 }} style={lucideIconStyle4}>
-        <Award size={60} color="#000" />
+        <Award size={48} color="#000" />
       </motion.div>
       <motion.div animate={{ y: [0, -30, 0] }} transition={{ repeat: Infinity, duration: 7 }} style={lucideIconStyle5}>
-        <Users size={60} color="#000" />
-      </motion.div>
+        <Users size={48} color="#000" />
+      </motion.div> */}
+
+      
 
       <div style={formContainer}>
+<div
+                            style={{
+                                width: "5rem",
+                                height: "5rem",
+                                backgroundColor: "#000",
+                                borderRadius: "9999px",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                margin: "0 auto 1.5rem",
+                            }}
+                        >
+                            <GraduationCap style={{ width: "2.5rem", height: "2.5rem", color: "#facc15" }} />
+                        </div>
+
         <h2 style={heading}>🎓 Register for Our Music Business Course</h2>
         <p style={description}>
           Fill out the form below to sign up for our course and take your music production skills to the next level.
@@ -188,7 +232,39 @@ const MusicCourseForm = () => {
             {isSubmitting ? 'Submitting...' : 'Submit'}
           </button>
         </form>
+       
       </div>
+       {backgroundIcons.map(({ Icon, animation, duration, ...styleProps }, idx) => (
+          <Icon
+            key={idx}
+            style={{
+              ...iconStyle,
+              ...styleProps,
+              animationName: animation,
+              animationDuration: duration,
+              animationIterationCount: "infinite",
+              animationTimingFunction: "ease-in-out",
+            }}
+          />
+        ))}
+        <style>{`
+  @keyframes float1 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+  @keyframes float2 {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(15px); }
+  }
+  @keyframes float3 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+  }
+  @keyframes float4 {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-10px); }
+  }
+`}</style>
     </div>
   );
 };
@@ -209,7 +285,8 @@ const backgroundStyle = {
 };
 
 const formContainer = {
-  backgroundColor: '#fcd936',
+  border: '1px solid rgba(0, 0, 0, 0.2',
+  backgroundColor: "#e3c73b",
   borderRadius: '10px',
   padding: '30px',
   maxWidth: '600px',

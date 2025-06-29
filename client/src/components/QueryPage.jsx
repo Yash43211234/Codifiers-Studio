@@ -1,26 +1,78 @@
 import React, { useState, useEffect } from 'react';
+import { MessageSquare   } from 'lucide-react';
+import {
+  FaMusic,
+  FaHeadphones,
+  FaGraduationCap,
+  FaUser,
+  FaBookOpen,
+  FaEnvelope,
+  FaPhone,
+  FaCheck,
+} from 'react-icons/fa';
+
+// Icons config
+const backgroundIcons = [
+  { Icon: FaMusic, top: "5%", left: "5%", animation: "float1", duration: "2s" },
+  { Icon: FaHeadphones, top: "10%", left: "20%", animation: "float2", duration: "2s" },
+  { Icon: FaGraduationCap, top: "15%", left: "35%", animation: "float3", duration: "2s" },
+  { Icon: FaUser, top: "20%", left: "50%", animation: "float4", duration: "2s" },
+  { Icon: FaBookOpen, top: "25%", left: "65%", animation: "float1", duration: "2s" },
+  { Icon: FaEnvelope, top: "30%", left: "80%", animation: "float2", duration: "2s" },
+  { Icon: FaPhone, top: "40%", left: "10%", animation: "float3", duration: "2s" },
+  { Icon: FaCheck, top: "45%", left: "25%", animation: "float4", duration: "2s" },
+  { Icon: FaMusic, top: "50%", left: "40%", animation: "float1", duration: "2s" },
+  { Icon: FaHeadphones, top: "55%", left: "55%", animation: "float2", duration: "2s" },
+  { Icon: FaGraduationCap, top: "60%", left: "70%", animation: "float3", duration: "2s" },
+  { Icon: FaUser, top: "65%", left: "85%", animation: "float4", duration: "2s" },
+  { Icon: FaBookOpen, top: "70%", left: "15%", animation: "float1", duration: "2s" },
+  { Icon: FaEnvelope, top: "75%", left: "30%", animation: "float2", duration: "2s" },
+  { Icon: FaPhone, top: "80%", left: "45%", animation: "float3", duration: "2s" },
+  { Icon: FaCheck, top: "85%", left: "60%", animation: "float4", duration: "2s" },
+  { Icon: FaMusic, top: "90%", left: "75%", animation: "float1", duration: "2s" },
+  { Icon: FaHeadphones, top: "5%", right: "10%", animation: "float2", duration: "2s" },
+  { Icon: FaBookOpen, bottom: "10%", right: "20%", animation: "float3", duration: "2s" },
+  { Icon: FaGraduationCap, bottom: "5%", left: "10%", animation: "float4", duration: "2s" },
+];
 
 const QueryPage = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    query: '',
-  });
-
+  const [formData, setFormData] = useState({ name: '', email: '', query: '' });
   const [submitMessage, setSubmitMessage] = useState('');
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const validate = () => {
     const newErrors = {};
-    if (!formData.name.trim()) newErrors.name = 'Name is required';
-    if (!formData.email.trim()) newErrors.email = 'Email is required';
-    if (!formData.query.trim()) newErrors.query = 'Query is required';
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    } else if (formData.name.length > 50) {
+      newErrors.name = 'Name should not exceed 50 characters';
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = 'Invalid email format';
+    }
+
+    if (!formData.query.trim()) {
+      newErrors.query = 'Query is required';
+    } else if (formData.query.length < 10) {
+      newErrors.query = 'Query should be at least 10 characters';
+    } else if (formData.query.length > 500) {
+      newErrors.query = 'Query should not exceed 500 characters';
+    }
+
     return newErrors;
   };
+
+  const sanitize = (str) => str.replace(/<[^>]*>?/gm, '');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,9 +86,9 @@ const QueryPage = () => {
     setSubmitMessage('Sending...');
 
     const payload = {
-      Name: formData.name,
-      Email: formData.email,
-      Query: formData.query,
+      Name: sanitize(formData.name),
+      Email: sanitize(formData.email),
+      Query: sanitize(formData.query),
       Timestamp: new Date().toLocaleString(),
     };
 
@@ -62,34 +114,49 @@ const QueryPage = () => {
     }
   };
 
-  // 🧠 useEffect to clear the success/error message after 5 seconds
   useEffect(() => {
     if (submitMessage) {
       const timer = setTimeout(() => {
         setSubmitMessage('');
       }, 5000);
-      return () => clearTimeout(timer); // Clean up timer
+      return () => clearTimeout(timer);
     }
   }, [submitMessage]);
 
   // Styles
   const containerStyle = {
-    backgroundColor: '#fff700',
+    backgroundColor: '#fcda39',
     minHeight: '100vh',
     padding: '40px 20px',
     boxSizing: 'border-box',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    position: 'relative',
+    overflow: 'hidden',
   };
 
+  const iconStyle = (icon) => ({
+    position: 'absolute',
+    top: icon.top,
+    left: icon.left,
+    right: icon.right,
+    bottom: icon.bottom,
+    fontSize: '38px',
+    color: 'rgba(0,0,0,0.07)',
+    animation: `${icon.animation} ${icon.duration} infinite alternate`,
+    pointerEvents: 'none',
+  });
+
   const formWrapperStyle = {
-    backgroundColor: '#fff',
+    backgroundColor: '#e2c22d',
     borderRadius: '12px',
     padding: '30px',
     maxWidth: '500px',
     width: '100%',
     boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+    position: 'relative',
+    zIndex: 2,
   };
 
   const headingStyle = {
@@ -150,7 +217,27 @@ const QueryPage = () => {
 
   return (
     <div style={containerStyle}>
+      {/* Floating icons */}
+      {backgroundIcons.map((iconObj, index) => {
+        const { Icon } = iconObj;
+        return <Icon key={index} style={iconStyle(iconObj)} />;
+      })}
+
       <div style={formWrapperStyle}>
+        <div
+          style={{
+            width: "5rem",
+            height: "5rem",
+            backgroundColor: "#000",
+            borderRadius: "9999px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            margin: "0 auto 1.5rem",
+          }}
+        >
+          <MessageSquare   style={{ width: "2.5rem", height: "2.5rem", color: "#facc15" }} />
+        </div>
         <h2 style={headingStyle}>Submit Your Query</h2>
         <form onSubmit={handleSubmit}>
           <label style={labelStyle}>Name</label>
@@ -189,6 +276,26 @@ const QueryPage = () => {
         </form>
         {submitMessage && <p style={messageStyle}>{submitMessage}</p>}
       </div>
+
+      {/* CSS animations */}
+      <style>{`
+        @keyframes float1 {
+          0% { transform: translateY(0px); }
+          100% { transform: translateY(-10px); }
+        }
+        @keyframes float2 {
+          0% { transform: translateY(0px); }
+          100% { transform: translateY(10px); }
+        }
+        @keyframes float3 {
+          0% { transform: translateX(0px); }
+          100% { transform: translateX(10px); }
+        }
+        @keyframes float4 {
+          0% { transform: translateX(0px); }
+          100% { transform: translateX(-10px); }
+        }
+      `}</style>
     </div>
   );
 };

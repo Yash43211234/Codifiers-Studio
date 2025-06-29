@@ -1,5 +1,5 @@
 
-import ImageCarousel from '../components/ImageCarousel ';
+import ImageCarousel from '../components/ImageCarousel';
 import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import TestimonialSlider from '../components/TestimonialSlider';
@@ -43,21 +43,14 @@ const images = [
   "159.jpg",
   "26_10.jpg",
   "37.jpg",
-  "48.jpg",
-  "159.jpg",
-  "26_10.jpg",
-  "37.jpg",
-  "48.jpg",
-  "159.jpg",
-  "26_10.jpg",
+  // "48.jpg",
 
 ];
 
 export default function LandingPage() {
   const getRandomYOffset = () => Math.floor(Math.random() * 41) - 20;
   const navigate = useNavigate();
-
-
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const handleJoinClick = () => {
     navigate('/query');
     window.scrollTo(0, 0);  // 👈 change '/institute' to your actual route if needed
@@ -131,12 +124,7 @@ export default function LandingPage() {
     fontFamily: 'roboto'
   };
 
-  const gallerySection = {
-    backgroundColor: '#fff',
-    padding: '60px 20px',
-    color: '#000',
-    textAlign: 'center'
-  };
+
 
   const galleryTitle = {
     fontSize: '24px',
@@ -179,27 +167,50 @@ export default function LandingPage() {
   };
 
 
-
   return (
     <div>
       {/* HERO SECTION */}
-      <div className="hero-section">
-        <div className="overlay" />
-        <div className="hero-content">
-          <img
-            src="tcs.png"
-            alt="Chordifiers Logo"
-            className="hero-logo"
-          />
-          <span className="One_One_Page_Header">
-            <p style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.4)' }}>
-              Your Record Label, Production House <br /> & Music Institute
-            </p>
-          </span>
-
-          <span className="One_One_Page_Header_p"><p>"You Love being Creative? We Love You"</p></span>
-        </div>
+      <div>
+  {!isVideoLoaded && (
+    <div className="hero-section">
+      <div className="overlay" />
+      <div className="hero-content">
+        <img
+          src="tcs.png"
+          alt="Chordifiers Logo"
+          className="hero-logo"
+        />
+        <span className="One_One_Page_Header">
+          <p style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.4)' }}>
+            Your Record Label, Production House <br /> & Music Institute
+          </p>
+        </span>
+        <span className="One_One_Page_Header_p">
+          <p>"You Love being Creative? We Love You"</p>
+        </span>
       </div>
+    </div>
+  )}
+
+  {/* Video appears after it's loaded */}
+  <video
+    src="video1.mp4"
+    autoPlay
+    muted
+    loop
+    playsInline
+    onLoadedData={() => setIsVideoLoaded(true)}
+    style={{
+      display: isVideoLoaded ? 'block' : 'none',
+      width: '100%',
+      height: '100vh',
+      objectFit: 'cover',
+      border: 'none',
+      outline: 'none'
+    }}
+  />
+</div>
+
 
       <div
         style={{
@@ -216,18 +227,29 @@ export default function LandingPage() {
           margin: '20px 0',
           fontWeight: 'Exile',
         }}>
-          <img
-            src="one11mainlogo.png" // path to your image
-            alt="The ONE11 Show"
+          <button
             style={{
-              width: window.innerWidth < 600 ? '200px' : '356px',
-              margin: '-30px 0',
+              border: 'none',
+              outline: 'none',
+              cursor: 'pointer',
+              borderRadius: '50%',
+              background: 'transparent' // Optional: if background is also causing visual border
             }}
-          />
+
+            onClick={() => {
+              window.open('https://theone11.show/', '_blank');
+            }}
+          >
+            <img
+              src="one11mainlogo.png"
+              alt="The ONE11 Show"
+              style={{
+                width: window.innerWidth < 600 ? '200px' : '356px',
+                margin: '-30px 0',
+              }}
+            />
+          </button>
         </h2>
-
-
-
         <p
           style={{
             fontSize: window.innerWidth < 600 ? '14px' : '18px',
@@ -248,7 +270,10 @@ export default function LandingPage() {
             marginBottom: window.innerWidth < 600 ? '20px' : '30px',
           }}
         >
-          <ImageCarousel />
+
+          < ImageCarousel />
+
+
         </div>
 
 
@@ -264,22 +289,35 @@ export default function LandingPage() {
         </h3>
 
         <button
-          onClick={() => {
-            window.open('https://theone11.show/', '_blank');
-          }}
+          onClick={() => window.open('https://theone11.show/', '_blank')}
           style={{
-            backgroundColor: '#111',
+            background: 'linear-gradient(135deg, #111827, #1f2937)', // Dark premium gradient
             color: '#fff',
-            padding: window.innerWidth < 600 ? '10px 20px' : '12px 30px',
+            padding: window.innerWidth < 600 ? '12px 24px' : '14px 40px',
             fontSize: window.innerWidth < 600 ? '14px' : '16px',
             border: 'none',
-            borderRadius: '20px',
+            borderRadius: '30px',
             cursor: 'pointer',
-            marginTop: '10px',
+            marginTop: '20px',
+            boxShadow: '0 8px 20px rgba(0, 0, 0, 0.25)',
+            transition: 'all 0.3s ease',
+            letterSpacing: '0.5px',
+            fontWeight: '600',
+            position: 'relative',
+            overflow: 'hidden',
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.transform = 'scale(1.05)';
+            e.target.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.4)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.transform = 'scale(1)';
+            e.target.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.25)';
           }}
         >
           Register Now
         </button>
+
       </div>
 
 
@@ -376,7 +414,7 @@ export default function LandingPage() {
           flexDirection: window.innerWidth < 768 ? 'column' : 'row',
           justifyContent: 'center',
           alignItems: 'center',
-          padding: window.innerWidth < 768 ? '40px 20px' : '60px 20px',
+          padding: window.innerWidth < 768 ? '20px 20px 0 20px' : '0px 20px',
           fontFamily: 'Georgia, serif',
           flexWrap: 'wrap',
           boxSizing: 'border-box',
@@ -452,6 +490,11 @@ export default function LandingPage() {
           </button>
         </div>
       </div>
+
+
+
+
+      {/* +++++++++++++++++++++++++++++++++ */}
 
 
       {/* +++++++++++++++++++++++++++++++ */}
@@ -537,92 +580,138 @@ export default function LandingPage() {
 
       {/* Photo Gallery */}
 
-      <div style={gallerySection}>
+      <div
+        style={{
+          padding: '40px 20px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        {/* Intro Box */}
+        <div
+          style={{
+            textAlign: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '16px',
+            padding: '40px 20px',
+            marginBottom: '40px',
+            maxWidth: '640px',
+            background: 'linear-gradient(135deg, #f7f7f7, #ffffff)',
+            borderRadius: '12px',
+            boxShadow: '0 8px 24px rgba(0, 0, 0, 0.08)',
+            transition: 'transform 0.3s ease',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'scale(1.02)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'scale(1)';
+          }}
+        >
+          <h2
+            style={{
+              fontSize: '36px',
+              fontWeight: 700,
+              margin: 0,
+              color: '#111',
+              fontFamily: 'Arial, sans-serif',
+            }}
+          >
+            IN THE MOMENT
+          </h2>
+          <p
+            style={{
+              fontSize: '18px',
+              color: '#444',
+              lineHeight: '1.6',
+              margin: 0,
+              fontFamily: 'Segoe UI, sans-serif',
+            }}
+          >
+            Explore moments from the production studio to crowds on tour. Glimpses that define our artist journey and
+            their on-stage presence.
+          </p>
+        </div>
 
-
+        {/* Image Grid */}
         <div className="responsive-grid">
           {images.map((src, index) => (
             <img
               key={index}
               src={src}
-              alt={`${index + 1}`}
+              alt={`Moment ${index + 1}`}
+              className="responsive-img"
               style={{
-                height: "180px",
-                width: "150px",
-                borderRadius: "8px",
-                boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
-                cursor: "pointer",
+                borderRadius: '8px',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                cursor: 'pointer',
                 transform: `translateY(${getRandomYOffset()}px)`,
-                transition: "transform 0.3s ease",
-                display: "block",
-                objectFit: "cover",
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                display: 'block',
+                objectFit: 'cover',
+                width: '100%',
+                height: 'auto',
+                maxHeight: '380px',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.05)';
+                e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.2)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = `translateY(${getRandomYOffset()}px)`;
+                e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
               }}
             />
           ))}
         </div>
 
-
+        {/* Styles */}
         <style>
           {`
-  .responsive-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 16px;
-  }
+      .responsive-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 40px;
+        width: 100%;
+        max-width: 1100px;
+      }
 
-  @media (max-width: 768px) {
-    .responsive-grid {
-      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-      gap: 12px;
-    }
-  }
-`}
+      @media (max-width: 1024px) {
+        .responsive-grid {
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+          gap: 30px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .responsive-grid {
+          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+          gap: 20px;
+        }
+
+        .responsive-img {
+          max-height: 280px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .responsive-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 14px;
+        }
+
+        .responsive-img {
+          max-height: 180px;
+        }
+      }
+    `}
         </style>
 
 
-        <div style={{
-          textAlign: 'left',
-          display: 'flex',
-          flexDirection: 'column',
-          padding: '50px',
-          gap: '20px',
-          padding: '0px',
-          marginTop: '23px',
-          maxWidth: '600px'
-        }}>
-          <h2 style={{ fontSize: '32px', fontWeight: 'bold', margin: 0 }}>PHOTO GALLERY</h2>
-          <p style={{
-            fontSize: '16px',
-            color: '#555',
-            lineHeight: '1.5',
-            margin: 0
-          }}>
-            Explore moments from the production studio to crowds on tour. Glimpses
-            that define our artist journey and their on-stage presence.
-          </p>
 
-          <button
-            style={{
-              backgroundColor: '#000',
-              color: '#fff',
-              padding: '12px 6px',
-              borderRadius: '30px',
-              border: 'none',
-              fontWeight: 'bold',
-              cursor: 'pointer',
-              fontSize: '16px',
-              width: 'fit-content',
-              marginTop: '20px'
-            }}
-            onClick={() => {
-              navigate('/upcoming');
-              window.scrollTo(0, 0);  // Scrolls to the top after navigation
-            }}
 
-          >
-            View More
-          </button>
-        </div>
 
       </div>
 
@@ -787,18 +876,21 @@ export default function LandingPage() {
           .card-heading {
             font-size: 36px;
             font-weight: bold;
+            font-family: sans-serif;
           }
 
           .card-subheading {
             font-size: 18px;
             font-weight: bold;
             margin-top: 10px;
+            font-family: sans-serif
           }
 
           .card-text {
             margin-top: 10px;
             font-size: 14px;
             line-height: 1.5;
+            font-family: sans-serif
           }
 
           @media (max-width: 768px) {
@@ -870,10 +962,9 @@ export default function LandingPage() {
           }}
         >
           Want to book a studio session?{' '}
-          <span onClick={() => {
-            navigate('/upcoming');
-            window.scrollTo(0, 0);
-          }}
+          <span
+            onClick={() => window.open('https://wa.me/917811092672', '_blank')
+            }
             style={{
               backgroundColor: '#fcee09',
               padding: '2px 8px',
@@ -949,7 +1040,7 @@ export default function LandingPage() {
   background-image: url('https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/3bb25b2526519f66c08b0cb47e42ad5d8cbd3adf.jpg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* This keeps the background image fixed */
+  background-attachment: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -957,20 +1048,37 @@ export default function LandingPage() {
   color: white;
 }
 
+.hero-logo {
+  width: 180px;
+  margin-bottom: 20px;
+}
 
-        .overlay {
-          position: absolute;
-          inset: 0;
-          background: rgba(0, 0, 0, 0.6);
-          z-index: 10;
-         
-        }
+.One_One_Page_Header p,
+.One_One_Page_Header_p p {
+  font-size: 24px;
+  margin: 0;
+}
 
-        .hero-content {
-          position: relative;
-          z-index: 2;
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Dark overlay for contrast */
+  z-index: 1;
+}
 
-        }
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+
+
+     
+
+      
 
         .hero-logo {
       
@@ -992,7 +1100,7 @@ export default function LandingPage() {
           font-size:40px;
         }
         .One_One_Page_Header_p{
-          font-size:17px;
+          font-size:22px;
         }
 
         .one11-section {
@@ -1086,49 +1194,49 @@ export default function LandingPage() {
 
           /* Base styles already handled by your inline styles */
 
-@media screen and (max-width: 768px) {
-  /* Tablets */
-  .hero-content h1 {
-    font-size: 24px;
-  }
+          @media screen and (max-width: 768px) {
+            /* Tablets */
+            .hero-content h1 {
+              font-size: 24px;
+            }
 
-  .music-career-section {
-    flex-direction: column;
-  }
+            .music-career-section {
+              flex-direction: column;
+            }
 
-  .music-career-section img {
-    max-width: 100%;
-  }
+            .music-career-section img {
+              max-width: 100%;
+            }
 
-  .gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  }
-}
+            .gallery-grid {
+              grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            }
+          }
 
-@media screen and (max-width: 480px) {
-  /* Phones */
-  .hero-content h1 {
-    font-size: 20px;
-  }
+          @media screen and (max-width: 480px) {
+            /* Phones */
+            .hero-content h1 {
+              font-size: 20px;
+            }
 
-  .music-career-section {
-    flex-direction: column;
-  }
+            .music-career-section {
+              flex-direction: column;
+            }
 
-  .gallery-title {
-    font-size: 20px;
-  }
+            .gallery-title {
+              font-size: 20px;
+            }
 
-  .gallery-subtitle {
-    font-size: 12px;
-  }
+            .gallery-subtitle {
+              font-size: 12px;
+            }
 
-  .btn-dark,
-  .view-more-btn {
-    width: 100%;
-    font-size: 14px;
-  }
-}
+            .btn-dark,
+            .view-more-btn {
+              width: 100%;
+              font-size: 14px;
+            }
+          }
 
         }
       `}</style>

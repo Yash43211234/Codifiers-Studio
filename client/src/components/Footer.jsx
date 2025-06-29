@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaEnvelope, FaWhatsapp, FaFacebookF, FaLinkedinIn, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaEnvelope, FaWhatsapp, FaFacebookF, FaLinkedinIn, FaInstagram, FaTwitter, FaX } from 'react-icons/fa';
+import { Box, Fab } from '@mui/material'; // ✅ Fab comes from @mui/material
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
 
 function Footer() {
   return (
@@ -11,11 +14,41 @@ function Footer() {
           <div className="footer-column">
             <h3>Useful link</h3>
             <ul>
-              <li><Link to="/about">About us</Link></li>
-              <li><Link to="/services">Services</Link></li>
-              <li><Link to="/legal">Legal</Link></li>
-              <li><Link to="/privacy-policy">Privacy Policy</Link></li>
-              <li><Link to="/contact">Contact us</Link></li>
+              <li>
+                <Link
+                  to="/about"
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services"
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                >
+                  Services
+                </Link>
+              </li>
+
+              <li><Link to="/upcoming">Legal</Link></li>
+              <li><Link to="/upcoming">Privacy Policy</Link></li>
+
+              <li>
+                <Link
+                  to="/connect-with-us"
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                >
+                  Contact us
+                </Link>
+              </li>
+
             </ul>
           </div>
 
@@ -25,22 +58,78 @@ function Footer() {
             <p>
               We are a Music Institute, Production house & an Independent Record Label from Siliguri, Darjeeling, India.
             </p>
-            
-
           </div>
 
           {/* Connect with Us */}
           <div className="footer-column">
             <h3>Connect with us</h3>
             <p><span>💬</span> <Link to="/contact">Contact us</Link></p>
-            <p><FaEnvelope /> <a href="mailto:thechordifiersstudio@gmail.com">thechordifiersstudio@gmail.com</a></p>
+            <p>
+              <FaEnvelope style={{ marginRight: '8px' }} />
+              <a href="mailto:team@thechordifiers.studio">team@thechordifiers.studio</a>
+            </p>
+
             <p><FaWhatsapp /> <a href="https://wa.me/917811092672" target="_blank" rel="noopener noreferrer">+91 7811092672</a></p>
 
             <div className="social-icons">
-              <a href="https://facebook.com/chordifiersstudio" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
-              <a href="https://linkedin.com/company/chordifiersstudio" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
-              <a href="https://instagram.com/chordifiers.studio" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-              <a href="https://twitter.com/chordifiers" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
+              <Box
+                sx={{
+                  '& > :not(style)': { m: 1 },
+                  display: 'flex',
+                  justifyContent: 'center',
+                  flexWrap: 'wrap',
+                }}
+              >
+                <Fab
+                  color="primary"
+                  size="small"
+                  component="a"
+                  href="https://facebook.com/chordifiersstudio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="facebook"
+                >
+                  <FaFacebookF />
+                </Fab>
+                <Fab
+                  color="primary"
+                  size="small"
+                  component="a"
+                  href="https://linkedin.com/company/chordifiersstudio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="linkedin"
+                >
+
+                  <FaLinkedinIn />
+
+                </Fab>
+                <Fab
+                  color="secondary"
+                  size="small"
+                  component="a"
+                  href="https://instagram.com/chordifiers.studio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="instagram"
+                >
+
+                  <FaInstagram />
+
+                </Fab>
+                <Fab
+                  size="small"
+                  sx={{ backgroundColor: '#000', color: '#fff' }}
+                  component="a"
+                  href="https://x.com/theone11show"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="X (formerly Twitter)"
+                >
+                  <FontAwesomeIcon icon={faXTwitter} size="sm" />
+                </Fab>
+
+              </Box>
             </div>
           </div>
         </div>
@@ -108,12 +197,12 @@ function Footer() {
             color: #000;
             padding: 6px;
             border-radius: 50%;
-            font-size: 14px;
+            font-size: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 28px;
-            height: 28px;
+            width: 45px;
+            height: 45px;
             transition: background 0.3s;
           }
 
@@ -126,13 +215,13 @@ function Footer() {
             .footer-columns {
               flex-direction: column;
               align-items: center;
-            }
+          }
 
-            .footer-column {
+          .footer-column {
               text-align: center;
-            }
+          }
 
-            .social-icons {
+          .social-icons {
               justify-content: center;
             }
           }

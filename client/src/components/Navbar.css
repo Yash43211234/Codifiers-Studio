@@ -1,4 +1,8 @@
+/* Navbar.css */
+
+/* Base Navbar Styles */
 .navbar {
+  position: fixed; /* Changed from 'sticky' to 'fixed' for better scroll transparency control */
   top: 0;
   left: 0;
   right: 0;
@@ -6,12 +10,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #000;
+  background-color: transparent; /* Initially transparent */
   color: #fff;
   width: 100%;
-  height: 103px;
+  height: 103px; /* Default height */
   padding: 0 20px;
   box-sizing: border-box;
+  transition: background-color 0.3s ease-in-out, height 0.3s ease-in-out; /* Smooth transition for background and height */
+  /* Remove box-shadow or set to transparent if you want no shadow initially */
+  box-shadow: none; /* No shadow when transparent */
+}
+
+/* Scrolled state: background becomes black */
+.navbar.scrolled {
+  background-color: #000; /* Opaque black when scrolled */
+  height: 80px; /* Slightly reduce height on scroll for a compact feel */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Add shadow when scrolled */
 }
 
 .brand {
@@ -20,9 +34,17 @@
   text-decoration: none;
   white-space: nowrap;
 }
+
 .brand img {
-  height: 153px !important;
-  width: 150px !important;
+  height: 153px !important; /* Consider adjusting this for better visual on transparent state */
+  width: 150px !important; /* Consider adjusting this for better visual on transparent state */
+  transition: height 0.3s ease-in-out, width 0.3s ease-in-out; /* Smooth transition for logo size */
+}
+
+/* Adjust brand image size when scrolled */
+.navbar.scrolled .brand img {
+  height: 100px !important; /* Example: make logo smaller when scrolled */
+  width: 90px !important; /* Example: make logo smaller when scrolled */
 }
 
 .nav-links {
@@ -34,8 +56,8 @@
 .about-dropdown-menu {
   min-width: 10px;
   width: max-content;
-
 }
+
 .nav-item {
   padding: 0 12px;
   color: #fff;
@@ -50,9 +72,27 @@
   font-family: 'Arial';
 }
 
+.nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+  border-radius: 4px;
+}
+
 .dropdown-toggle {
   user-select: none;
+  display: flex;
+  align-items: center;
+  /* Add a down arrow for dropdowns for better UX */
+  padding-right: 15px; /* Space for the arrow */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><path fill="%23ffffff" d="M0 0l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 8px 8px;
 }
+.dropdown-toggle.no-arrow {
+  background-image: none; /* For dropdown toggles that don't need an arrow */
+  padding-right: 0;
+}
+
 
 .dropdown-menu {
   position: absolute;
@@ -66,9 +106,11 @@
   margin-top: 4px;
   border-radius: 4px;
   z-index: 1001;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
 }
-.about-dropdown-menu{
-  min-width: 50px;
+
+.about-dropdown-menu {
+  min-width: 50px; /* Kept your specific width for about dropdown */
 }
 
 .dropdown-menu.open {
@@ -95,46 +137,75 @@
   cursor: pointer;
 }
 
+/* Mobile Media Queries */
 @media (max-width: 768px) {
   .navbar {
     padding: 14px 25px 2px 0px;
+    height: 70px; /* Adjust height for mobile transparent state */
+    /* On mobile, keep background transparent initially, then change on scroll */
+    background-color: transparent;
   }
+
+  .navbar.scrolled {
+    height: 60px; /* Adjust height when scrolled on mobile */
+    background-color: #000; /* Opaque black when scrolled on mobile */
+  }
+
+  .brand img {
+    height: 100px !important; /* Adjust logo size for mobile transparent state */
+    width: 90px !important;
+  }
+
+  .navbar.scrolled .brand img {
+    height: 70px !important; /* Adjust logo size when scrolled on mobile */
+    width: 60px !important;
+  }
+
   .nav-links {
-    position: absolute;
-    top: 53px;
+    position: fixed; /* Use fixed for full-screen overlay */
+    top: 0; /* Align to top */
     left: 0;
     right: 0;
-    background-color: #000;
+    bottom: 0; /* Extend to bottom to cover full screen */
+    background-color: rgba(0, 0, 0, 0.95); /* Semi-transparent black overlay for mobile menu */
     flex-direction: column;
+    justify-content: flex-start; /* Start content from top */
+    align-items: flex-start; /* Align text to left */
     display: none;
-    max-height: 80vh;
+    padding-top: 100px; /* Space from top to avoid overlapping navbar elements */
     overflow-y: auto;
     z-index: 1001;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%); /* Start off-screen */
   }
 
   .nav-links.open {
     display: flex;
+    transform: translateX(0); /* Slide in */
   }
 
   .nav-item {
-    padding: 1rem;
+    padding: 1rem 20px; /* Add horizontal padding for mobile items */
     border-top: 1px solid #333;
     height: auto;
+    width: 100%; /* Make nav items take full width */
+  }
+  .nav-item:last-child {
+    border-bottom: 1px solid #333; /* Add bottom border to last item for consistency */
   }
 
   .dropdown-menu {
-    position: relative;
-    top: 0;
-    left: 0;
+    position: relative; /* Changed from static to relative for mobile dropdowns */
     border: none;
-    background: #111;
+    background: #1a1a1a; /* Slightly lighter black for sub-menu */
     margin-top: 0;
     display: none;
     border-radius: 0;
     box-shadow: none;
     flex-direction: column;
-    max-height: 300px;
-    overflow-y: auto;
+    max-height: unset; /* Remove max-height for mobile dropdowns */
+    overflow-y: visible; /* Allow content to push menu height */
+    width: 100%; /* Full width for mobile dropdown */
   }
 
   .dropdown-menu.open {
@@ -142,13 +213,20 @@
   }
 
   .dropdown-item {
-    padding-left: 2rem;
-    border-top: 1px solid #333;
+    padding-left: 3rem; /* Indent dropdown items */
+    border-top: 1px solid #222; /* Lighter border for dropdown items */
     font-size: 1rem;
+  }
+
+  .dropdown-toggle {
+    background-image: none; /* Remove arrow for mobile dropdowns as they expand vertically */
+    padding-right: 0;
   }
 
   .menu-icon {
     display: block;
+    position: relative; /* Ensure it stays in place with fixed navbar */
+    z-index: 1002; /* Above the mobile menu overlay */
   }
 }
 
@@ -156,12 +234,19 @@
   .navbar {
     padding: 10px 15px;
     height: 54px;
-    z-index: 1001;
+  }
+
+  .navbar.scrolled {
+    height: 50px;
   }
 
   .brand img {
-    height: 90px !important;
-    width: 100px !important;
+    height: 70px !important;
+    width: 65px !important;
+  }
+  .navbar.scrolled .brand img {
+    height: 50px !important;
+    width: 45px !important;
   }
 
   .nav-item {

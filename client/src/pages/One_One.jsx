@@ -50,7 +50,7 @@ const images = [
 export default function LandingPage() {
   const getRandomYOffset = () => Math.floor(Math.random() * 41) - 20;
   const navigate = useNavigate();
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+
   const handleJoinClick = () => {
     navigate('/query');
     window.scrollTo(0, 0);  // 👈 change '/institute' to your actual route if needed
@@ -170,47 +170,23 @@ export default function LandingPage() {
   return (
     <div>
       {/* HERO SECTION */}
-      <div>
-  {!isVideoLoaded && (
-    <div className="hero-section">
-      <div className="overlay" />
-      <div className="hero-content">
-        <img
-          src="tcs.png"
-          alt="Chordifiers Logo"
-          className="hero-logo"
-        />
-        <span className="One_One_Page_Header">
-          <p style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.4)' }}>
-            Your Record Label, Production House <br /> & Music Institute
-          </p>
-        </span>
-        <span className="One_One_Page_Header_p">
-          <p>"You Love being Creative? We Love You"</p>
-        </span>
+      <div className="hero-section">
+        <div className="overlay" />
+        <div className="hero-content">
+          <img
+            src="tcs.png"
+            alt="Chordifiers Logo"
+            className="hero-logo"
+          />
+          <span className="One_One_Page_Header">
+            <p style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.4)' }}>
+              Your Record Label, Production House <br /> & Music Institute
+            </p>
+          </span>
+
+          <span className="One_One_Page_Header_p"><p>"You Love being Creative? We Love You"</p></span>
+        </div>
       </div>
-    </div>
-  )}
-
-  {/* Video appears after it's loaded */}
-  <video
-    src="video1.mp4"
-    autoPlay
-    muted
-    loop
-    playsInline
-    onLoadedData={() => setIsVideoLoaded(true)}
-    style={{
-      display: isVideoLoaded ? 'block' : 'none',
-      width: '100%',
-      height: '100vh',
-      objectFit: 'cover',
-      border: 'none',
-      outline: 'none'
-    }}
-  />
-</div>
-
 
       <div
         style={{
@@ -494,7 +470,7 @@ export default function LandingPage() {
 
 
 
-      {/* +++++++++++++++++++++++++++++++++ */}
+{/* +++++++++++++++++++++++++++++++++ */}
 
 
       {/* +++++++++++++++++++++++++++++++ */}
@@ -1040,7 +1016,7 @@ export default function LandingPage() {
   background-image: url('https://the-codifiers-studio.s3.ap-south-1.amazonaws.com/3bb25b2526519f66c08b0cb47e42ad5d8cbd3adf.jpg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: fixed; /* This keeps the background image fixed */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1048,37 +1024,20 @@ export default function LandingPage() {
   color: white;
 }
 
-.hero-logo {
-  width: 180px;
-  margin-bottom: 20px;
-}
 
-.One_One_Page_Header p,
-.One_One_Page_Header_p p {
-  font-size: 24px;
-  margin: 0;
-}
+        .overlay {
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.6);
+          z-index: 10;
+         
+        }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* Dark overlay for contrast */
-  z-index: 1;
-}
+        .hero-content {
+          position: relative;
+          z-index: 2;
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-
-
-     
-
-      
+        }
 
         .hero-logo {
       

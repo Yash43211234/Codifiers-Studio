@@ -55,9 +55,9 @@ function App() {
     <Router>
       <ScrollToTop/>
       <Navbar />
-      <div className="app-wrapper">
+      <div className="main-content">
         <Pop />
-        <DevelopmentNotice />
+        {/* <DevelopmentNotice /> */}
         <Routes>
 
           {/* Navbar */}

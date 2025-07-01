@@ -1,7 +1,10 @@
 // src/components/CompanySections.jsx
 import React, { useEffect, useState } from 'react';
 import DottedBackground from './DottedBackground';
+import CustomCarousel from './CustomCarousel';
+import OurWorkSection from './OurWorkSection';
 
+const images = ['48.jpg', '26_10.jpg', '37.jpg'];
 const TCMISection = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
@@ -15,6 +18,26 @@ const TCMISection = () => {
     maxWidth: '1200px',
     margin: '0 auto',
     padding: '0 1rem',
+  };
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+  };
+  const buttonStyle = {
+    position: 'absolute',
+    top: '150%',
+    transform: 'translateY(-50%)',
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    color: '#fff',
+    border: 'none',
+    padding: '0.5rem 1rem',
+    cursor: 'pointer',
+    zIndex: 1,
   };
 
   const sectionTitle = (title, subtitle) => (
@@ -60,7 +83,7 @@ const TCMISection = () => {
     <>
       {/* Top Title */}
       <div style={{
-        backgroundColor: '#', // Light gray background
+        backgroundColor: '', // Light gray background
         padding: isMobile ? '2rem 1rem' : '3rem 0',
         textAlign: 'center',
         fontFamily: "'Anton', sans-serif",
@@ -110,7 +133,7 @@ const TCMISection = () => {
       {/* ABOUT US SECTION */}
       <section style={{
         padding: isMobile ? '3rem 0' : '0rem 0',
-
+        background:'#DEDEDE',
         fontFamily: "'Antonio', sans-serif",
         color: '#333',
         boxSizing: 'border-box',
@@ -120,24 +143,14 @@ const TCMISection = () => {
 
 
           {/* Image */}
-          <img
-            src="https://placehold.co/1200x600/e0e0e0/555555?text=OUR+STORY+IMAGE"
-            alt="Our Story"
-            style={{
-              width: '100%',
-              height: 'auto',
-              borderRadius: '0px',
-              marginBottom: isMobile ? '2.5rem' : '4rem',
-              display: 'block',
-            }}
-          />
+          <CustomCarousel/>
 
           {/* About Us Content */}
           <div style={{
             backgroundColor: '#ffffff',
             display: 'flex',
             flexDirection: isMobile ? 'column' : 'row',
-            padding: isMobile ? '2rem 1rem' : '0rem 4rem 4rem 4rem',
+            padding: isMobile ? '2rem 1rem' : '2rem 4rem 4rem 4rem',
             gap: isMobile ? '1.5rem' : '3rem',
             boxSizing: 'border-box',
             borderBottom: '1px solid #ddd',
@@ -182,6 +195,9 @@ const TCMISection = () => {
         </div>
       </section>
 
+      <DottedBackground />
+
+      <OurWorkSection/>
       <DottedBackground />
 
       {/* SERVICES SECTION */}
@@ -301,7 +317,7 @@ const TCMISection = () => {
             </ul>
 
           </div>
-   <hr style={{
+          <hr style={{
             marginTop: isMobile ? '2.5rem' : '4rem',
             borderColor: '#ccc',
             maxWidth: '900px',

@@ -8,7 +8,7 @@ const Institute = () => {
 
   return (
     <>
-      <div>
+      <div >
         {!isVideoLoaded && (
           <div className="hero-section">
             <div className="overlay" />

@@ -91,7 +91,7 @@ export default function CustomCarousel() {
   {`
     .carousel-image {
       transition: transform 0.4s ease, filter 0.4s ease;
-      height: 310px;
+    
       object-fit: cover;
       display: block;
       width: 100%;
@@ -109,10 +109,11 @@ export default function CustomCarousel() {
       position: relative;
     }
 
-    .carousel-card:hover .center-image {
-      transform: scale(1.05);
-      z-index: 3;
-    }
+   .carousel-card:hover {
+  transform: scale(1.05);
+  z-index: 3;
+}
+
 
     .topRightControls {
       display: flex;
@@ -161,6 +162,7 @@ export default function CustomCarousel() {
   transform: translateX(5px);
   opacity: .3;
   filter: none;
+  
 }
 
 
@@ -237,6 +239,7 @@ const styles = {
     height: '450px',
     boxSizing: 'border-box',
     margin: '0 auto',
+    
   },
   viewport: {
     overflow: 'hidden',
@@ -260,9 +263,9 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     transition: 'transform 0.4s ease, z-index 0.4s ease',
+    
   },
   image: {
-    height: '310px',
     objectFit: 'cover',
   },
 };

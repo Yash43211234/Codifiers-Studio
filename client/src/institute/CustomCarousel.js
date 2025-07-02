@@ -17,12 +17,12 @@ export default function CustomCarousel() {
   const visibleCount = 3;
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % carouselItems.length);
+    setCurrentIndex((prev) => (prev - 1) % carouselItems.length);
   };
 
   const prevSlide = () => {
     setCurrentIndex((prev) =>
-      (prev - 1 + carouselItems.length) % carouselItems.length
+      (prev + 1 + carouselItems.length) % carouselItems.length
     );
   };
 
@@ -43,11 +43,11 @@ export default function CustomCarousel() {
       <div className="topRightControls">
         <button onClick={nextSlide} className="topBtn">
           <span className="arrow leftArrow" style={{ marginRight: '10px' }}><img src='Like_the_arrow1.png'/></span>
-          <span className="label">NEXT</span>
+          <span className="label">PREV</span>
         </button>
         <div className="separator"></div>
         <button onClick={prevSlide} className="topBtn">
-          <span className="label">PREV</span>
+          <span className="label">NEXT</span>
           <span className="arrow rightArrow"><img src='Like_the_arrow.png'/></span>
         </button>
       </div>
@@ -76,7 +76,7 @@ export default function CustomCarousel() {
                 />
                 {isCenter && (
                   <div className="overlay-content">
-                    <div className="play-button"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5" d="m5 3l16 9l-16 9z"/></svg></div>
+                    {/* <div className="play-button"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5" d="m5 3l16 9l-16 9z"/></svg></div> */}
                     {/* <div className="image-title">{item.title}</div> */}
                   </div>
                 )}

@@ -195,144 +195,15 @@ const TCMISection = () => {
         </div>
       </section>
 
-      <DottedBackground />
+   
 
       <OurWorkSection/>
-      <DottedBackground />
+   
 
-      {/* SERVICES SECTION */}
-      <section style={{
-        paddingTop: isMobile ? '3rem' : '4rem',
-        paddingBottom: isMobile ? '3rem' : '4rem',
-        backgroundColor: '#f0f0f0',
-        fontFamily: "'Antonio', sans-serif",
-        color: '#333',
-        marginTop: isMobile ? '3rem' : '4rem',
-      }}>
-        <div style={containerStyle}>
-          <div style={{
-
-            padding: isMobile ? '2rem 1rem' : '3rem 0',
-            textAlign: 'center',
-            fontFamily: "'Anton', sans-serif",
-          }}>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              maxWidth: '1200px',
-              margin: '0 auto',
-              gap: '2rem',
-            }}>
-              {/* Left Line */}
-              <div style={{
-                flex: 1,
-                height: '1px',
-                backgroundColor: '#aaa',
-              }}></div>
-
-              {/* Center Text */}
-              <div>
-                <h2 style={{
-                  fontSize: isMobile ? '24px' : '36px',
-                  fontWeight: 700,
-                  margin: 0,
-                  color: '#777',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.05em',
-                }}>OUR SERVICES</h2>
-                <p style={{
-                  fontSize: isMobile ? '12px' : '14px',
-                  color: '#999',
-                  marginTop: '0.25rem',
-                  letterSpacing: '0.15em',
-                }}>WHAT WE REALLY CAN PROVIDE</p>
-              </div>
-
-              {/* Right Line */}
-              <div style={{
-                flex: 1,
-                height: '1px',
-                backgroundColor: '#aaa',
-              }}></div>
-            </div>
-          </div>
-
-          {/* Content Box */}
-          <div style={{
-            display: 'flex',
-            flexDirection: isMobile ? 'column' : 'row',
-            gap: '2rem',
-            backgroundColor: '#fff',
-            padding: isMobile ? '1.5rem' : '2.5rem',
-            borderRadius: '8px',
-            boxShadow: '0 4px 10px rgba(0,0,0,0.05)',
-          }}>
-            {/* Left Column: Heading */}
-            <div style={{
-              width: isMobile ? '100%' : '30%',
-              fontWeight: 700,
-              fontSize: isMobile ? '26px' : '38px',
-              color: '#333',
-              lineHeight: '1.2',
-            }}>
-              OUR<br />SERVICES
-            </div>
-
-            {/* Right Column: List */}
-            <ul style={{
-              width: isMobile ? '100%' : '70%',
-              fontSize: isMobile ? '14px' : '16px',
-              lineHeight: '2',
-              listStyle: 'none',
-              padding: 0,
-              margin: 0,
-            }}>
-              {[
-                'TV Commercial',
-                'Music Video Production',
-                'Audio Recording/Mixing/Mastering',
-                'Music Production',
-                'Film Scoring',
-                'Event Documentation',
-                'Documentary Production',
-                'Photography',
-              ].map((service, idx) => (
-                <li key={idx} style={{ display: 'flex', alignItems: 'center', marginBottom: '0.5rem' }}>
-                  <span style={{
-                    display: 'inline-block',
-                    width: '20px',
-                    height: '20px',
-                    backgroundColor: '#333',
-                    color: '#fff',
-                    borderRadius: '50%',
-                    fontSize: '12px',
-                    textAlign: 'center',
-                    lineHeight: '20px',
-                    marginRight: '1rem',
-                  }}>▢</span>
-                  {service}
-                </li>
-              ))}
-            </ul>
-
-          </div>
-          <hr style={{
-            marginTop: isMobile ? '2.5rem' : '4rem',
-            borderColor: '#ccc',
-            maxWidth: '900px',
-            marginInline: 'auto',
-          }} />
-
-          {/* Bottom Line */}
-
-        </div>
+      
 
 
-      </section>
-
-
-      <DottedBackground />
+   
     </>
   );
 };

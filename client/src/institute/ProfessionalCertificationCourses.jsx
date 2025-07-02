@@ -35,15 +35,15 @@ const ProfessionalCertificationCourses = () => {
       link1: "/institute/instrument-certificate",
       link2: "/upcoming",
     },
-    {
-      id: 3,
-      number: "3",
-      title: "Music Business Course",
-      image: Production,
-      description: "Turn your passion for music into a thriving career with our Music Business Course. Designed for artists, managers, and industry professionals, this course equips you with the essential skills needed to navigate the dynamic world of the music industry, build your brand, and achieve sustainable success.",
-      link1: "/comingsoon",
-      link2: "/institute/Music-certificate",
-    },
+    // {
+    //   id: 3,
+    //   number: "3",
+    //   title: "Music Business Course",
+    //   image: Production,
+    //   description: "Turn your passion for music into a thriving career with our Music Business Course. Designed for artists, managers, and industry professionals, this course equips you with the essential skills needed to navigate the dynamic world of the music industry, build your brand, and achieve sustainable success.",
+    //   link1: "/comingsoon",
+    //   link2: "/institute/Music-certificate",
+    // },
   ];
 
   const containerStyle = {

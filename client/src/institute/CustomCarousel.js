@@ -195,11 +195,18 @@ export default function CustomCarousel() {
   }
 
   .topRightControls {
-    justify-content: right;
-     margin: 0px 18px -70px 0; /* reduced bottom margin */
-    gap: 10px;
-    flex-wrap: wrap;
-  }
+  position: absolute;
+  right: 0px;
+  top:-40px;
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 6px 10px;
+  border-radius: 10px;
+  m
+}
+
 
   .topBtn {
     font-size: 14px;

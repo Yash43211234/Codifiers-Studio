@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ProfessionalCertificationCourses from "../institute/ProfessionalCertificationCourses"
 import TCMISection from '../institute/TCMISection'
+import Contact from '../institute/Contact';
 
 const Institute = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -56,6 +57,7 @@ const Institute = () => {
 
       <TCMISection />
       <ProfessionalCertificationCourses />
+      <Contact/>
     </>
   );
 };

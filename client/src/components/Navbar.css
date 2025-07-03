@@ -60,7 +60,7 @@
 
 .nav-item {
   padding: 0 12px;
-  color: #fefefd;
+  color: #eded06;
   text-decoration: none;
   font-size: 1.2rem;
   height: 100%;
@@ -229,37 +229,79 @@
     z-index: 1002; /* Above the mobile menu overlay */
   }
 }
-
 @media (max-width: 480px) {
   .navbar {
     padding: 10px 15px;
     height: 54px;
+    background-color: transparent;
   }
 
   .navbar.scrolled {
     height: 50px;
+    background-color: #000;
   }
 
   .brand img {
-    height: 70px !important;
-    width: 65px !important;
+    height: 70px;
+    width: 65px;
+    transition: height 0.3s ease-in-out, width 0.3s ease-in-out;
   }
+
   .navbar.scrolled .brand img {
-    height: 50px !important;
-    width: 45px !important;
+    height: 50px;
+    width: 45px;
+  }
+
+  .nav-links {
+    padding-top: 70px; /* Adjusted for logo height */
   }
 
   .nav-item {
     font-size: 1rem;
     padding: 0.8rem 1rem;
+    width: 100%;
+    text-align: left;
+    border-top: 1px solid #333;
+  }
+
+  .nav-item:last-child {
+    border-bottom: 1px solid #333;
+  }
+
+  .nav-item.dropdown {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dropdown-toggle {
+    background-image: none;
+    padding-right: 0;
+    width: 100%;
+  }
+
+  .dropdown-menu {
+    display: none;
+    width: 100%;
+    background: #1a1a1a;
+    flex-direction: column;
+    border: none;
+    margin: 0;
+  }
+
+  .dropdown-menu.open {
+    display: flex;
   }
 
   .dropdown-item {
     font-size: 0.95rem;
-    padding-left: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    width: 100%;
+    border-top: 1px solid #222;
+    text-align: left;
   }
 
   .menu-icon {
     font-size: 1.8rem;
+    z-index: 1002;
   }
 }

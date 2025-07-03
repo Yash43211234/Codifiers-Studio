@@ -7,8 +7,15 @@ const carouselItems = [
   { image: 'cr1.jpg', video: false, title: 'Art Collage' },
   { image: 'cr2.jpg', video: false, title: 'Art Collage' },
   { image: 'cr4.jpg', video: false, title: 'Art Collage' },
+  { image: 'cr5.jpeg', video: false, title: 'Art Collage' },
+  { image: 'cr6.jpg', video: false, title: 'Art Collage' },
+  { image: 'cr7.jpg', video: false, title: 'Art Collage' },
+  { image: 'cr8.jpg', video: false, title: 'Art Collage' },
+  { image: 'cr9.jpeg', video: false, title: 'Art Collage' },
+  { image: 'cr10.jpg', video: false, title: 'Art Collage' },
+  { image: 'cr11.jpg', video: false, title: 'Art Collage' },
+  { image: 'cr12.jpg', video: false, title: 'Art Collage' },
   
-
 ];
 
 export default function CustomCarousel() {
@@ -177,6 +184,7 @@ export default function CustomCarousel() {
     flex: 0 0 100% !important;
     padding: 0;
     height: auto;
+    margin-top:-50px;
   }
 
   .carousel-image {

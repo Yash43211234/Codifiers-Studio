@@ -132,8 +132,8 @@ const TCMISection = () => {
 
       {/* ABOUT US SECTION */}
       <section style={{
-        padding: isMobile ? '3rem 0' : '0rem 0',
-        background:'#DEDEDE',
+        padding: isMobile ? '3rem 0' : '3rem 0',
+        background: '#DEDEDE',
         fontFamily: "'Antonio', sans-serif",
         color: '#333',
         boxSizing: 'border-box',
@@ -143,45 +143,46 @@ const TCMISection = () => {
 
 
           {/* Image */}
-          <CustomCarousel/>
+          <CustomCarousel />
 
           {/* About Us Content */}
-          <div style={{ margintop: '-20px ', marginBottom:'-50px' }}>
-  <div
-    style={{
-      backgroundColor: '#ffffff',
-      padding: isMobile ? '2rem 1.2rem' : '3rem 5rem 4rem 5rem',
-      gap: isMobile ? '1.5rem' : '3rem',
-      boxSizing: 'border-box',
-      borderBottom: '1px solid #eee',
-      boxShadow: '0 4px 30px rgba(0, 0, 0, 0.05)',
-      
-    }}
-  >
-    <div
-      style={{
-        width: '100%',
-        fontSize: isMobile ? '13px' : '15px',
-        lineHeight: isMobile ? '1.9' : '2',
-        color: '#666666',
-        textAlign: 'justify',
-        fontFamily: "'Lora', serif",
-        letterSpacing: '0.3px',
-        fontWeight: 400,
-      }}
-    >
-      <p>
-        We believe learning music should be an exciting experience. That's why we offer thoughtfully
-        designed courses in a creative and inspiring environment. With access to modern facilities,
-        up-to-date equipment, and experienced mentors, our students learn in a setting that mirrors
-        the real music industry. Whether you're just starting out or looking to level up your skills,
-        we offer a wide range of diploma and certification programs. From live classes to flexible
-        online options, our courses are designed to fit your goals, your schedule, and your unique
-        learning style.
-      </p>
-    </div>
-  </div>
-</div>
+          <div style={{  marginBottom: '-60px' }}>
+            <div
+              style={{
+                backgroundColor: '#ffffff',
+                marginTop:isMobile?'-60px':'0rem',
+                padding: isMobile ? '2rem 1.2rem' : '3rem 5rem 4rem 5rem',
+                gap: isMobile ? '1.5rem' : '3rem',
+                boxSizing: 'border-box',
+                borderBottom: '1px solid #eee',
+                boxShadow: '0 4px 30px rgba(0, 0, 0, 0.05)',
+
+              }}
+            >
+              <div
+                style={{
+                  width: '100%',
+                  fontSize: isMobile ? '13px' : '15px',
+                  lineHeight: isMobile ? '1.9' : '2',
+                  color: '#666666',
+                  textAlign: 'justify',
+                  fontFamily: "'Lora', serif",
+                  letterSpacing: '0.3px',
+                  fontWeight: 400,
+                }}
+              >
+                <p>
+                  We believe learning music should be an exciting experience. That's why we offer thoughtfully
+                  designed courses in a creative and inspiring environment. With access to modern facilities,
+                  up-to-date equipment, and experienced mentors, our students learn in a setting that mirrors
+                  the real music industry. Whether you're just starting out or looking to level up your skills,
+                  we offer a wide range of diploma and certification programs. From live classes to flexible
+                  online options, our courses are designed to fit your goals, your schedule, and your unique
+                  learning style.
+                </p>
+              </div>
+            </div>
+          </div>
 
 
           <div style={{ height: '50px', marginBottom: '60px' }}>
@@ -190,8 +191,8 @@ const TCMISection = () => {
         </div>
       </section>
 
-      <OurWorkSection/>
-  
+      <OurWorkSection />
+
     </>
   );
 };

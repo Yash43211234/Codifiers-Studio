@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 
 const carouselItems = [
-  { image: '48.jpg', video: false, title: 'Say It' },
+  
   { image: '37.jpg', video: true, title: 'Yorushika - Snake' },
   { image: '26_10.jpg', video: false, title: 'Art Collage' },
-  { image: '48.jpg', video: false, title: 'Say It Again' },
-  { image: '37.jpg', video: true, title: 'Another Track' },
-  { image: '26_10.jpg', video: false, title: 'Still Art' },
-  { image: '48.jpg', video: false, title: 'Final Say' },
-  { image: '37.jpg', video: true, title: 'Music Again' },
-  { image: '26_10.jpg', video: false, title: 'Last Frame' },
+  { image: 'cr1.jpg', video: false, title: 'Art Collage' },
+  { image: 'cr2.jpg', video: false, title: 'Art Collage' },
+  { image: 'cr4.jpg', video: false, title: 'Art Collage' },
+  
+
 ];
 
 export default function CustomCarousel() {
@@ -197,7 +196,7 @@ export default function CustomCarousel() {
 
   .topRightControls {
     justify-content: right;
-    margin: 0px 18px -15px 0;
+     margin: 0px 18px -70px 0; /* reduced bottom margin */
     gap: 10px;
     flex-wrap: wrap;
   }

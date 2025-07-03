@@ -47,7 +47,7 @@ const Institute = () => {
           style={{
             display: isVideoLoaded ? 'block' : 'none',
             width: '100%',
-            height: isMobile ? '80vh' : '100vh',
+            height: isMobile ? '80vh' : '80vh',
             objectFit: 'cover',
             border: 'none',
             outline: 'none'

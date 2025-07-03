@@ -33,15 +33,17 @@ const OurWorkSection = () => {
   const styles = {
     section: {
       textAlign: 'center',
-      padding: isMobile ? '4rem 1rem' : '6rem 2rem',
+      padding: isMobile ? '3rem 1rem' : '0rem 2rem',
       backgroundColor: colors.backgroundPrimary,
       fontFamily: fonts.body,
-      
+
+
     },
     headingGroup: {
-      marginBottom: isMobile ? '3rem' : '5rem',
+      marginBottom: isMobile ? '3rem' : '4rem',
       maxWidth: '800px',
       margin: '0 auto',
+
     },
     mainHeading: {
       fontSize: isMobile ? '2.5rem' : '4rem',
@@ -72,6 +74,7 @@ const OurWorkSection = () => {
       height: '1px',
       backgroundColor: colors.border,
       margin: '0 0.75rem',
+
     },
     dot: {
       width: '10px',
@@ -86,7 +89,7 @@ const OurWorkSection = () => {
       alignItems: 'stretch',
       justifyContent: 'center',
       maxWidth: '1000px',
-      margin: '0 auto 4rem',
+      margin: '20px auto 4rem',
       backgroundColor: colors.backgroundSecondary,
       boxShadow: `0 8px 25px ${colors.shadow}`,
       border: `1px solid ${colors.border}`,
@@ -95,8 +98,10 @@ const OurWorkSection = () => {
     mediaSection: {
       flex: '1 1 50%',
       position: 'relative',
-      height: '300px',
+      height: isMobile ? '250px' : '300px',
+      minHeight: '200px',
     },
+
     mediaElement: {
       position: 'absolute',
       top: 0,
@@ -156,22 +161,22 @@ const OurWorkSection = () => {
           onMouseLeave={() => setHoveredVideo1(false)}
         >
           {hoveredVideo1 ? (
-  <iframe
-    style={styles.iframe}
-    src="https://www.youtube.com/embed/r2GYhQB23Io?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&disablekb=1&iv_load_policy=3&playsinline=1"
-    title="Project 1 Video"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowFullScreen
-  ></iframe>
-) : (
-  <img src="48.jpg" alt="Project 1" style={styles.mediaElement} />
-)}
+            <iframe
+              style={styles.iframe}
+              src="https://www.youtube.com/embed/r2GYhQB23Io?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&disablekb=1&iv_load_policy=3&playsinline=1"
+              title="Project 1 Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          ) : (
+            <img src="batiNaHoti.jpg" alt="Project 1" style={styles.mediaElement} />
+          )}
 
         </div>
         <div style={styles.textSection}>
-          <h3 style={styles.textTitle}>Creative Project Showcase</h3>
+          <h3 style={styles.textTitle}>KASH MAIN EK BETI NA HOTI</h3>
           <p style={styles.textParagraph}>
-            Explore how our students bring innovative ideas to life, from concept to execution, showcasing their mastery.
+            A quiet storm of pain and resilience, this song reflects the unspoken stories of violence and injustice haunting India.
           </p>
         </div>
       </div>
@@ -189,22 +194,22 @@ const OurWorkSection = () => {
           onMouseLeave={() => setHoveredVideo2(false)}
         >
           {hoveredVideo2 ? (
-  <iframe
-    style={styles.iframe}
-    src="https://www.youtube.com/embed/unuEh1CLgZw?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&disablekb=1&iv_load_policy=3&playsinline=1"
-    title="Project 2 Video"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowFullScreen
-  ></iframe>
-) : (
-  <img src="37.jpg" alt="Project 2" style={styles.mediaElement} />
-)}
+            <iframe
+              style={styles.iframe}
+              src="https://www.youtube.com/embed/unuEh1CLgZw?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&disablekb=1&iv_load_policy=3&playsinline=1"
+              title="Project 2 Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          ) : (
+            <img src="citiesOnFires.jpg" alt="Project 2" style={styles.mediaElement} />
+          )}
 
         </div>
         <div style={styles.textSection}>
-          <h3 style={styles.textTitle}>Behind the Scenes: Our Process</h3>
+          <h3 style={styles.textTitle}>Cities on fires</h3>
           <p style={styles.textParagraph}>
-            Discover the process and dedication our students invest to deliver real-world results.
+            War divides what humanity unites—peace is our shared destiny, not destruction.
           </p>
         </div>
       </div>

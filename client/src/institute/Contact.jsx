@@ -21,11 +21,12 @@ const Contact = () => {
       margin: 'auto',
     },
     title: {
-      fontSize: '32px',
-      fontWeight: '600',
+      fontSize: '2.5rem',
+      fontWeight: '700',
       marginBottom: '30px',
       color: '#222',
       textAlign: isMobile ? 'center' : 'left',
+      color:'rgb(153, 153, 153)'
     },
     content: {
       display: 'flex',
@@ -59,12 +60,12 @@ const Contact = () => {
       marginBottom: '10px',
     },
     highlightTitle: {
-      fontSize: isMobile ? '18px' : '24px',
+      fontSize: isMobile ? '1rem' : '24px',
       fontWeight: 'bold',
       marginBottom: '10px',
     },
     highlightText: {
-      fontSize: isMobile ? '14px' : '16px',
+      fontSize: isMobile ? '0.8rem' : '16px',
       color: '#eee',
     },
     rightPanel: {

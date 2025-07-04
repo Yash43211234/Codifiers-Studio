@@ -33,20 +33,21 @@ const OurWorkSection = () => {
   const styles = {
     section: {
       textAlign: 'center',
-      padding: isMobile ? '3rem 1rem' : '0rem 2rem',
-      backgroundColor: colors.backgroundPrimary,
+      padding: isMobile ? '3rem 0rem' : '1rem 0rem',
+      backgroundColor:'#DEDEDE',
       fontFamily: fonts.body,
 
 
     },
     headingGroup: {
       marginBottom: isMobile ? '3rem' : '4rem',
-      maxWidth: '800px',
+      maxWidth: '100%',
       margin: '0 auto',
+      backgroundColor:'#FFFFFF'
 
     },
     mainHeading: {
-      fontSize: isMobile ? '2.5rem' : '4rem',
+      fontSize: isMobile ? '2.5rem' : '36px',
       fontWeight: 700,
       color: colors.darkText,
       textTransform: 'uppercase',
@@ -56,11 +57,12 @@ const OurWorkSection = () => {
       lineHeight: 1.1,
     },
     subHeading: {
-      fontSize: isMobile ? '1rem' : '1.3rem',
+      fontSize: isMobile ? '1rem' : '14px',
       color: colors.lightText,
       fontFamily: fonts.subHeading,
-      fontStyle: 'italic',
+      fontFamily:'sans-serif',
       marginBottom: '1.5rem',
+       textTransform: 'uppercase',
     },
     divider: {
       display: 'flex',
@@ -74,7 +76,6 @@ const OurWorkSection = () => {
       height: '1px',
       backgroundColor: colors.border,
       margin: '0 0.75rem',
-
     },
     dot: {
       width: '10px',
@@ -89,11 +90,12 @@ const OurWorkSection = () => {
       alignItems: 'stretch',
       justifyContent: 'center',
       maxWidth: '1000px',
-      margin: '20px auto 4rem',
+      margin: '60px auto 4rem',
       backgroundColor: colors.backgroundSecondary,
       boxShadow: `0 8px 25px ${colors.shadow}`,
       border: `1px solid ${colors.border}`,
       overflow: 'hidden',
+      
     },
     mediaSection: {
       flex: '1 1 50%',
@@ -126,6 +128,7 @@ const OurWorkSection = () => {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
+      
     },
     textTitle: {
       fontSize: isMobile ? '1.8rem' : '2.5rem',
@@ -143,13 +146,55 @@ const OurWorkSection = () => {
 
   return (
     <div style={styles.section}>
-      <div style={styles.headingGroup}>
-        <h2 style={styles.mainHeading}>Our Work</h2>
-        <p style={styles.subHeading}>Where Our Students Have Worked On</p>
-        <div style={styles.divider}>
-          <div style={styles.line}></div>
-          <div style={styles.dot}></div>
-          <div style={styles.line}></div>
+      
+
+      {/* Top Title */}
+      <div style={{
+        backgroundColor: '#FFFFFF', // Light gray background
+        padding: isMobile ? '2rem 1rem' : '3rem 0',
+        textAlign: 'center',
+        fontFamily: "'Anton', sans-serif",
+      }}>
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          maxWidth: '1200px',
+          margin: '0 auto',
+          gap: '2rem',
+        }}>
+          {/* Left Line */}
+          <div style={{
+            flex: 1,
+            height: '1px',
+            backgroundColor: '#aaa',
+          }}></div>
+
+          {/* Center Text */}
+          <div>
+            <h2 style={{
+              fontSize: isMobile ? '24px' : '36px',
+              fontWeight: 700,
+              margin: 0,
+              color: '#777',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+            }}>Our Work</h2>
+            <p style={{
+              fontSize: isMobile ? '12px' : '14px',
+              color: '#999',
+              marginTop: '0.25rem',
+              letterSpacing: '0.15em',
+              textTransform:'uppercase',
+            }}>Where Our Students Have Worked On</p>
+          </div>
+
+          {/* Right Line */}
+          <div style={{
+            flex: 1,
+            height: '1px',
+            backgroundColor: '#aaa',
+          }}></div>
         </div>
       </div>
 
@@ -177,14 +222,6 @@ const OurWorkSection = () => {
           <h3 style={styles.textTitle}> BETI NA HOTI</h3>
           <p style={styles.textParagraph}>
             A quiet storm of pain and resilience, this song echoes India's unspoken stories of violence and injustice.
-
-
-
-
-
-
-
-
 
           </p>
         </div>

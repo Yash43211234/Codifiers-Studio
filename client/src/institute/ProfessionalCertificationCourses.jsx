@@ -150,7 +150,7 @@ const ProfessionalCertificationCourses = () => {
       <div style={gridStyle}>
         {courses.map((course) => (
           <div key={course.id} style={cardStyle}>
-            <div style={numberStyle}>{course.number}</div>
+            {/* <div style={numberStyle}>{course.number}</div> */}
             <img src={course.image} alt={course.title} style={imageStyle} />
             <h2 style={courseTitleStyle}>{course.title}</h2>
             <p style={descriptionStyle}>{course.description}</p>

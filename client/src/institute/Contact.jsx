@@ -136,7 +136,7 @@ const Contact = () => {
 
               <p style={styles.newsDate}>Date 1 June 2025 :</p>
               <a href="#" style={styles.newsTitle}>
-                 Admissions for New Music production 2025 batche's open .
+                 Admissions for New Music production 2025 batch open .
               </a>
 
               

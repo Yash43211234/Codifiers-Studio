@@ -130,7 +130,7 @@ const TCMISection = () => {
         </div>
       </div>
 
-      {/* ABOUT US SECTION */}
+      
       <section style={{
         padding: isMobile ? '3rem 0' : '3rem 0',
         background: '#DEDEDE',
@@ -146,7 +146,7 @@ const TCMISection = () => {
           <CustomCarousel />
 
           {/* About Us Content */}
-          <div style={{  marginBottom: '-60px' }}>
+          <div style={{  marginBottom: '-100px' }}>
             <div
               style={{
                 backgroundColor: '#ffffff',

@@ -174,9 +174,18 @@ const OurWorkSection = () => {
 
         </div>
         <div style={styles.textSection}>
-          <h3 style={styles.textTitle}>KASH MAIN EK BETI NA HOTI</h3>
+          <h3 style={styles.textTitle}> BETI NA HOTI</h3>
           <p style={styles.textParagraph}>
-            A quiet storm of pain and resilience, this song reflects the unspoken stories of violence and injustice haunting India.
+            A quiet storm of pain and resilience, this song echoes India's unspoken stories of violence and injustice.
+
+
+
+
+
+
+
+
+
           </p>
         </div>
       </div>

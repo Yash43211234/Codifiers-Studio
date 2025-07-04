@@ -1174,10 +1174,14 @@ export default function LandingPage() {
 
           @media screen and (max-width: 480px) {
             /* Phones */
+            .hero-section{
+            height: 843px;
+            }
+            
             .hero-content h1 {
               font-size: 20px;
             }
-
+            
             .music-career-section {
               flex-direction: column;
             }

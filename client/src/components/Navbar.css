@@ -124,6 +124,7 @@
   font-size: 1rem;
   white-space: nowrap;
   cursor: pointer;
+  
 }
 
 .dropdown-item:hover {
@@ -269,9 +270,28 @@
   }
 
   .nav-item.dropdown {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative; /* key: make it the positioning context */
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute; /* key: position below the nav-item */
+  top: 100%;           /* right below the nav-item */
+  left: 0;
+  width: 100%;
+  background: #1a1a1a;
+  flex-direction: column;
+  border: none;
+  margin: 0;
+  z-index: 999; /* Ensure it's on top */
+}
+
+.dropdown-menu.open {
+  display: flex;
+}
+
 
   .dropdown-toggle {
     background-image: none;
@@ -280,18 +300,21 @@
   }
 
   .dropdown-menu {
-    display: none;
-    width: 100%;
-    background: #1a1a1a;
-    flex-direction: column;
-    border: none;
-    margin: 0;
-  }
+  display: none;
+  position: absolute; /* key: position below the nav-item */
+  top: 100%;           /* right below the nav-item */
+  left: 0;
+  width: 100%;
+  background: #1a1a1a;
+  flex-direction: column;
+  border: none;
+  margin: 0;
+  z-index: 999; /* Ensure it's on top */
+}
 
-  .dropdown-menu.open {
-    display: flex;
-  }
-
+.dropdown-menu.open {
+  display: flex;
+}
   .dropdown-item {
     font-size: 0.95rem;
     padding: 0.8rem 1.5rem;

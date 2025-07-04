@@ -147,56 +147,112 @@ const OurWorkSection = () => {
   return (
     <div style={styles.section}>
       
-
-      {/* Top Title */}
-      <div style={{
-        backgroundColor: '#FFFFFF', // Light gray background
-        padding: isMobile ? '2rem 1rem' : '3rem 0',
-        textAlign: 'center',
-        fontFamily: "'Anton', sans-serif",
+<div style={{
+  backgroundColor: '#FFFFFF',
+  padding: isMobile ? '2rem 1rem' : '3rem 0',
+  textAlign: 'center',
+  fontFamily: "'Anton', sans-serif",
+}}>
+  {isMobile ? (
+    // Mobile View
+    <div style={{ maxWidth: '500px', margin: '0 auto' }}>
+      <h2 style={{
+        fontSize: '24px',
+        fontWeight: 700,
+        margin: 0,
+        color: '#777',
+        textTransform: 'uppercase',
+        letterSpacing: '0.05em',
       }}>
+        Story About Us
+      </h2>
+
+      {/* Subheading with left/right lines on the same line */}
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '0.75rem',
+        marginTop: '1rem',
+      }}>
+        {/* Left Line */}
         <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          maxWidth: '1200px',
-          margin: '0 auto',
-          gap: '2rem',
+          flex: 1,
+          height: '1px',
+          backgroundColor: '#aaa',
+          position: 'relative',
+          top: '-15px',
+        }}></div>
+
+        {/* Subheading */}
+        <p style={{
+          fontSize: '12px',
+          color: '#999',
+          margin: 0,
+          letterSpacing: '0.15em',
+          textTransform: 'uppercase',
+          whiteSpace: 'nowrap',
         }}>
-          {/* Left Line */}
-          <div style={{
-            flex: 1,
-            height: '1px',
-            backgroundColor: '#aaa',
-          }}></div>
+          The Things You Should Know
+        </p>
 
-          {/* Center Text */}
-          <div>
-            <h2 style={{
-              fontSize: isMobile ? '24px' : '36px',
-              fontWeight: 700,
-              margin: 0,
-              color: '#777',
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-            }}>Our Work</h2>
-            <p style={{
-              fontSize: isMobile ? '12px' : '14px',
-              color: '#999',
-              marginTop: '0.25rem',
-              letterSpacing: '0.15em',
-              textTransform:'uppercase',
-            }}>Where Our Students Have Worked On</p>
-          </div>
-
-          {/* Right Line */}
-          <div style={{
-            flex: 1,
-            height: '1px',
-            backgroundColor: '#aaa',
-          }}></div>
-        </div>
+        {/* Right Line */}
+        <div style={{
+          flex: 1,
+          height: '1px',
+          backgroundColor: '#aaa',
+          position: 'relative',
+          top: '-15px',
+        }}></div>
       </div>
+    </div>
+  ) : (
+    // Desktop View (unchanged)
+    <div style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      maxWidth: '1200px',
+      margin: '0 auto',
+      gap: '2rem',
+    }}>
+      <div style={{
+        flex: 1,
+        height: '1px',
+        backgroundColor: '#aaa',
+      }}></div>
+
+      <div>
+        <h2 style={{
+          fontSize: '36px',
+          fontWeight: 700,
+          margin: 0,
+          color: '#777',
+          textTransform: 'uppercase',
+          letterSpacing: '0.05em',
+        }}>
+          Story About Us
+        </h2>
+        <p style={{
+          fontSize: '14px',
+          color: '#999',
+          marginTop: '0.25rem',
+          letterSpacing: '0.15em',
+          textTransform: 'uppercase',
+        }}>
+          The Things You Should Know
+        </p>
+      </div>
+
+      <div style={{
+        flex: 1,
+        height: '1px',
+        backgroundColor: '#aaa',
+      }}></div>
+    </div>
+  )}
+</div>
+
 
       {/* Row 1 */}
       <div style={styles.contentRowContainer}>
